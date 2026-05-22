@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nexa — Logo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:#050508;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:40px 20px;
+    font-family:'Inter',Arial,Helvetica,sans-serif;
+  }
+  .preview{
+    background:#050508;
+    border-radius:20px;
+    padding:60px;
+    border:1px solid #1a1a2e;
+    margin-bottom:24px;
+    width:420px;height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .logo{
+    user-select:none;
+    line-height:1;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+  }
+  .logo .line{
+    font-weight:200;
+    font-size:80px;
+    letter-spacing:15px;
+    font-family:'Inter',Arial,Helvetica,sans-serif;
+  }
+  .logo .ne{color:#ffffff;}
+  .logo .xa{color:#5200a0;}
+  .options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    justify-content:center;
+  }
+  button{
+    padding:12px 28px;
+    border-radius:10px;
+    font-weight:700;
+    font-size:0.9rem;
+    border:none;
+    cursor:pointer;
+    transition:transform 0.2s;
+    font-family:inherit;
+  }
+  button:hover{transform:translateY(-2px);}
+  .btn-primary{
+    background:linear-gradient(135deg,#5200a0,#c026d3);
+    color:#fff;
+  }
+  .btn-secondary{
+    background:rgba(255,255,255,0.04);
+    color:#e4e4e7;
+    border:1px solid #1a1a2e;
+  }
+  .note{
+    color:#52525b;
+    font-size:0.85rem;
+    margin-top:16px;
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+  <div class="preview">
+    <div class="logo">
+      <div class="line">
+        <span class="ne">ne</span><span class="xa">xa</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="options">
+    <button class="btn-primary" id="dlPng">📥 PNG con fondo</button>
+    <button class="btn-primary" id="dlPngTransparente">📥 PNG transparente</button>
+    <button class="btn-primary" id="dlJpeg">📥 JPEG</button>
+    <button class="btn-secondary" id="dlSvg">📥 SVG</button>
+  </div>
+  <p class="note">1:1 · Inter ExtraLight · Espaciado futurista · Usa "PNG transparente" para el header</p>
+
+<script>
+async function downloadImage(format, transparent){
+  await document.fonts.ready;
+
+  var s=600;
+  var svgNS='http://www.w3.org/2000/svg';
+  var svg=document.createElementNS(svgNS,'svg');
+  svg.setAttribute('width',s);
+  svg.setAttribute('height',s);
+  svg.setAttribute('viewBox','0 0 '+s+' '+s);
+  svg.setAttribute('xmlns','http://www.w3.org/2000/svg');
+
+  var defs=document.createElementNS(svgNS,'defs');
+  var style=document.createElementNS(svgNS,'style');
+  style.textContent='@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300&display=swap");'+
+    '.n{font-family:"Inter",Arial,Helvetica,sans-serif;font-weight:200;font-size:130px;letter-spacing:20px;fill:#ffffff;}'+
+    '.x{font-family:"Inter",Arial,Helvetica,sans-serif;font-weight:200;font-size:130px;letter-spacing:20px;fill:#5200a0;}';
+  defs.appendChild(style);
+  svg.appendChild(defs);
+
+  if(!transparent){
+    var bg=document.createElementNS(svgNS,'rect');
+    bg.setAttribute('width',s);
+    bg.setAttribute('height',s);
+    bg.setAttribute('fill','#050508');
+    bg.setAttribute('rx','20');
+    svg.appendChild(bg);
+  }
+
+  var ne=document.createElementNS(svgNS,'text');
+  ne.setAttribute('x',s/2-32);
+  ne.setAttribute('y',s*0.42);
+  ne.setAttribute('text-anchor','end');
+  ne.setAttribute('dominant-baseline','central');
+  ne.setAttribute('class','n');
+  ne.textContent='ne';
+  svg.appendChild(ne);
+
+  var xa=document.createElementNS(svgNS,'text');
+  xa.setAttribute('x',s/2+32);
+  xa.setAttribute('y',s*0.42);
+  xa.setAttribute('text-anchor','start');
+  xa.setAttribute('dominant-baseline','central');
+  xa.setAttribute('class','x');
+  xa.setAttribute('fill','#5200a0');
+  xa.textContent='xa';
+  svg.appendChild(xa);
+
+  if(format==='svg'){
+    var serializer=new XMLSerializer();
+    var source=serializer.serializeToString(svg);
+    var blob=new Blob(['<?xml version="1.0" encoding="UTF-8"?>'+source],{type:'image/svg+xml'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='nexa-logo.svg';
+    a.click();
+    return;
+  }
+
+  var data=new XMLSerializer().serializeToString(svg);
+  var img=new Image();
+  img.src='data:image/svg+xml;base64,'+btoa(unescape(encodeURIComponent(data)));
+  img.onload=function(){
+    var canvas=document.createElement('canvas');
+    canvas.width=s;
+    canvas.height=s;
+    var ctx=canvas.getContext('2d');
+    ctx.drawImage(img,0,0);
+    var a=document.createElement('a');
+    var mime=format==='jpeg'?'image/jpeg':'image/png';
+    var ext=format==='jpeg'?'jpeg':'png';
+    a.download='nexa-logo.'+ext;
+    a.href=canvas.toDataURL(mime,0.95);
+    a.click();
+  };
+}
+
+document.getElementById('dlPng').onclick=function(){downloadImage('png',false)};
+document.getElementById('dlPngTransparente').onclick=function(){downloadImage('png',true)};
+document.getElementById('dlJpeg').onclick=function(){downloadImage('jpeg',false)};
+document.getElementById('dlSvg').onclick=function(){downloadImage('svg',false)};
+</script>
+</body>
+</html>

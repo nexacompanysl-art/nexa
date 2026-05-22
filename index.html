@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexa - AAA</title>
+  <meta name="description" content="Nexa automatiza tu negocio con agentes de IA personalizados. Atención al cliente, procesos, análisis predictivo y más. Sin permanencia. Solicita tu demo." />
+  <link rel="shortcut icon" href="favicon.png" type="image/png" />
+  <link rel="icon" href="favicon.png" type="image/png" sizes="64x64" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: #050508;
+      color: #e4e4e7;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #050508; }
+    ::-webkit-scrollbar-thumb { background: #1a1a2e; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #2a2a4e; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 120px 0; position: relative; }
+    .section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 600px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(82,0,160,0.08), transparent);
+    }
+    .section:last-of-type::after { display: none; }
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #52525b;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 1.05rem;
+      color: #71717a;
+      max-width: 580px;
+      line-height: 1.8;
+    }
+
+    /* ── Hero Stars ── */
+    #hero-stars {
+      position: absolute; inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .star {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      animation: twinkle var(--duration) ease-in-out infinite alternate;
+    }
+    .star.big { width: 3px; height: 3px; }
+    .star.tiny { width: 1px; height: 1px; }
+    @keyframes twinkle {
+      0% { opacity: var(--min-opacity); transform: scale(1); }
+      100% { opacity: var(--max-opacity); transform: scale(1.3); }
+    }
+
+    /* ── Shooting Stars ── */
+    .shooting-star {
+      position: absolute;
+      width: 120px; height: 1.5px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.7));
+      transform: rotate(-35deg);
+      top: -5%;
+      left: -10%;
+      animation: shoot 7s ease-in-out infinite;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .shooting-star::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      width: 3px; height: 3px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 4px 1px rgba(192,38,211,0.5), 0 0 12px 2px rgba(82,0,160,0.3);
+    }
+    .shooting-star:nth-child(2) { top: 20%; left: 50%; animation-delay: 4s; width: 80px; }
+    @keyframes shoot {
+      0% { transform: rotate(-35deg) translateX(-200px); opacity: 0; }
+      4% { opacity: 1; }
+      12% { transform: rotate(-35deg) translateX(400px); opacity: 1; }
+      16%, 100% { transform: rotate(-35deg) translateX(800px); opacity: 0; }
+    }
+
+    /* ── Hero Orbs ── */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      animation: orb-float 15s ease-in-out infinite alternate;
+    }
+    @keyframes orb-float {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+      100% { transform: translate(50px, -40px) scale(1.15); opacity: 1; }
+    }
+
+    /* ── Orbit Rings ── */
+    .orbit-ring {
+      position: absolute;
+      border: 1px solid rgba(82,0,160,0.06);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      animation: spin 50s linear infinite;
+    }
+    .orbit-ring:nth-child(1) { width: 500px; height: 500px; top: -50px; right: -50px; }
+    .orbit-ring:nth-child(2) { width: 350px; height: 350px; top: 30px; right: 20px; border-color: rgba(192,38,211,0.04); animation-duration: 35s; animation-direction: reverse; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+    /* ── Hero grid overlay ── */
+    .hero-grid {
+      position: absolute; inset: 0;
+      z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%);
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 20px 0;
+      transition: background 0.4s, box-shadow 0.4s, padding 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(5, 5, 8, 0.9);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 1px 0 rgba(82,0,160,0.08);
+      padding: 14px 0;
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display:flex;
+      align-items:center;
+    }
+    .logo img {
+      height:90px;
+      width:auto;
+      display:block;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #71717a;
+      transition: color 0.25s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1.5px;
+      background: #5200a0;
+      transition: width 0.35s ease;
+    }
+    .nav-links a:hover { color: #f0f0f0; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      color: #fff !important;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(82,0,160,0.3); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: #e4e4e7; border-radius: 2px; transition: 0.3s; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero .container { position: relative; z-index: 2; text-align: center; padding-top: 80px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(82,0,160,0.08);
+      border: 1px solid rgba(82,0,160,0.15);
+      padding: 6px 16px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: #a1a1aa;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      background: #5200a0;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #5200a0;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;box-shadow:0 0 8px #5200a0} 50%{opacity:0.3;box-shadow:0 0 20px #c026d3} }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .hero h1 {
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.06;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.15s forwards;
+    }
+    .hero h1 .gradient {
+      background: linear-gradient(135deg, #c026d3, #5200a0, #d946ef);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: #71717a;
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.3s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.45s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(82,0,160,0.35); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: #e4e4e7;
+      padding: 16px 36px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 1px solid #2a2a3a;
+      cursor: pointer;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.04); border-color: #52525b; }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s ease 0.6s forwards;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -1px;
+    }
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: #52525b;
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ── Servicios ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid #1a1a2e;
+      border-radius: 14px;
+      padding: 32px 28px;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s, background 0.35s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1.5px;
+      background: linear-gradient(90deg, transparent, #5200a0, transparent);
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(82,0,160,0.15);
+      background: rgba(255,255,255,0.025);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(82,0,160,0.06);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .service-card:hover .service-icon { background: rgba(82,0,160,0.1); transform: scale(1.05); }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .service-card p { font-size: 0.9rem; color: #71717a; line-height: 1.7; }
+
+    /* ── Steps ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 40px;
+      margin-top: 48px;
+    }
+    .step { text-align: center; position: relative; }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 32px; right: -20px;
+      width: 2px; height: 50px;
+      background: linear-gradient(180deg, #5200a0, transparent);
+    }
+    @media (max-width: 1024px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .step:nth-child(2)::after { display: none; }
+    }
+    .step-number {
+      width: 64px; height: 64px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .step:hover .step-number { transform: scale(1.08); box-shadow: 0 0 30px rgba(82,0,160,0.25); }
+    .step h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .step p { font-size: 0.9rem; color: #71717a; line-height: 1.7; }
+
+    /* ── Features ── */
+    .features-section {
+      position: relative;
+      overflow: hidden;
+    }
+    .space-planet {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .space-planet.saturn {
+      width: 60px; height: 60px;
+      background: radial-gradient(circle at 40% 35%, rgba(192,38,211,0.06), rgba(82,0,160,0.04));
+      top: 40px; right: 60px;
+      box-shadow: 0 0 40px rgba(82,0,160,0.03);
+    }
+    .space-planet.saturn::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) rotate(-20deg);
+      width: 100px; height: 14px;
+      border: 1px solid rgba(82,0,160,0.06);
+      border-radius: 50%;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+    }
+    .space-planet.moon {
+      width: 24px; height: 24px;
+      background: radial-gradient(circle at 60% 30%, rgba(255,255,255,0.03), rgba(82,0,160,0.02));
+      bottom: 30px; left: 8%;
+      box-shadow: -6px 0 12px rgba(82,0,160,0.02);
+    }
+    .space-dot {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(82,0,160,0.04);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .space-dot:nth-child(1) { width: 3px; height: 3px; top: 20%; left: 15%; }
+    .space-dot:nth-child(2) { width: 2px; height: 2px; top: 45%; left: 85%; }
+    .space-dot:nth-child(3) { width: 4px; height: 4px; top: 70%; left: 10%; }
+    .space-dot:nth-child(4) { width: 2px; height: 2px; top: 30%; left: 75%; }
+    .space-dot:nth-child(5) { width: 3px; height: 3px; top: 80%; left: 90%; }
+    .space-dot:nth-child(6) { width: 2px; height: 2px; top: 55%; left: 5%; }
+    .space-trail {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      width: 80px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(82,0,160,0.04), transparent);
+      transform: rotate(25deg);
+    }
+    .space-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.3;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .feature-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid #1a1a2e;
+      border-radius: 12px;
+      padding: 24px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: background 0.25s, border-color 0.25s, transform 0.25s;
+    }
+    .feature-card:hover { background: rgba(82,0,160,0.025); border-color: rgba(82,0,160,0.08); transform: translateX(4px); }
+    .feature-check {
+      width: 22px; height: 22px;
+      min-width: 22px;
+      background: rgba(82,0,160,0.08);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5200a0;
+      font-size: 0.75rem;
+      margin-top: 2px;
+    }
+    .feature-card h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .feature-card p { font-size: 0.85rem; color: #71717a; line-height: 1.6; }
+
+    /* ── Testimonios ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid #1a1a2e;
+      border-radius: 14px;
+      padding: 32px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); border-color: rgba(82,0,160,0.1); }
+    .testimonial-stars { color: #fbbf24; margin-bottom: 16px; font-size: 0.9rem; letter-spacing: 2px; }
+    .testimonial-text { font-size: 0.92rem; color: #a1a1aa; margin-bottom: 24px; font-style: italic; line-height: 1.7; }
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: #fff;
+    }
+    .testimonial-name { font-weight: 600; font-size: 0.9rem; color: #e4e4e7; }
+    .testimonial-role { font-size: 0.8rem; color: #52525b; }
+
+    /* ── Pricing ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .pricing-card {
+      background: rgba(255,255,255,0.015);
+      border: 1px solid #1a1a2e;
+      border-radius: 14px;
+      padding: 40px 32px;
+      text-align: center;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s;
+      position: relative;
+    }
+    .pricing-card.featured {
+      border-color: rgba(82,0,160,0.15);
+      background: rgba(82,0,160,0.025);
+      transform: scale(1.03);
+    }
+    .pricing-card.featured .pricing-badge {
+      position: absolute;
+      top: -11px; left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      color: #fff;
+      padding: 4px 16px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .pricing-card:hover { transform: translateY(-6px); border-color: rgba(82,0,160,0.1); }
+    .pricing-card.featured:hover { transform: scale(1.03) translateY(-6px); }
+    .pricing-name { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .pricing-desc { font-size: 0.85rem; color: #71717a; margin-bottom: 24px; }
+    .pricing-price { font-size: 2.8rem; font-weight: 900; color: #fff; margin-bottom: 2px; letter-spacing: -2px; }
+    .pricing-price span { font-size: 0.9rem; font-weight: 500; color: #52525b; letter-spacing: 0; }
+    .pricing-period { font-size: 0.8rem; color: #52525b; margin-bottom: 28px; }
+    .pricing-features { list-style: none; text-align: left; margin-bottom: 32px; }
+    .pricing-features li {
+      padding: 10px 0;
+      font-size: 0.88rem;
+      color: #a1a1aa;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid #14141f;
+    }
+    .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features li::before { content: '✦'; color: #5200a0; font-weight: 700; font-size: 0.7rem; }
+    .pricing-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      font-family: inherit;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+    .pricing-btn.primary {
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      color: #fff;
+    }
+    .pricing-btn.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(82,0,160,0.3); }
+    .pricing-btn.secondary {
+      background: transparent;
+      color: #e4e4e7;
+      border: 1px solid #2a2a3a;
+    }
+    .pricing-btn.secondary:hover { background: rgba(255,255,255,0.04); }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      background: linear-gradient(135deg, rgba(82,0,160,0.04) 0%, rgba(192,38,211,0.02) 100%);
+      border: 1px solid rgba(82,0,160,0.08);
+      border-radius: 20px;
+      padding: 64px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .cta-section h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .cta-section p { color: #71717a; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* ── Contacto ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 48px;
+    }
+    .contact-info h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .contact-info > p { font-size: 0.9rem; color: #71717a; margin-bottom: 28px; line-height: 1.7; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      color: #a1a1aa;
+    }
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      background: rgba(82,0,160,0.04);
+      border: 1px solid #1a1a2e;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #71717a;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #a1a1aa;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid #1a1a2e;
+      border-radius: 10px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: #5200a0; box-shadow: 0 0 0 3px rgba(82,0,160,0.06); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select option { background: #050508; color: #e4e4e7; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #14141f;
+      padding: 56px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    .footer-brand .logo { font-size: 1.3rem; margin-bottom: 12px; display: block; }
+    .footer-brand p { font-size: 0.85rem; color: #52525b; max-width: 280px; line-height: 1.7; }
+    .footer-col h4 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #71717a; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { font-size: 0.88rem; color: #52525b; transition: color 0.2s; }
+    .footer-col a:hover { color: #a1a1aa; }
+    .footer-bottom {
+      border-top: 1px solid #14141f;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.8rem; color: #3f3f46; }
+
+    /* ── Language Dropdown ── */
+    .lang-dropdown {
+      position: fixed;
+      bottom: 90px; right: 24px;
+      z-index: 999;
+    }
+    .lang-dropdown-toggle {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      border: 1px solid #1a1a2e;
+      background: rgba(5,5,8,0.9);
+      backdrop-filter: blur(16px);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      position: relative;
+    }
+    .lang-dropdown-toggle:hover { border-color: rgba(82,0,160,0.3); box-shadow: 0 0 20px rgba(82,0,160,0.1); }
+    .lang-arrow {
+      position: absolute;
+      bottom: -2px;
+      right: 2px;
+      font-size: 0.55rem;
+      color: #71717a;
+      transition: transform 0.25s;
+    }
+    .lang-dropdown.open .lang-arrow { transform: rotate(180deg); }
+    .lang-dropdown-menu {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(5,5,8,0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid #1a1a2e;
+      border-radius: 14px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 140px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .lang-dropdown.open .lang-dropdown-menu { display: flex; }
+    .lang-dropdown-menu button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 14px;
+      border: none;
+      border-radius: 10px;
+      background: transparent;
+      color: #a1a1aa;
+      cursor: pointer;
+      font-size: 0.88rem;
+      font-family: inherit;
+      transition: background 0.2s, color 0.2s;
+      text-align: left;
+    }
+    .lang-dropdown-menu button:hover { background: rgba(82,0,160,0.1); color: #e4e4e7; }
+    .lang-dropdown-menu button.active { background: rgba(82,0,160,0.15); color: #fff; }
+    .lang-flag { font-size: 1.2rem; }
+
+    /* ── Floating WhatsApp ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      z-index: 999;
+      width: 52px; height: 52px;
+      background: #1eff00;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(30,255,0,0.3);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(30,255,0,0.4); }
+    .whatsapp-float-tooltip {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #18181b;
+      color: #e4e4e7;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      border: 1px solid #2a2a3a;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .whatsapp-float:hover .whatsapp-float-tooltip { opacity: 1; }
+
+    /* ── Back to top ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px; left: 24px;
+      z-index: 999;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid #1a1a2e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #52525b;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: opacity 0.3s, transform 0.3s, border-color 0.3s;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { border-color: rgba(82,0,160,0.2); color: #5200a0; }
+
+    /* ─── Animations ── */
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .fade-in-d1 { transition-delay: 0.05s; }
+    .fade-in-d2 { transition-delay: 0.1s; }
+    .fade-in-d3 { transition-delay: 0.15s; }
+    .fade-in-d4 { transition-delay: 0.2s; }
+    .fade-in-d5 { transition-delay: 0.25s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(5,5,8,0.98);
+        padding: 24px 24px;
+        gap: 20px;
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid #1a1a2e;
+      }
+      .hero-stats { gap: 32px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .pricing-card.featured { transform: none; }
+      .pricing-card.featured:hover { transform: translateY(-6px); }
+      .section { padding: 80px 0; }
+      .cta-section { padding: 40px 24px; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .step:not(:last-child)::after { display: none; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+      .features-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Nav ─── -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#" class="logo"><img src="nexa logo.png" alt="Nexa" /></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#servicios" data-i18n="navServices">Servicios</a></li>
+        <li><a href="#caracteristicas" data-i18n="navFeatures">Características</a></li>
+        <li><a href="#testimonios" data-i18n="navTestimonials">Testimonios</a></li>
+        <li><a href="#planes" data-i18n="navPricing">Planes</a></li>
+        <li><a href="#contacto" data-i18n="navContact">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="nav-cta" data-i18n="navCta">Empezar</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <section class="hero">
+    <div id="hero-stars"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="hero-grid"></div>
+    <div class="orb" style="width:600px;height:600px;top:-250px;left:-200px;background:rgba(82,0,160,0.08);animation-delay:0s"></div>
+    <div class="orb" style="width:400px;height:400px;bottom:-150px;right:-150px;background:rgba(192,38,211,0.06);animation-delay:-5s"></div>
+    <div class="orb" style="width:250px;height:250px;top:25%;right:-80px;background:rgba(217,70,239,0.04);animation-delay:-10s"></div>
+    <div class="orbit-ring"></div>
+    <div class="orbit-ring"></div>
+
+    <div class="container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span data-i18n="heroBadge">Automatización inteligente impulsada por IA</span>
+      </div>
+      <h1 data-i18n-html="heroTitle">
+        Transforma tu negocio<br>con <span class="gradient">automatización de IA</span>
+      </h1>
+      <p data-i18n="heroDesc">
+        Nexa potencia tu empresa con agentes de IA personalizados que
+        automatizan procesos, reducen costos y escalan resultados 24/7.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn-primary" data-i18n="heroCta">
+          Solicitar demo →
+        </a>
+        <a href="#servicios" class="btn-secondary" data-i18n="heroCta2">
+          Ver servicios
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="3">0</div>
+          <div class="hero-stat-label" data-i18n="stat1">Empresas automatizadas</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="100">0</div>
+          <div class="hero-stat-label" data-i18n="stat2">% Satisfacción</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-number" data-count="3">0</div>
+          <div class="hero-stat-label" data-i18n="stat3">Países activos</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Servicios ─── -->
+  <section id="servicios" class="section">
+    <div class="container">
+      <div class="section-label" data-i18n="servicesLabel">Servicios</div>
+      <h2 class="section-title" data-i18n="servicesTitle">Soluciones de IA para cada área</h2>
+      <p class="section-desc" data-i18n="servicesDesc">
+        Automatizamos procesos clave de tu empresa con agentes de inteligencia artificial entrenados para tu industria.
+      </p>
+      <div class="services-grid">
+        <div class="service-card fade-in fade-in-d1">
+          <div class="service-icon">🤖</div>
+          <h3 data-i18n="s1Title">Agentes de Atención al Cliente</h3>
+          <p data-i18n="s1Desc">Chatbots y asistentes virtuales que resuelven consultas 24/7 con lenguaje natural y escalamiento inteligente.</p>
+        </div>
+        <div class="service-card fade-in fade-in-d2">
+          <div class="service-icon">⚙️</div>
+          <h3 data-i18n="s2Title">Automatización de Procesos</h3>
+          <p data-i18n="s2Desc">Integración de workflows inteligentes que eliminan tareas repetitivas y optimizan operaciones críticas.</p>
+        </div>
+        <div class="service-card fade-in fade-in-d3">
+          <div class="service-icon">📊</div>
+          <h3 data-i18n="s3Title">Análisis Predictivo</h3>
+          <p data-i18n="s3Desc">Modelos de IA que analizan datos históricos para anticipar tendencias, riesgos y oportunidades de negocio.</p>
+        </div>
+        <div class="service-card fade-in fade-in-d1">
+          <div class="service-icon">📝</div>
+          <h3 data-i18n="s4Title">Generación de Contenido</h3>
+          <p data-i18n="s4Desc">Creación automatizada de informes, descripciones de producto, emails y contenido marketing con IA generativa.</p>
+        </div>
+        <div class="service-card fade-in fade-in-d2">
+          <div class="service-icon">🔍</div>
+          <h3 data-i18n="s5Title">Extracción de Datos</h3>
+          <p data-i18n="s5Desc">Agentes que extraen, limpian y estructuran información de documentos, PDFs, facturas y sitios web.</p>
+        </div>
+        <div class="service-card fade-in fade-in-d3">
+          <div class="service-icon">🛡️</div>
+          <h3 data-i18n="s6Title">Seguridad y Cumplimiento</h3>
+          <p data-i18n="s6Desc">Sistemas de monitoreo automatizado que detectan anomalías, fraudes y aseguran cumplimiento normativo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Cómo funciona ─── -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-label" data-i18n="processLabel">Proceso</div>
+      <h2 class="section-title" data-i18n="processTitle">Cómo funciona</h2>
+      <p class="section-desc" data-i18n="processDesc">De la idea a la automatización en 4 pasos simples.</p>
+      <div class="steps-grid">
+        <div class="step fade-in fade-in-d1">
+          <div class="step-number">1</div>
+          <h3 data-i18n="step1Title">Diagnóstico</h3>
+          <p data-i18n="step1Desc">Analizamos tus procesos actuales para identificar oportunidades de automatización con mayor impacto.</p>
+        </div>
+        <div class="step fade-in fade-in-d2">
+          <div class="step-number">2</div>
+          <h3 data-i18n="step2Title">Diseño</h3>
+          <p data-i18n="step2Desc">Creamos un agente de IA a la medida de tu negocio, entrenado con tus datos y reglas de negocio.</p>
+        </div>
+        <div class="step fade-in fade-in-d3">
+          <div class="step-number">3</div>
+          <h3 data-i18n="step3Title">Integración</h3>
+          <p data-i18n="step3Desc">Conectamos el agente con tus herramientas existentes: CRM, ERP, Slack, WhatsApp, web y más.</p>
+        </div>
+        <div class="step fade-in fade-in-d4">
+          <div class="step-number">4</div>
+          <h3 data-i18n="step4Title">Optimización Continua</h3>
+          <p data-i18n="step4Desc">Monitoreamos y mejoramos el rendimiento del agente con aprendizaje continuo y retroalimentación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Características ─── -->
+  <section id="caracteristicas" class="section features-section">
+    <div class="space-planet saturn"></div>
+    <div class="container">
+      <div class="section-label" data-i18n="featuresLabel">Características</div>
+      <h2 class="section-title" data-i18n="featuresTitle">Tecnología que marca la diferencia</h2>
+      <p class="section-desc" data-i18n="featuresDesc">Construido con lo último en inteligencia artificial para ofrecer resultados reales.</p>
+      <div class="features-grid">
+        <div class="feature-card fade-in fade-in-d1">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f1Title">Modelos de última generación</h4>
+            <p data-i18n="f1Desc">Acceso a GPT-4, Claude, Gemini y modelos open-source según tu caso de uso.</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in fade-in-d2">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f2Title">Entrenamiento con tus datos</h4>
+            <p data-i18n="f2Desc">Cada agente se entrena con información específica de tu empresa para respuestas precisas.</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in fade-in-d3">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f3Title">Integración sin código</h4>
+            <p data-i18n="f3Desc">Conecta con 200+ herramientas sin escribir una sola línea de código.</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in fade-in-d4">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f4Title">Escalabilidad automática</h4>
+            <p data-i18n="f4Desc">Tu agente escala automáticamente para manejar desde 10 hasta 1M+ de conversaciones.</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in fade-in-d1">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f5Title">Multilingüe y multicanal</h4>
+            <p data-i18n="f5Desc">Soporte para 50+ idiomas en web, WhatsApp, Messenger, Slack, Telegram y API.</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in fade-in-d2">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f6Title">Analíticas y reportes</h4>
+            <p data-i18n="f6Desc">Dashboard en tiempo real con métricas de rendimiento, satisfacción y ROI.</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in fade-in-d3">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f7Title">Seguridad empresarial</h4>
+            <p data-i18n="f7Desc">Encriptación end-to-end, cumplimiento GDPR/ISO 27001 y datos alojados en servidores locales.</p>
+          </div>
+        </div>
+        <div class="feature-card fade-in fade-in-d4">
+          <div class="feature-check">✦</div>
+          <div>
+            <h4 data-i18n="f8Title">Soporte dedicado 24/7</h4>
+            <p data-i18n="f8Desc">Equipo de ingenieros disponible para soporte técnico y optimización continua.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Testimonios ─── -->
+  <section id="testimonios" class="section">
+    <div class="space-dot"></div>
+    <div class="space-dot"></div>
+    <div class="space-dot"></div>
+    <div class="space-dot"></div>
+    <div class="space-dot"></div>
+    <div class="space-dot"></div>
+    <div class="container">
+      <div class="section-label" data-i18n="testimonialsLabel">Testimonios</div>
+      <h2 class="section-title" data-i18n="testimonialsTitle">Lo que dicen nuestros clientes</h2>
+      <p class="section-desc" data-i18n="testimonialsDesc">Empresas de todo tamaño confían en Nexa para transformar sus operaciones.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card fade-in fade-in-d1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="t1Text">"Implementamos el agente de atención al cliente de Nexa y redujimos los tiempos de respuesta en un 80%. Nuestros clientes están más satisfechos que nunca."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">CM</div>
+            <div>
+              <div class="testimonial-name" data-i18n="t1Name">Carlos Mendoza</div>
+              <div class="testimonial-role" data-i18n="t1Role">CEO — TechFlow</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-d2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="t2Text">"La automatización de procesos con Nexa nos ahorró más de 200 horas mensuales en tareas administrativas. El ROI fue inmediato."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AG</div>
+            <div>
+              <div class="testimonial-name" data-i18n="t2Name">Ana García</div>
+              <div class="testimonial-role" data-i18n="t2Role">COO — InnovaCorp</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card fade-in fade-in-d3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text" data-i18n="t3Text">"El análisis predictivo de Nexa nos permitió anticipar tendencias del mercado y aumentar nuestras ventas en un 35% en solo tres meses."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">RL</div>
+            <div>
+              <div class="testimonial-name" data-i18n="t3Name">Roberto Lima</div>
+              <div class="testimonial-role" data-i18n="t3Role">Director — DataSmart</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Planes ─── -->
+  <section id="planes" class="section">
+    <div class="space-glow" style="width:500px;height:500px;top:-100px;left:-100px;background:rgba(82,0,160,0.03);"></div>
+    <div class="container">
+      <div class="section-label" data-i18n="pricingLabel">Planes</div>
+      <h2 class="section-title" data-i18n="pricingTitle">Precios transparentes</h2>
+      <p class="section-desc" data-i18n="pricingDesc">Elige el plan que mejor se adapte a las necesidades de tu empresa.</p>
+      <div class="pricing-grid">
+        <div class="pricing-card fade-in fade-in-d1">
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-desc" data-i18n="p1Desc">Para negocios que quieren dar el primer paso en automatización.</div>
+          <div class="pricing-price">€99 <span data-i18n="perMonth">/mes</span></div>
+          <div class="pricing-period" data-i18n="p1Period">setup incluido · sin permanencia</div>
+          <ul class="pricing-features">
+            <li data-i18n="p1f1">1 agente de IA entrenado</li>
+            <li data-i18n="p1f2">5,000 interacciones/mes</li>
+            <li data-i18n="p1f3">Integración con 3 herramientas</li>
+            <li data-i18n="p1f4">Dashboard básico</li>
+            <li data-i18n="p1f5">Soporte por email</li>
+          </ul>
+          <a href="checkout.html?plan=starter" class="pricing-btn secondary" data-i18n="p1Btn">Comenzar</a>
+        </div>
+        <div class="pricing-card featured fade-in fade-in-d2">
+          <div class="pricing-badge" data-i18n="popular">Más popular</div>
+          <div class="pricing-name">Professional</div>
+          <div class="pricing-desc" data-i18n="p2Desc">Para empresas en crecimiento que buscan escalar.</div>
+          <div class="pricing-price">€249 <span data-i18n="perMonth">/mes</span></div>
+          <div class="pricing-period" data-i18n="p2Period">setup incluido · sin permanencia</div>
+          <ul class="pricing-features">
+            <li data-i18n="p2f1">3 agentes de IA entrenados</li>
+            <li data-i18n="p2f2">50,000 interacciones/mes</li>
+            <li data-i18n="p2f3">Integración con 10 herramientas</li>
+            <li data-i18n="p2f4">Dashboard avanzado + analytics</li>
+            <li data-i18n="p2f5">Soporte prioritario 24/7</li>
+            <li data-i18n="p2f6">Entrenamiento personalizado</li>
+          </ul>
+          <a href="checkout.html?plan=professional" class="pricing-btn primary" data-i18n="p2Btn">Comenzar</a>
+        </div>
+        <div class="pricing-card fade-in fade-in-d3">
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-desc" data-i18n="p3Desc">Para organizaciones con necesidades a medida.</div>
+          <div class="pricing-price">€499 <span data-i18n="perMonth">/mes</span></div>
+          <div class="pricing-period" data-i18n="p3Period">setup incluido · sin permanencia</div>
+          <ul class="pricing-features">
+            <li data-i18n="p3f1">Agentes ilimitados</li>
+            <li data-i18n="p3f2">Interacciones ilimitadas</li>
+            <li data-i18n="p3f3">Integraciones ilimitadas</li>
+            <li data-i18n="p3f4">Gerente de cuenta dedicado</li>
+            <li data-i18n="p3f5">Infraestructura dedicada</li>
+            <li data-i18n="p3f6">SLA 99.9%</li>
+          </ul>
+          <a href="checkout.html?plan=enterprise" class="pricing-btn secondary" data-i18n="p3Btn">Contactar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="section" style="padding-top:0;">
+    <div class="space-planet moon"></div>
+    <div class="space-trail" style="bottom:60px;right:15%;"></div>
+    <div class="container">
+      <div class="cta-section fade-in">
+        <h2 data-i18n="ctaTitle">¿Listo para transformar tu negocio?</h2>
+        <p data-i18n="ctaDesc">Agenda una demo gratuita y descubre cómo la IA puede automatizar tus procesos.</p>
+        <a href="#contacto" class="btn-primary" data-i18n="ctaBtn">Solicitar demo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Contacto ─── -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <div class="section-label" data-i18n="contactLabel">Contacto</div>
+      <h2 class="section-title" data-i18n="contactTitle">Hablemos de tu proyecto</h2>
+      <p class="section-desc" data-i18n="contactDesc">Cuéntanos sobre tu negocio y te mostraremos cómo la IA puede transformarlo.</p>
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <h3 data-i18n="contactInfoTitle">Estamos aquí para ayudarte</h3>
+          <p data-i18n="contactInfoDesc">Agenda una demo sin compromiso y descubre cómo Nexa puede automatizar tus procesos con inteligencia artificial.</p>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉</div>
+            <span>nexacompanysl@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <span>+34 671 17 20 00</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <span data-i18n="contactLocation">Madrid, ES</span>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">⏰</div>
+            <span data-i18n="contactHours">Lun — Vie, 9:00 — 18:00 (CEST)</span>
+          </div>
+        </div>
+        <form class="fade-in fade-in-d2" id="contactForm" action="https://formsubmit.co/nexacompanysl@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="index.html" />
+          <input type="hidden" name="_subject" value="Nuevo contacto desde Nexa web" />
+          <input type="hidden" name="_captcha" value="true" />
+          <div class="form-group">
+            <label for="name" data-i18n="formName">Nombre completo</label>
+            <input type="text" id="name" name="name" data-i18n-placeholder="formNamePlace" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="formEmail">Correo electrónico</label>
+            <input type="email" id="email" name="email" data-i18n-placeholder="formEmailPlace" placeholder="tu@correo.com" required />
+          </div>
+          <div class="form-group">
+            <label for="company" data-i18n="formCompany">Empresa</label>
+            <input type="text" id="company" name="company" data-i18n-placeholder="formCompanyPlace" placeholder="Nombre de tu empresa" />
+          </div>
+          <div class="form-group">
+            <label for="service" data-i18n="formService">Servicio de interés</label>
+            <select id="service" name="service">
+              <option value="" data-i18n="formSelect">Selecciona una opción</option>
+              <option data-i18n="formOpt1">Atención al cliente</option>
+              <option data-i18n="formOpt2">Automatización de procesos</option>
+              <option data-i18n="formOpt3">Análisis predictivo</option>
+              <option data-i18n="formOpt4">Generación de contenido</option>
+              <option data-i18n="formOpt5">Extracción de datos</option>
+              <option data-i18n="formOpt6">Seguridad y cumplimiento</option>
+              <option data-i18n="formOpt7">No sé / Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message" data-i18n="formMessage">Mensaje</label>
+            <textarea id="message" name="message" data-i18n-placeholder="formMessagePlace" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;" data-i18n="formSubmit">
+            Enviar mensaje →
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+      <a href="#" class="logo"><img src="nexa logo.png" alt="Nexa" /></a>
+          <p data-i18n="footerDesc">Automatización inteligente con IA para empresas que quieren transformar su futuro.</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footerProduct">Producto</h4>
+          <ul>
+            <li><a href="#servicios" data-i18n="footerServices">Servicios</a></li>
+            <li><a href="#caracteristicas" data-i18n="footerFeatures">Características</a></li>
+            <li><a href="#planes" data-i18n="footerPricing">Planes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footerCompany">Compañía</h4>
+          <ul>
+            <li><a href="about.html" data-i18n="footerAbout">Sobre nosotros</a></li>
+            <li><a href="#contacto" data-i18n="footerContact">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footerLegal">Legal</h4>
+          <ul>
+            <li><a href="privacidad.html" data-i18n="footerPrivacy">Privacidad</a></li>
+            <li><a href="terminos.html" data-i18n="footerTerms">Términos</a></li>
+            <li><a href="seguridad.html" data-i18n="footerSecurity">Seguridad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n="footerCopyright">&copy; 2026 Nexa. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── Language Dropdown ─── -->
+  <div class="lang-dropdown" id="langDropdown">
+    <button class="lang-dropdown-toggle" id="langToggle">
+      <span id="langCurrentFlag">🇪🇸</span>
+      <span class="lang-arrow">▾</span>
+    </button>
+    <div class="lang-dropdown-menu" id="langMenu">
+      <button data-lang="es">
+        <span class="lang-flag">🇪🇸</span>
+        <span>Español</span>
+      </button>
+      <button data-lang="en">
+        <span class="lang-flag">🇺🇸</span>
+        <span>English</span>
+      </button>
+      <button data-lang="pt">
+        <span class="lang-flag">🇧🇷</span>
+        <span>Português</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ─── WhatsApp Float ─── -->
+  <a href="https://wa.me/34671172000?text=Hola%20Nexa%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+    <img src="logo whatsapp.png" alt="WhatsApp" style="width:28px;height:28px;display:block" />
+    <span class="whatsapp-float-tooltip" data-i18n="whatsappTooltip">Escríbenos</span>
+  </a>
+
+  <!-- ─── Back to Top ─── -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">↑</button>
+
+  <script>
+    // ── Generate Stars ──
+    (function() {
+      const container = document.getElementById('hero-stars');
+      for (let i = 0; i < 250; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        if (i % 15 === 0) star.classList.add('big');
+        else if (i % 4 === 0) star.classList.add('tiny');
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--duration', (2 + Math.random() * 4) + 's');
+        star.style.setProperty('--min-opacity', 0.05 + Math.random() * 0.25);
+        star.style.setProperty('--max-opacity', 0.3 + Math.random() * 0.7);
+        star.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(star);
+      }
+    })();
+
+    // ── Mobile menu ──
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // ── Navbar scroll ──
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ── Back to top ──
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ── Scroll animations ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Counter animation ──
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-count'));
+          let current = 0;
+          const step = Math.max(1, Math.ceil(target / 40));
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) { current = target; clearInterval(interval); }
+            el.textContent = current + (target > 10 ? '+' : '');
+          }, 30);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.hero-stat-number').forEach(el => counterObserver.observe(el));
+
+    // ── Form submission ──
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = '✓ Enviando...';
+      btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      btn.style.pointerEvents = 'none';
+    });
+
+    // ── Internationalization ──
+    const translations = {
+      es: {
+        navServices: 'Servicios', navFeatures: 'Características', navTestimonials: 'Testimonios',
+        navPricing: 'Planes', navContact: 'Contacto', navCta: 'Empezar',
+        heroBadge: 'Automatización inteligente impulsada por IA',
+        heroTitle: 'Transforma tu negocio<br>con <span class="gradient">automatización de IA</span>',
+        heroDesc: 'Nexa potencia tu empresa con agentes de IA personalizados que automatizan procesos, reducen costos y escalan resultados 24/7.',
+        heroCta: 'Solicitar demo →', heroCta2: 'Ver servicios',
+        stat1: 'Empresas automatizadas', stat2: '% Satisfacción', stat3: 'Países activos',
+        servicesLabel: 'Servicios', servicesTitle: 'Soluciones de IA para cada área',
+        servicesDesc: 'Automatizamos procesos clave de tu empresa con agentes de inteligencia artificial entrenados para tu industria.',
+        s1Title: 'Agentes de Atención al Cliente', s1Desc: 'Chatbots y asistentes virtuales que resuelven consultas 24/7 con lenguaje natural y escalamiento inteligente.',
+        s2Title: 'Automatización de Procesos', s2Desc: 'Integración de workflows inteligentes que eliminan tareas repetitivas y optimizan operaciones críticas.',
+        s3Title: 'Análisis Predictivo', s3Desc: 'Modelos de IA que analizan datos históricos para anticipar tendencias, riesgos y oportunidades de negocio.',
+        s4Title: 'Generación de Contenido', s4Desc: 'Creación automatizada de informes, descripciones de producto, emails y contenido marketing con IA generativa.',
+        s5Title: 'Extracción de Datos', s5Desc: 'Agentes que extraen, limpian y estructuran información de documentos, PDFs, facturas y sitios web.',
+        s6Title: 'Seguridad y Cumplimiento', s6Desc: 'Sistemas de monitoreo automatizado que detectan anomalías, fraudes y aseguran cumplimiento normativo.',
+        processLabel: 'Proceso', processTitle: 'Cómo funciona',
+        processDesc: 'De la idea a la automatización en 4 pasos simples.',
+        step1Title: 'Diagnóstico', step1Desc: 'Analizamos tus procesos actuales para identificar oportunidades de automatización con mayor impacto.',
+        step2Title: 'Diseño', step2Desc: 'Creamos un agente de IA a la medida de tu negocio, entrenado con tus datos y reglas de negocio.',
+        step3Title: 'Integración', step3Desc: 'Conectamos el agente con tus herramientas existentes: CRM, ERP, Slack, WhatsApp, web y más.',
+        step4Title: 'Optimización Continua', step4Desc: 'Monitoreamos y mejoramos el rendimiento del agente con aprendizaje continuo y retroalimentación.',
+        featuresLabel: 'Características', featuresTitle: 'Tecnología que marca la diferencia',
+        featuresDesc: 'Construido con lo último en inteligencia artificial para ofrecer resultados reales.',
+        f1Title: 'Modelos de última generación', f1Desc: 'Acceso a GPT-4, Claude, Gemini y modelos open-source según tu caso de uso.',
+        f2Title: 'Entrenamiento con tus datos', f2Desc: 'Cada agente se entrena con información específica de tu empresa para respuestas precisas.',
+        f3Title: 'Integración sin código', f3Desc: 'Conecta con 200+ herramientas sin escribir una sola línea de código.',
+        f4Title: 'Escalabilidad automática', f4Desc: 'Tu agente escala automáticamente para manejar desde 10 hasta 1M+ de conversaciones.',
+        f5Title: 'Multilingüe y multicanal', f5Desc: 'Soporte para 50+ idiomas en web, WhatsApp, Messenger, Slack, Telegram y API.',
+        f6Title: 'Analíticas y reportes', f6Desc: 'Dashboard en tiempo real con métricas de rendimiento, satisfacción y ROI.',
+        f7Title: 'Seguridad empresarial', f7Desc: 'Encriptación end-to-end, cumplimiento GDPR/ISO 27001 y datos alojados en servidores locales.',
+        f8Title: 'Soporte dedicado 24/7', f8Desc: 'Equipo de ingenieros disponible para soporte técnico y optimización continua.',
+        testimonialsLabel: 'Testimonios', testimonialsTitle: 'Lo que dicen nuestros clientes',
+        testimonialsDesc: 'Empresas de todo tamaño confían en Nexa para transformar sus operaciones.',
+        t1Text: '"Implementamos el agente de atención al cliente de Nexa y redujimos los tiempos de respuesta en un 80%. Nuestros clientes están más satisfechos que nunca."',
+        t1Name: 'Carlos Mendoza', t1Role: 'CEO — TechFlow',
+        t2Text: '"La automatización de procesos con Nexa nos ahorró más de 200 horas mensuales en tareas administrativas. El ROI fue inmediato."',
+        t2Name: 'Ana García', t2Role: 'COO — InnovaCorp',
+        t3Text: '"El análisis predictivo de Nexa nos permitió anticipar tendencias del mercado y aumentar nuestras ventas en un 35% en solo tres meses."',
+        t3Name: 'Roberto Lima', t3Role: 'Director — DataSmart',
+        pricingLabel: 'Planes', pricingTitle: 'Precios transparentes',
+        pricingDesc: 'Elige el plan que mejor se adapte a las necesidades de tu empresa.',
+        perMonth: '/mes', popular: 'Más popular',
+        p1Desc: 'Para negocios que quieren dar el primer paso en automatización.',
+        p1Period: 'setup incluido · sin permanencia',
+        p1f1: '1 agente de IA entrenado', p1f2: '5,000 interacciones/mes',
+        p1f3: 'Integración con 3 herramientas', p1f4: 'Dashboard básico', p1f5: 'Soporte por email',
+        p1Btn: 'Comenzar',
+        p2Desc: 'Para empresas en crecimiento que buscan escalar.',
+        p2Period: 'setup incluido · sin permanencia',
+        p2f1: '3 agentes de IA entrenados', p2f2: '50,000 interacciones/mes',
+        p2f3: 'Integración con 10 herramientas', p2f4: 'Dashboard avanzado + analytics',
+        p2f5: 'Soporte prioritario 24/7', p2f6: 'Entrenamiento personalizado',
+        p2Btn: 'Comenzar',
+        p3Desc: 'Para organizaciones con necesidades a medida.',
+        p3Period: 'setup incluido · sin permanencia',
+        p3f1: 'Agentes ilimitados', p3f2: 'Interacciones ilimitadas',
+        p3f3: 'Integraciones ilimitadas', p3f4: 'Gerente de cuenta dedicado',
+        p3f5: 'Infraestructura dedicada', p3f6: 'SLA 99.9%',
+        p3Btn: 'Contactar',
+        ctaTitle: '¿Listo para transformar tu negocio?',
+        ctaDesc: 'Agenda una demo gratuita y descubre cómo la IA puede automatizar tus procesos.',
+        ctaBtn: 'Solicitar demo →',
+        contactLabel: 'Contacto', contactTitle: 'Hablemos de tu proyecto',
+        contactDesc: 'Cuéntanos sobre tu negocio y te mostraremos cómo la IA puede transformarlo.',
+        contactInfoTitle: 'Estamos aquí para ayudarte',
+        contactInfoDesc: 'Agenda una demo sin compromiso y descubre cómo Nexa puede automatizar tus procesos con inteligencia artificial.',
+        contactLocation: 'Madrid, ES', contactHours: 'Lun — Vie, 9:00 — 18:00 (CEST)',
+        formName: 'Nombre completo', formNamePlace: 'Tu nombre',
+        formEmail: 'Correo electrónico', formEmailPlace: 'tu@correo.com',
+        formCompany: 'Empresa', formCompanyPlace: 'Nombre de tu empresa',
+        formService: 'Servicio de interés', formSelect: 'Selecciona una opción',
+        formOpt1: 'Atención al cliente', formOpt2: 'Automatización de procesos',
+        formOpt3: 'Análisis predictivo', formOpt4: 'Generación de contenido',
+        formOpt5: 'Extracción de datos', formOpt6: 'Seguridad y cumplimiento',
+        formOpt7: 'No sé / Otro',
+        formMessage: 'Mensaje', formMessagePlace: 'Cuéntanos sobre tu proyecto...',
+        formSubmit: 'Enviar mensaje →',
+        footerDesc: 'Automatización inteligente con IA para empresas que quieren transformar su futuro.',
+        footerProduct: 'Producto', footerServices: 'Servicios', footerFeatures: 'Características',
+        footerPricing: 'Planes',
+        footerCompany: 'Compañía', footerAbout: 'Sobre nosotros',
+        footerContact: 'Contacto',
+        footerLegal: 'Legal', footerPrivacy: 'Privacidad', footerTerms: 'Términos',
+        footerSecurity: 'Seguridad',
+        footerCopyright: '© 2026 Nexa. Todos los derechos reservados.',
+        whatsappTooltip: 'Escríbenos'
+      },
+      en: {
+        navServices: 'Services', navFeatures: 'Features', navTestimonials: 'Testimonials',
+        navPricing: 'Pricing', navContact: 'Contact', navCta: 'Get Started',
+        heroBadge: 'AI-powered intelligent automation',
+        heroTitle: 'Transform your business<br>with <span class="gradient">AI automation</span>',
+        heroDesc: 'Nexa empowers your business with custom AI agents that automate processes, reduce costs, and scale results 24/7.',
+        heroCta: 'Request demo →', heroCta2: 'View services',
+        stat1: 'Companies automated', stat2: '% Satisfaction', stat3: 'Active countries',
+        servicesLabel: 'Services', servicesTitle: 'AI solutions for every area',
+        servicesDesc: 'We automate key business processes with AI agents trained for your industry.',
+        s1Title: 'Customer Service Agents', s1Desc: 'Chatbots and virtual assistants that resolve inquiries 24/7 with natural language and smart escalation.',
+        s2Title: 'Process Automation', s2Desc: 'Intelligent workflow integration that eliminates repetitive tasks and optimizes critical operations.',
+        s3Title: 'Predictive Analytics', s3Desc: 'AI models that analyze historical data to anticipate trends, risks, and business opportunities.',
+        s4Title: 'Content Generation', s4Desc: 'Automated creation of reports, product descriptions, emails, and marketing content with generative AI.',
+        s5Title: 'Data Extraction', s5Desc: 'Agents that extract, clean, and structure information from documents, PDFs, invoices, and websites.',
+        s6Title: 'Security & Compliance', s6Desc: 'Automated monitoring systems that detect anomalies, fraud, and ensure regulatory compliance.',
+        processLabel: 'Process', processTitle: 'How it works',
+        processDesc: 'From idea to automation in 4 simple steps.',
+        step1Title: 'Diagnosis', step1Desc: 'We analyze your current processes to identify automation opportunities with the highest impact.',
+        step2Title: 'Design', step2Desc: 'We create a custom AI agent for your business, trained with your data and business rules.',
+        step3Title: 'Integration', step3Desc: 'We connect the agent with your existing tools: CRM, ERP, Slack, WhatsApp, web, and more.',
+        step4Title: 'Continuous Optimization', step4Desc: 'We monitor and improve agent performance through continuous learning and feedback.',
+        featuresLabel: 'Features', featuresTitle: 'Technology that makes a difference',
+        featuresDesc: 'Built with the latest in artificial intelligence to deliver real results.',
+        f1Title: 'Latest generation models', f1Desc: 'Access to GPT-4, Claude, Gemini, and open-source models based on your use case.',
+        f2Title: 'Trained with your data', f2Desc: 'Each agent is trained with your company-specific information for accurate responses.',
+        f3Title: 'No-code integration', f3Desc: 'Connect with 200+ tools without writing a single line of code.',
+        f4Title: 'Automatic scalability', f4Desc: 'Your agent scales automatically to handle from 10 to 1M+ conversations.',
+        f5Title: 'Multilingual & multichannel', f5Desc: 'Support for 50+ languages on web, WhatsApp, Messenger, Slack, Telegram, and API.',
+        f6Title: 'Analytics & reports', f6Desc: 'Real-time dashboard with performance, satisfaction, and ROI metrics.',
+        f7Title: 'Enterprise security', f7Desc: 'End-to-end encryption, GDPR/ISO 27001 compliance, and data hosted on local servers.',
+        f8Title: 'Dedicated 24/7 support', f8Desc: 'Engineering team available for technical support and continuous optimization.',
+        testimonialsLabel: 'Testimonials', testimonialsTitle: 'What our clients say',
+        testimonialsDesc: 'Companies of all sizes trust Nexa to transform their operations.',
+        t1Text: '"We implemented Nexa customer service agent and reduced response times by 80%. Our clients are more satisfied than ever."',
+        t1Name: 'Carlos Mendoza', t1Role: 'CEO — TechFlow',
+        t2Text: '"Process automation with Nexa saved us over 200 monthly hours in administrative tasks. The ROI was immediate."',
+        t2Name: 'Ana García', t2Role: 'COO — InnovaCorp',
+        t3Text: '"Nexa predictive analytics allowed us to anticipate market trends and increase our sales by 35% in just three months."',
+        t3Name: 'Roberto Lima', t3Role: 'Director — DataSmart',
+        pricingLabel: 'Pricing', pricingTitle: 'Transparent pricing',
+        pricingDesc: 'Choose the plan that best fits your company needs.',
+        perMonth: '/mo', popular: 'Most popular',
+        p1Desc: 'For businesses taking their first step in automation.',
+        p1Period: 'setup included · no commitment',
+        p1f1: '1 trained AI agent', p1f2: '5,000 interactions/mo',
+        p1f3: 'Integration with 3 tools', p1f4: 'Basic dashboard', p1f5: 'Email support',
+        p1Btn: 'Get Started',
+        p2Desc: 'For growing companies looking to scale.',
+        p2Period: 'setup included · no commitment',
+        p2f1: '3 trained AI agents', p2f2: '50,000 interactions/mo',
+        p2f3: 'Integration with 10 tools', p2f4: 'Advanced dashboard + analytics',
+        p2f5: 'Priority 24/7 support', p2f6: 'Custom training',
+        p2Btn: 'Get Started',
+        p3Desc: 'For organizations with custom needs.',
+        p3Period: 'setup included · no commitment',
+        p3f1: 'Unlimited agents', p3f2: 'Unlimited interactions',
+        p3f3: 'Unlimited integrations', p3f4: 'Dedicated account manager',
+        p3f5: 'Dedicated infrastructure', p3f6: 'SLA 99.9%',
+        p3Btn: 'Contact Us',
+        ctaTitle: 'Ready to transform your business?',
+        ctaDesc: 'Schedule a free demo and discover how AI can automate your processes.',
+        ctaBtn: 'Request demo →',
+        contactLabel: 'Contact', contactTitle: 'Let\'s talk about your project',
+        contactDesc: 'Tell us about your business and we\'ll show you how AI can transform it.',
+        contactInfoTitle: 'We\'re here to help you',
+        contactInfoDesc: 'Schedule a no-obligation demo and discover how Nexa can automate your processes with artificial intelligence.',
+        contactLocation: 'Madrid, ES', contactHours: 'Mon — Fri, 9:00 — 18:00 (CEST)',
+        formName: 'Full name', formNamePlace: 'Your name',
+        formEmail: 'Email address', formEmailPlace: 'you@email.com',
+        formCompany: 'Company', formCompanyPlace: 'Your company name',
+        formService: 'Service of interest', formSelect: 'Select an option',
+        formOpt1: 'Customer service', formOpt2: 'Process automation',
+        formOpt3: 'Predictive analytics', formOpt4: 'Content generation',
+        formOpt5: 'Data extraction', formOpt6: 'Security & compliance',
+        formOpt7: 'Not sure / Other',
+        formMessage: 'Message', formMessagePlace: 'Tell us about your project...',
+        formSubmit: 'Send message →',
+        footerDesc: 'Intelligent AI automation for companies that want to transform their future.',
+        footerProduct: 'Product', footerServices: 'Services', footerFeatures: 'Features',
+        footerPricing: 'Pricing',
+        footerCompany: 'Company', footerAbout: 'About us',
+        footerContact: 'Contact',
+        footerLegal: 'Legal', footerPrivacy: 'Privacy', footerTerms: 'Terms',
+        footerSecurity: 'Security',
+        footerCopyright: '© 2026 Nexa. All rights reserved.',
+        whatsappTooltip: 'Write to us'
+      },
+      pt: {
+        navServices: 'Serviços', navFeatures: 'Recursos', navTestimonials: 'Depoimentos',
+        navPricing: 'Planos', navContact: 'Contato', navCta: 'Começar',
+        heroBadge: 'Automação inteligente impulsionada por IA',
+        heroTitle: 'Transforme seu negócio<br>com <span class="gradient">automação de IA</span>',
+        heroDesc: 'A Nexa potencializa sua empresa com agentes de IA personalizados que automatizam processos, reduzem custos e escalam resultados 24/7.',
+        heroCta: 'Solicitar demo →', heroCta2: 'Ver serviços',
+        stat1: 'Empresas automatizadas', stat2: '% Satisfação', stat3: 'Países ativos',
+        servicesLabel: 'Serviços', servicesTitle: 'Soluções de IA para cada área',
+        servicesDesc: 'Automatizamos processos-chave da sua empresa com agentes de inteligência artificial treinados para sua indústria.',
+        s1Title: 'Agentes de Atendimento ao Cliente', s1Desc: 'Chatbots e assistentes virtuais que resolvem dúvidas 24/7 com linguagem natural e escalonamento inteligente.',
+        s2Title: 'Automação de Processos', s2Desc: 'Integração de workflows inteligentes que eliminam tarefas repetitivas e otimizam operações críticas.',
+        s3Title: 'Análise Preditiva', s3Desc: 'Modelos de IA que analisam dados históricos para antecipar tendências, riscos e oportunidades de negócio.',
+        s4Title: 'Geração de Conteúdo', s4Desc: 'Criação automatizada de relatórios, descrições de produto, e-mails e conteúdo de marketing com IA generativa.',
+        s5Title: 'Extração de Dados', s5Desc: 'Agentes que extraem, limpam e estruturam informações de documentos, PDFs, faturas e sites.',
+        s6Title: 'Segurança e Conformidade', s6Desc: 'Sistemas de monitoramento automatizado que detectam anomalias, fraudes e garantem conformidade regulatória.',
+        processLabel: 'Processo', processTitle: 'Como funciona',
+        processDesc: 'Da ideia à automação em 4 passos simples.',
+        step1Title: 'Diagnóstico', step1Desc: 'Analisamos seus processos atuais para identificar oportunidades de automação com maior impacto.',
+        step2Title: 'Design', step2Desc: 'Criamos um agente de IA sob medida para seu negócio, treinado com seus dados e regras de negócio.',
+        step3Title: 'Integração', step3Desc: 'Conectamos o agente com suas ferramentas existentes: CRM, ERP, Slack, WhatsApp, web e mais.',
+        step4Title: 'Otimização Contínua', step4Desc: 'Monitoramos e melhoramos o desempenho do agente com aprendizado contínuo e feedback.',
+        featuresLabel: 'Recursos', featuresTitle: 'Tecnologia que faz a diferença',
+        featuresDesc: 'Construído com o que há de mais moderno em inteligência artificial para entregar resultados reais.',
+        f1Title: 'Modelos de última geração', f1Desc: 'Acesso a GPT-4, Claude, Gemini e modelos open-source conforme seu caso de uso.',
+        f2Title: 'Treinamento com seus dados', f2Desc: 'Cada agente é treinado com informações específicas da sua empresa para respostas precisas.',
+        f3Title: 'Integração sem código', f3Desc: 'Conecte-se com 200+ ferramentas sem escrever uma única linha de código.',
+        f4Title: 'Escalabilidade automática', f4Desc: 'Seu agente escala automaticamente para lidar de 10 a 1M+ de conversas.',
+        f5Title: 'Multilíngue e multicanal', f5Desc: 'Suporte para 50+ idiomas em web, WhatsApp, Messenger, Slack, Telegram e API.',
+        f6Title: 'Análises e relatórios', f6Desc: 'Dashboard em tempo real com métricas de desempenho, satisfação e ROI.',
+        f7Title: 'Segurança empresarial', f7Desc: 'Criptografia ponta a ponta, conformidade GDPR/ISO 27001 e dados em servidores locais.',
+        f8Title: 'Suporte dedicado 24/7', f8Desc: 'Equipe de engenheiros disponível para suporte técnico e otimização contínua.',
+        testimonialsLabel: 'Depoimentos', testimonialsTitle: 'O que nossos clientes dizem',
+        testimonialsDesc: 'Empresas de todos os portes confiam na Nexa para transformar suas operações.',
+        t1Text: '"Implementamos o agente de atendimento ao cliente da Nexa e reduzimos os tempos de resposta em 80%. Nossos clientes estão mais satisfeitos do que nunca."',
+        t1Name: 'Carlos Mendoza', t1Role: 'CEO — TechFlow',
+        t2Text: '"A automação de processos com a Nexa nos economizou mais de 200 horas mensais em tarefas administrativas. O ROI foi imediato."',
+        t2Name: 'Ana García', t2Role: 'COO — InnovaCorp',
+        t3Text: '"A análise preditiva da Nexa nos permitiu antecipar tendências de mercado e aumentar nossas vendas em 35% em apenas três meses."',
+        t3Name: 'Roberto Lima', t3Role: 'Diretor — DataSmart',
+        pricingLabel: 'Planos', pricingTitle: 'Preços transparentes',
+        pricingDesc: 'Escolha o plano que melhor se adapta às necessidades da sua empresa.',
+        perMonth: '/mês', popular: 'Mais popular',
+        p1Desc: 'Para negócios que querem dar o primeiro passo em automação.',
+        p1Period: 'setup incluído · sem fidelidade',
+        p1f1: '1 agente de IA treinado', p1f2: '5.000 interações/mês',
+        p1f3: 'Integração com 3 ferramentas', p1f4: 'Dashboard básico', p1f5: 'Suporte por e-mail',
+        p1Btn: 'Começar',
+        p2Desc: 'Para empresas em crescimento que buscam escalar.',
+        p2Period: 'setup incluído · sem fidelidade',
+        p2f1: '3 agentes de IA treinados', p2f2: '50.000 interações/mês',
+        p2f3: 'Integração com 10 ferramentas', p2f4: 'Dashboard avançado + analytics',
+        p2f5: 'Suporte prioritário 24/7', p2f6: 'Treinamento personalizado',
+        p2Btn: 'Começar',
+        p3Desc: 'Para organizações com necessidades personalizadas.',
+        p3Period: 'setup incluído · sem fidelidade',
+        p3f1: 'Agentes ilimitados', p3f2: 'Interações ilimitadas',
+        p3f3: 'Integrações ilimitadas', p3f4: 'Gerente de conta dedicado',
+        p3f5: 'Infraestrutura dedicada', p3f6: 'SLA 99.9%',
+        p3Btn: 'Contatar',
+        ctaTitle: 'Pronto para transformar seu negócio?',
+        ctaDesc: 'Agende uma demo gratuita e descubra como a IA pode automatizar seus processos.',
+        ctaBtn: 'Solicitar demo →',
+        contactLabel: 'Contato', contactTitle: 'Vamos falar sobre seu projeto',
+        contactDesc: 'Conte-nos sobre seu negócio e mostraremos como a IA pode transformá-lo.',
+        contactInfoTitle: 'Estamos aqui para ajudar você',
+        contactInfoDesc: 'Agende uma demonstração sem compromisso e descubra como a Nexa pode automatizar seus processos com inteligência artificial.',
+        contactLocation: 'Madri, ES', contactHours: 'Seg — Sex, 9:00 — 18:00 (CEST)',
+        formName: 'Nome completo', formNamePlace: 'Seu nome',
+        formEmail: 'E-mail', formEmailPlace: 'voce@email.com',
+        formCompany: 'Empresa', formCompanyPlace: 'Nome da sua empresa',
+        formService: 'Serviço de interesse', formSelect: 'Selecione uma opção',
+        formOpt1: 'Atendimento ao cliente', formOpt2: 'Automação de processos',
+        formOpt3: 'Análise preditiva', formOpt4: 'Geração de conteúdo',
+        formOpt5: 'Extração de dados', formOpt6: 'Segurança e conformidade',
+        formOpt7: 'Não sei / Outro',
+        formMessage: 'Mensagem', formMessagePlace: 'Conte-nos sobre seu projeto...',
+        formSubmit: 'Enviar mensagem →',
+        footerDesc: 'Automação inteligente com IA para empresas que querem transformar seu futuro.',
+        footerProduct: 'Produto', footerServices: 'Serviços', footerFeatures: 'Recursos',
+        footerPricing: 'Planos',
+        footerCompany: 'Empresa', footerAbout: 'Sobre nós',
+        footerContact: 'Contato',
+        footerLegal: 'Legal', footerPrivacy: 'Privacidade', footerTerms: 'Termos',
+        footerSecurity: 'Segurança',
+        footerCopyright: '© 2026 Nexa. Todos os direitos reservados.',
+        whatsappTooltip: 'Fale conosco'
+      }
+    };
+    const langFlags = { es: '🇪🇸', en: '🇺🇸', pt: '🇧🇷' };
+    let currentLang = localStorage.getItem('nexaLang') || 'es';
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('nexaLang', lang);
+      const t = translations[lang] || translations.es;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') {
+            el.value = t[key];
+          } else {
+            el.textContent = t[key];
+          }
+        }
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (t[key] !== undefined) el.placeholder = t[key];
+      });
+      document.getElementById('langCurrentFlag').textContent = langFlags[lang] || '🇪🇸';
+      document.querySelectorAll('.lang-dropdown-menu button').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+      document.getElementById('langDropdown').classList.remove('open');
+    }
+    document.getElementById('langToggle').addEventListener('click', function(e) {
+      e.stopPropagation();
+      document.getElementById('langDropdown').classList.toggle('open');
+    });
+    document.querySelectorAll('.lang-dropdown-menu button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const lang = this.getAttribute('data-lang');
+        if (lang) setLang(lang);
+      });
+    });
+    document.addEventListener('click', function() {
+      document.getElementById('langDropdown').classList.remove('open');
+    });
+    setLang(currentLang);
+  </script>
+</body>
+</html>

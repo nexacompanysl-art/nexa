@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa — Mockups Marketing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #050508;
+    color: #e4e4e7;
+    padding: 40px 24px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #c026d3, #5200a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .subh { color: #71717a; margin-bottom: 40px; font-size: 0.95rem; }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .post-wrapper {
+    background: #050508;
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .post-wrapper .canvas-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #050508;
+  }
+  .post-wrapper .canvas-wrap canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .post-wrapper .post-footer {
+    padding: 12px 16px;
+    border-top: 1px solid #1a1a2e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .post-wrapper .post-footer .label {
+    font-size: 0.8rem;
+    color: #52525b;
+  }
+  .dl-btn {
+    background: rgba(168,85,247,0.1);
+    border: 1px solid rgba(168,85,247,0.2);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .dl-btn:hover { background: rgba(168,85,247,0.2); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Nexa · Mockups Marketing</h1>
+  <p class="subh">Posts con dispositivos mostrando automatización. Descarga PNG 1080×1080.</p>
+
+  <div class="post-grid" id="postGrid"></div>
+
+</div>
+
+<script>
+function downloadCanvas(canvas, filename) {
+  const link = document.createElement('a');
+  link.download = filename + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+function rr(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
+
+// ─── Post 1: Laptop with dashboard ───
+function drawPost1(c, w, h) {
+  // Background
+  var grd = c.createRadialGradient(w*0.3, h*0.3, 0, w*0.3, h*0.3, w*0.8);
+  grd.addColorStop(0, 'rgba(168,85,247,0.05)');
+  grd.addColorStop(1, 'transparent');
+  c.fillStyle = grd;
+  c.fillRect(0, 0, w, h);
+
+  // Title
+  c.fillStyle = '#ffffff';
+  c.font = '800 52px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('Tu negocio automatizado', w/2, 90);
+  c.fillStyle = '#5200a0';
+  c.font = '800 48px Inter, sans-serif';
+  c.fillText('24/7', w/2, 140);
+
+  // Laptop outer
+  var lx = w * 0.1, ly = h * 0.22, lw = w * 0.8, lh = h * 0.55;
+  c.fillStyle = '#1a1a1f';
+  rr(c, lx, ly, lw, lh, 10);
+  c.fill();
+
+  // Screen
+  var sx = lx + lw * 0.04, sy = ly + lh * 0.04, sw = lw * 0.92, sh = lh * 0.8;
+  c.fillStyle = '#0a0a12';
+  rr(c, sx, sy, sw, sh, 6);
+  c.fill();
+
+  // Dashboard header
+  c.fillStyle = 'rgba(168,85,247,0.08)';
+  rr(c, sx + 8, sy + 8, sw - 16, 32, 4);
+  c.fill();
+  c.fillStyle = '#5200a0';
+  c.font = '600 16px Inter, sans-serif';
+  c.textAlign = 'left';
+  c.textBaseline = 'middle';
+  c.fillText('✦ Nexa · Dashboard', sx + 20, sy + 24);
+
+  // KPI cards
+  var kpis = [
+    { label: 'Interacciones', val: '1,284', ch: '+12%' },
+    { label: 'Resueltos', val: '94%', ch: '+5%' },
+    { label: 'Tiempo resp.', val: '2.4s', ch: '-18%' }
+  ];
+  var kw = (sw - 40) / 3;
+  kpis.forEach(function(k, i) {
+    var kx = sx + 10 + i * (kw + 10);
+    var ky = sy + 50;
+    c.fillStyle = 'rgba(255,255,255,0.02)';
+    rr(c, kx, ky, kw, 60, 6);
+    c.fill();
+    c.fillStyle = '#71717a';
+    c.font = '12px Inter, sans-serif';
+    c.textAlign = 'left';
+    c.textBaseline = 'top';
+    c.fillText(k.label, kx + 8, ky + 6);
+    c.fillStyle = '#ffffff';
+    c.font = '800 28px Inter, sans-serif';
+    c.fillText(k.val, kx + 8, ky + 22);
+    c.fillStyle = '#22c55e';
+    c.font = '600 14px Inter, sans-serif';
+    c.textAlign = 'right';
+    c.fillText(k.ch, kx + kw - 8, ky + 8);
+  });
+
+  // Chart area
+  var cy2 = sy + 120;
+  c.fillStyle = 'rgba(255,255,255,0.02)';
+  rr(c, sx + 10, cy2, sw - 20, 90, 6);
+  c.fill();
+  c.fillStyle = '#52525b';
+  c.font = '12px Inter, sans-serif';
+  c.textAlign = 'left';
+  c.textBaseline = 'top';
+  c.fillText('Actividad últimas 24h', sx + 20, cy2 + 8);
+
+  // Mini chart
+  var pts = [0.3, 0.5, 0.35, 0.65, 0.4, 0.75, 0.55, 0.85, 0.5, 0.8, 0.7, 0.6, 0.85, 0.7, 0.9, 0.8, 0.75, 0.9, 0.85, 0.65];
+  c.strokeStyle = 'rgba(168,85,247,0.4)';
+  c.lineWidth = 2;
+  c.beginPath();
+  pts.forEach(function(p, i) {
+    var px = sx + 20 + (i / (pts.length - 1)) * (sw - 40);
+    var py = cy2 + 35 + (1 - p) * 50;
+    i === 0 ? c.moveTo(px, py) : c.lineTo(px, py);
+  });
+  c.stroke();
+
+  // Activities
+  var acts = [
+    '💬 Cliente: "¿Horario de atención?"',
+    '✅ Reserva confirmada · La Trattoria',
+    '📊 Informe semanal generado'
+  ];
+  acts.forEach(function(a, i) {
+    c.fillStyle = '#a1a1aa';
+    c.font = '14px Inter, sans-serif';
+    c.textAlign = 'left';
+    c.textBaseline = 'middle';
+    c.fillText(a, sx + 20, cy2 + 95 + i * 22);
+  });
+
+  // Base of laptop
+  c.fillStyle = '#1a1a1f';
+  c.beginPath();
+  c.moveTo(lx + lw*0.05, sy + sh + 5);
+  c.quadraticCurveTo(lx + lw*0.5, sy + sh + 30, lx + lw*0.95, sy + sh + 5);
+  c.lineTo(lx + lw*0.98, sy + sh + 5);
+  c.quadraticCurveTo(lx + lw*0.5, sy + sh + 40, lx + lw*0.02, sy + sh + 5);
+  c.closePath();
+  c.fill();
+
+  // Brand
+  c.fillStyle = '#e4e4e7';
+  c.font = '900 40px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('ne', w/2 - 20, h * 0.91);
+  c.fillStyle = '#5200a0';
+  c.fillText('xa', w/2 + 12, h * 0.91);
+  c.fillStyle = '#52525b';
+  c.font = '500 18px Inter, sans-serif';
+  c.fillText('Gestiona todo desde un solo panel', w/2, h * 0.95);
+}
+
+// ─── Post 2: Phone with WhatsApp chat ───
+function drawPost2(c, w, h) {
+  var grd = c.createRadialGradient(w*0.7, h*0.2, 0, w*0.7, h*0.2, w*0.8);
+  grd.addColorStop(0, 'rgba(34,197,94,0.03)');
+  grd.addColorStop(1, 'transparent');
+  c.fillStyle = grd;
+  c.fillRect(0, 0, w, h);
+
+  // Tiny stars
+  for (var i = 0; i < 40; i++) {
+    c.fillStyle = 'rgba(255,255,255,' + (0.03 + Math.random() * 0.1) + ')';
+    c.beginPath();
+    c.arc(Math.random() * w, Math.random() * h * 0.4, Math.random() > 0.8 ? 2 : 1, 0, Math.PI*2);
+    c.fill();
+  }
+
+  // Title
+  c.fillStyle = '#ffffff';
+  c.font = '800 48px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('Tus clientes hablan con IA', w/2, 80);
+  c.fillStyle = '#22c55e';
+  c.font = '800 42px Inter, sans-serif';
+  c.fillText('desde WhatsApp', w/2, 130);
+
+  // Phone body
+  var px = w/2 - w*0.18, py = h*0.2, pw = w*0.36, ph = h*0.6;
+  c.fillStyle = '#1a1a1f';
+  rr(c, px, py, pw, ph, 20);
+  c.fill();
+
+  // Screen
+  var sx = px + pw*0.05, sy = py + ph*0.04, sw = pw*0.9, sh = ph*0.88;
+  c.fillStyle = '#0a0a12';
+  rr(c, sx, sy, sw, sh, 6);
+  c.fill();
+
+  // WhatsApp green header
+  c.fillStyle = '#075e54';
+  rr(c, sx + 2, sy + 10, sw - 4, 30, 6);
+  c.fill();
+  // Notch
+  c.fillStyle = '#1a1a1f';
+  rr(c, w/2 - 16, sy + 4, 32, 10, 5);
+  c.fill();
+  c.fillStyle = '#ffffff';
+  c.font = '600 14px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('🤖 Nexa AI', w/2, sy + 25);
+
+  // Chat messages
+  var msgs = [
+    { text: 'Hola, quiero info sobre\nsus servicios', side: 'r' },
+    { text: '¡Hola! Claro, tenemos:\n• Atención al cliente\n• Automatización\n• Ventas con IA', side: 'l' },
+    { text: 'Atención al cliente', side: 'r' },
+    { text: 'Perfecto. Con Nexa tienes\nun agente 24/7 al instante.\n¿Quieres ver una demo? 🚀', side: 'l' }
+  ];
+
+  var my = sy + 50;
+  msgs.forEach(function(m) {
+    var lines = m.text.split('\n');
+    var fw = sw * 0.65;
+    var fh = lines.length * 16 + 16;
+    var bx = m.side === 'r' ? sx + sw - fw - 10 : sx + 10;
+
+    c.fillStyle = m.side === 'r' ? '#075e54' : '#1f2c33';
+    rr(c, bx, my, fw, fh, 8);
+    c.fill();
+
+    c.fillStyle = m.side === 'r' ? '#ffffff' : '#e4e4e7';
+    c.font = '14px Inter, sans-serif';
+    c.textAlign = 'left';
+    c.textBaseline = 'top';
+    lines.forEach(function(l, li) {
+      c.fillText(l, bx + 10, my + 8 + li * 18);
+    });
+
+    my += fh + 12;
+  });
+
+  // Input bar
+  var iby = sy + sh - 36;
+  c.fillStyle = '#1f2c33';
+  rr(c, sx + 10, iby, sw - 20, 28, 14);
+  c.fill();
+  c.fillStyle = '#52525b';
+  c.font = '12px Inter, sans-serif';
+  c.textAlign = 'left';
+  c.textBaseline = 'middle';
+  c.fillText('Escribe un mensaje...', sx + 24, iby + 14);
+  c.fillStyle = '#5200a0';
+  c.beginPath();
+  c.arc(sx + sw - 22, iby + 14, 12, 0, Math.PI*2);
+  c.fill();
+  c.fillStyle = '#ffffff';
+  c.font = '12px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.fillText('→', sx + sw - 22, iby + 15);
+
+  // Brand
+  c.fillStyle = '#e4e4e7';
+  c.font = '900 40px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('ne', w/2 - 20, h * 0.91);
+  c.fillStyle = '#5200a0';
+  c.fillText('xa', w/2 + 12, h * 0.91);
+  c.fillStyle = '#52525b';
+  c.font = '500 18px Inter, sans-serif';
+  c.fillText('Atención al cliente vía WhatsApp', w/2, h * 0.95);
+}
+
+// ─── Post 3: Side by side comparison ───
+function drawPost3(c, w, h) {
+  var grd = c.createRadialGradient(w/2, h/2, 0, w/2, h/2, w*0.7);
+  grd.addColorStop(0, 'rgba(168,85,247,0.04)');
+  grd.addColorStop(1, 'transparent');
+  c.fillStyle = grd;
+  c.fillRect(0, 0, w, h);
+
+  // Title
+  c.fillStyle = '#ffffff';
+  c.font = '800 40px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('De procesos lentos...', w * 0.25, 60);
+  c.fillStyle = '#22c55e';
+  c.fillText('...a resultados automáticos', w * 0.75, 60);
+
+  // Divider line
+  c.strokeStyle = 'rgba(168,85,247,0.1)';
+  c.lineWidth = 1;
+  c.beginPath();
+  c.moveTo(w/2, 30);
+  c.lineTo(w/2, h * 0.8);
+  c.stroke();
+
+  // ===== LEFT: Problems =====
+  var leftProblems = [
+    { emoji: '😤', text: 'Clientes esperando' },
+    { emoji: '📞', text: 'Llamadas perdidas' },
+    { emoji: '⏰', text: 'Horas extras' },
+    { emoji: '📋', text: 'Papeleo manual' },
+    { emoji: '😫', text: 'Equipo saturado' }
+  ];
+  leftProblems.forEach(function(item, i) {
+    var y = h * 0.15 + i * h * 0.12;
+    c.font = '50px Inter, sans-serif';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText(item.emoji, w * 0.25, y);
+    c.fillStyle = '#52525b';
+    c.font = '600 18px Inter, sans-serif';
+    c.fillText(item.text, w * 0.25, y + 40);
+    c.fillStyle = '#ffffff';
+  });
+
+  // ===== RIGHT: Solutions =====
+  var rightSolutions = [
+    { emoji: '🤖', text: 'Respuesta instantánea' },
+    { emoji: '✅', text: '100% atendidos' },
+    { emoji: '⚡', text: 'Sin horas extra' },
+    { emoji: '📊', text: 'Todo automatizado' },
+    { emoji: '😊', text: 'Equipo feliz' }
+  ];
+  rightSolutions.forEach(function(item, i) {
+    var y = h * 0.15 + i * h * 0.12;
+    c.font = '50px Inter, sans-serif';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText(item.emoji, w * 0.75, y);
+    c.fillStyle = '#a1a1aa';
+    c.font = '600 18px Inter, sans-serif';
+    c.fillText(item.text, w * 0.75, y + 40);
+    c.fillStyle = '#ffffff';
+  });
+
+  // Arrow
+  c.fillStyle = '#5200a0';
+  c.font = '40px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('→', w/2 + 10, h * 0.85);
+
+  // Brand
+  c.fillStyle = '#52525b';
+  c.font = '900 24px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('ne  xa — Automatización con IA', w/2, h * 0.94);
+}
+
+// ─── Post 4: Laptop + Phone ───
+function drawPost4(c, w, h) {
+  var grd = c.createRadialGradient(w*0.5, h*0.2, 0, w*0.5, h*0.2, w*0.8);
+  grd.addColorStop(0, 'rgba(168,85,247,0.04)');
+  grd.addColorStop(1, 'transparent');
+  c.fillStyle = grd;
+  c.fillRect(0, 0, w, h);
+
+  // Title
+  c.fillStyle = '#ffffff';
+  c.font = '800 44px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('Todo sincronizado', w/2, 60);
+  c.fillStyle = '#a1a1aa';
+  c.font = '400 20px Inter, sans-serif';
+  c.fillText('Web + WhatsApp + API · Una plataforma', w/2, 100);
+
+  // Laptop (left)
+  var llx = w*0.05, lly = h*0.18, llw = w*0.5, llh = h*0.5;
+  c.fillStyle = '#1a1a1f';
+  rr(c, llx, lly, llw, llh, 8);
+  c.fill();
+  var lsx = llx + llw*0.04, lsy = lly + llh*0.04, lsw = llw*0.92, lsh = llh*0.75;
+  c.fillStyle = '#0a0a12';
+  rr(c, lsx, lsy, lsw, lsh, 4);
+  c.fill();
+
+  // Mini dashboard on laptop screen
+  c.fillStyle = 'rgba(168,85,247,0.08)';
+  rr(c, lsx + 4, lsy + 4, lsw - 8, 18, 3);
+  c.fill();
+  c.fillStyle = '#5200a0';
+  c.font = '600 10px Inter, sans-serif';
+  c.textAlign = 'left';
+  c.textBaseline = 'middle';
+  c.fillText('✦ Dashboard', lsx + 10, lsy + 13);
+
+  // Mini KPIs
+  c.fillStyle = '#ffffff';
+  c.font = '700 20px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.fillText('1,284', lsx + lsw*0.17, lsy + 40);
+  c.fillText('94%', lsx + lsw*0.5, lsy + 40);
+  c.fillText('2.4s', lsx + lsw*0.83, lsy + 40);
+  c.fillStyle = '#52525b';
+  c.font = '10px Inter, sans-serif';
+  c.fillText('Hoy', lsx + lsw*0.17, lsy + 56);
+  c.fillText('Resueltos', lsx + lsw*0.5, lsy + 56);
+  c.fillText('Tiempo', lsx + lsw*0.83, lsy + 56);
+
+  // Laptop base
+  c.fillStyle = '#1a1a1f';
+  c.beginPath();
+  c.moveTo(llx + 5, lsy + lsh + 3);
+  c.quadraticCurveTo(llx + llw/2, lsy + lsh + 20, llx + llw - 5, lsy + lsh + 3);
+  c.lineTo(llx + llw, lsy + lsh + 3);
+  c.quadraticCurveTo(llx + llw/2, lsy + lsh + 28, llx, lsy + lsh + 3);
+  c.closePath();
+  c.fill();
+
+  // Phone (right)
+  var ppx = w*0.62, ppy = h*0.2, ppw = w*0.3, pph = h*0.55;
+  c.fillStyle = '#1a1a1f';
+  rr(c, ppx, ppy, ppw, pph, 16);
+  c.fill();
+  var psx = ppx + ppw*0.05, psy = ppy + pph*0.04, psw = ppw*0.9, psh = pph*0.85;
+  c.fillStyle = '#0a0a12';
+  rr(c, psx, psy, psw, psh, 4);
+  c.fill();
+
+  // WhatsApp on phone
+  c.fillStyle = '#075e54';
+  rr(c, psx + 1, psy + 8, psw - 2, 20, 4);
+  c.fill();
+  c.fillStyle = '#ffffff';
+  c.font = '600 10px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('🤖 Nexa AI', psx + psw/2, psy + 18);
+
+  // Chat bubbles on phone
+  var my = psy + 35;
+  var chats = [
+    { t: '¿Stock disponible?', s: 'r' },
+    { t: 'Sí, tenemos. ¿Te ayudo?', s: 'l' }
+  ];
+  chats.forEach(function(m) {
+    var fw = psw * 0.7;
+    var fh = 24;
+    var bx = m.s === 'r' ? psx + psw - fw - 6 : psx + 6;
+    c.fillStyle = m.s === 'r' ? '#075e54' : '#1f2c33';
+    rr(c, bx, my, fw, fh, 6);
+    c.fill();
+    c.fillStyle = '#ffffff';
+    c.font = '10px Inter, sans-serif';
+    c.textAlign = 'left';
+    c.textBaseline = 'middle';
+    c.fillText(m.t, bx + 8, my + 12);
+    my += fh + 8;
+  });
+
+  // Input
+  c.fillStyle = '#1f2c33';
+  rr(c, psx + 6, psy + psh - 24, psw - 12, 18, 9);
+  c.fill();
+
+  // Sync arrow
+  c.fillStyle = '#5200a0';
+  c.font = '36px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('🔄', w*0.6, h*0.45);
+
+  // Brand
+  c.fillStyle = '#e4e4e7';
+  c.font = '900 40px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('ne', w/2 - 20, h * 0.91);
+  c.fillStyle = '#5200a0';
+  c.fillText('xa', w/2 + 12, h * 0.91);
+  c.fillStyle = '#52525b';
+  c.font = '500 18px Inter, sans-serif';
+  c.fillText('Web + WhatsApp · Una plataforma', w/2, h * 0.95);
+}
+
+// ─── Post 5: Bar chart / metrics ───
+function drawPost5(c, w, h) {
+  var grd = c.createRadialGradient(w/2, h*0.3, 0, w/2, h*0.3, w*0.8);
+  grd.addColorStop(0, 'rgba(168,85,247,0.04)');
+  grd.addColorStop(1, 'transparent');
+  c.fillStyle = grd;
+  c.fillRect(0, 0, w, h);
+
+  c.fillStyle = '#ffffff';
+  c.font = '800 46px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('Resultados que hablan', w/2, 60);
+  c.fillStyle = '#a1a1aa';
+  c.font = '400 18px Inter, sans-serif';
+  c.fillText('Datos reales de empresas automatizadas con Nexa', w/2, 100);
+
+  // Big numbers
+  var stats = [
+    { val: '-80%', label: 'Tiempo respuesta', color: '#22c55e' },
+    { val: '94%', label: 'Satisfacción', color: '#5200a0' },
+    { val: '3×', label: 'Más ventas', color: '#f59e0b' }
+  ];
+  stats.forEach(function(s, i) {
+    var x = w * (0.2 + i * 0.3);
+    c.fillStyle = s.color;
+    c.font = '900 72px Inter, sans-serif';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText(s.val, x, h*0.25);
+    c.fillStyle = '#a1a1aa';
+    c.font = '500 18px Inter, sans-serif';
+    c.fillText(s.label, x, h*0.33);
+  });
+
+  // Mini bar chart
+  var chartX = w*0.12, chartY = h*0.42, chartW = w*0.76, chartH = h*0.35;
+  c.fillStyle = 'rgba(255,255,255,0.02)';
+  rr(c, chartX, chartY, chartW, chartH, 10);
+  c.fill();
+
+  c.fillStyle = '#52525b';
+  c.font = '14px Inter, sans-serif';
+  c.textAlign = 'left';
+  c.textBaseline = 'top';
+  c.fillText('Clientes atendidos por hora', chartX + 16, chartY + 12);
+
+  var bars = [
+    { label: 'Lun', h: 0.4 },
+    { label: 'Mar', h: 0.55 },
+    { label: 'Mié', h: 0.5 },
+    { label: 'Jue', h: 0.7 },
+    { label: 'Vie', h: 0.85 },
+    { label: 'Sáb', h: 0.65 },
+    { label: 'Dom', h: 0.1 }
+  ];
+
+  var barAreaX = chartX + 30, barAreaW = chartW - 60, barAreaY = chartY + 45, barAreaH = chartH - 70;
+  var barW = barAreaW / bars.length * 0.6;
+  var gap = barAreaW / bars.length;
+
+  bars.forEach(function(b, i) {
+    var bx = barAreaX + i * gap + (gap - barW)/2;
+    var bh = barAreaH * b.h;
+    var by = barAreaY + barAreaH - bh;
+
+    c.fillStyle = 'rgba(168,85,247,0.3)';
+    if (i === 4 || i === 3) c.fillStyle = 'rgba(168,85,247,0.6)';
+    rr(c, bx, by, barW, bh, 4);
+    c.fill();
+
+    c.fillStyle = '#52525b';
+    c.font = '12px Inter, sans-serif';
+    c.textAlign = 'center';
+    c.textBaseline = 'top';
+    c.fillText(b.label, bx + barW/2, barAreaY + barAreaH + 6);
+  });
+
+  // Brand
+  c.fillStyle = '#e4e4e7';
+  c.font = '900 36px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('ne', w/2 - 18, h * 0.92);
+  c.fillStyle = '#5200a0';
+  c.fillText('xa', w/2 + 10, h * 0.92);
+}
+
+// ─── Post 6: Call to action ───
+function drawPost6(c, w, h) {
+  var grd = c.createRadialGradient(w/2, h/2, 0, w/2, h/2, w*0.7);
+  grd.addColorStop(0, 'rgba(168,85,247,0.04)');
+  grd.addColorStop(1, 'transparent');
+  c.fillStyle = grd;
+  c.fillRect(0, 0, w, h);
+
+  // Stars
+  for (var i = 0; i < 50; i++) {
+    c.fillStyle = 'rgba(255,255,255,' + (0.03 + Math.random() * 0.12) + ')';
+    c.beginPath();
+    c.arc(Math.random() * w, Math.random() * h, Math.random() > 0.8 ? 2.5 : 1, 0, Math.PI*2);
+    c.fill();
+  }
+
+  // Orbit ring
+  c.strokeStyle = 'rgba(168,85,247,0.06)';
+  c.lineWidth = 1;
+  c.beginPath();
+  c.ellipse(w*0.8, h*0.85, 200, 200, 0, 0, Math.PI*2);
+  c.stroke();
+  c.beginPath();
+  c.ellipse(w*0.8, h*0.85, 140, 140, 0, 0, Math.PI*2);
+  c.strokeStyle = 'rgba(192,38,211,0.04)';
+  c.stroke();
+
+  c.fillStyle = '#5200a0';
+  c.font = '600 18px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('✦ NEXA', w/2, h*0.15);
+
+  c.fillStyle = '#ffffff';
+  c.font = '800 56px Inter, sans-serif';
+  c.fillText('¿Listo para', w/2, h*0.28);
+  c.fillStyle = '#5200a0';
+  c.font = '800 64px Inter, sans-serif';
+  c.fillText('automatizar', w/2, h*0.36);
+  c.fillStyle = '#ffffff';
+  c.font = '800 56px Inter, sans-serif';
+  c.fillText('tu negocio?', w/2, h*0.44);
+
+  c.fillStyle = '#a1a1aa';
+  c.font = '400 20px Inter, sans-serif';
+  c.fillText('Agenda una demo gratuita sin compromiso', w/2, h*0.53);
+
+  // CTA Button
+  var btnW = w*0.45, btnH = h*0.07;
+  var grd2 = c.createLinearGradient(w/2 - btnW/2, 0, w/2 + btnW/2, 0);
+  grd2.addColorStop(0, '#5200a0');
+  grd2.addColorStop(1, '#c026d3');
+  c.fillStyle = grd2;
+  rr(c, w/2 - btnW/2, h*0.6, btnW, btnH, 12);
+  c.fill();
+
+  c.fillStyle = '#ffffff';
+  c.font = '700 24px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('Solicitar demo →', w/2, h*0.6 + btnH/2);
+
+  // Features row
+  var features = ['Setup incluido', 'Sin permanencia', 'Cancelas cuando quieras'];
+  features.forEach(function(f, i) {
+    var x = w * (0.2 + i * 0.3);
+    c.fillStyle = '#22c55e';
+    c.font = '18px Inter, sans-serif';
+    c.textAlign = 'center';
+    c.textBaseline = 'middle';
+    c.fillText('✓', x - 30, h*0.73);
+    c.fillStyle = '#a1a1aa';
+    c.font = '500 16px Inter, sans-serif';
+    c.fillText(f, x + 6, h*0.73);
+  });
+
+  // Brand
+  c.fillStyle = '#52525b';
+  c.font = '500 16px Inter, sans-serif';
+  c.textAlign = 'center';
+  c.textBaseline = 'middle';
+  c.fillText('Desde €97/mes', w/2, h*0.84);
+}
+
+// ─── Render ───
+var posts = [drawPost1, drawPost2, drawPost3, drawPost4, drawPost5, drawPost6];
+var names = ['laptop-dashboard', 'phone-whatsapp', 'before-after', 'laptop-phone-sync', 'metrics', 'cta'];
+
+var container = document.getElementById('postGrid');
+
+posts.forEach(function(drawFn, idx) {
+  var wrapper = document.createElement('div');
+  wrapper.className = 'post-wrapper';
+
+  var canvasWrap = document.createElement('div');
+  canvasWrap.className = 'canvas-wrap';
+
+  var canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1080;
+  canvasWrap.appendChild(canvas);
+
+  var footer = document.createElement('div');
+  footer.className = 'post-footer';
+
+  var label = document.createElement('span');
+  label.className = 'label';
+  label.textContent = 'Mockup ' + (idx + 1);
+
+  var btn = document.createElement('button');
+  btn.className = 'dl-btn';
+  btn.textContent = '📥 Descargar PNG';
+
+  footer.appendChild(label);
+  footer.appendChild(btn);
+  wrapper.appendChild(canvasWrap);
+  wrapper.appendChild(footer);
+  container.appendChild(wrapper);
+
+  try {
+    drawFn(canvas.getContext('2d'), 1080, 1080);
+  } catch(e) {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#050508';
+    ctx.fillRect(0, 0, 1080, 1080);
+    ctx.fillStyle = '#ff4444';
+    ctx.font = '24px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Error rendering: ' + e.message, 540, 540);
+  }
+
+  btn.addEventListener('click', (function(c, n) {
+    return function() { downloadCanvas(c, n); };
+  })(canvas, 'nexa-' + names[idx]));
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexa — Sobre nosotros</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #050508;
+      color: #e4e4e7;
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .about-card {
+      max-width: 640px;
+      width: 100%;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #52525b;
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #a1a1aa; }
+
+    .profile {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(82,0,160,0.2);
+      margin-bottom: 16px;
+    }
+    .profile h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+    }
+    .profile .title {
+      color: #5200a0;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 4px;
+    }
+    .profile .tag {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.75rem;
+      color: #52525b;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid #1a1a2e;
+      padding: 4px 14px;
+      border-radius: 100px;
+    }
+    .bio h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .bio p {
+      color: #a1a1aa;
+      font-size: 0.92rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .bio strong { color: #e4e4e7; }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    .skills span {
+      padding: 6px 16px;
+      background: rgba(82,0,160,0.06);
+      border: 1px solid rgba(82,0,160,0.1);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: #a1a1aa;
+    }
+    .contact-cta {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .contact-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .contact-cta a:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(82,0,160,0.3); }
+  </style>
+</head>
+<body>
+  <div class="about-card">
+    <a href="index.html" class="back-link">← Volver a Nexa</a>
+
+    <div class="profile">
+      <img src="guille prime traje.png" alt="CEO Nexa" class="profile-img" id="ceoPhoto" />
+      <h1>Guillermo</h1>
+      <div class="title">CEO & Fundador — Nexa</div>
+      <div class="tag">🇧🇷 Brasileño · 19 años</div>
+    </div>
+
+    <div class="bio">
+      <h2>👋 Sobre mí</h2>
+      <p>
+        Soy un chico <strong>brasileño de 19 años</strong>, apasionado por la tecnología y la inteligencia artificial.
+        Actualmente estudio <strong>Informática</strong> y me he especializado en el desarrollo y aplicación de
+        <strong>IA en contextos reales</strong>: automatización de procesos, agentes conversacionales, análisis predictivo
+        y optimización de flujos de trabajo empresariales.
+      </p>
+      <p>
+        Creé <strong>Nexa</strong> con una visión clara: <strong>democratizar la inteligencia artificial</strong> para que
+        cualquier negocio, sin importar su tamaño, pueda beneficiarse de la automatización inteligente. No creo en soluciones
+        genéricas — cada agente de IA que diseñamos se entrena con los datos y la realidad de cada cliente.
+      </p>
+      <p>
+        Mi enfoque está en la <strong>aplicación práctica</strong> de la IA: no solo entender los modelos más avanzados
+        (GPT-4, Claude, Gemini, open-source), sino saber <strong>integrarlos</strong> en herramientas reales como CRM,
+        WhatsApp, web, Slack y APIs para que generen impacto desde el día uno.
+      </p>
+      <div class="skills">
+        <span>🤖 Inteligencia Artificial</span>
+        <span>⚙️ Automatización</span>
+        <span>💻 Desarrollo Web</span>
+        <span>📊 Análisis Predictivo</span>
+        <span>🧠 Prompt Engineering</span>
+        <span>🔗 Integración de APIs</span>
+        <span>📱 Chatbots & Agentes</span>
+      </div>
+    </div>
+
+    <div class="contact-cta">
+      <a href="index.html#contacto">Hablemos de tu proyecto →</a>
+    </div>
+  </div>
+</body>
+</html>

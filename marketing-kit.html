@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa — Marketing Kit</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #0a0a0f;
+    color: #e4e4e7;
+    padding: 40px 24px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #c026d3, #5200a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 48px 0 24px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1a1a2e;
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    margin: 24px 0 12px;
+  }
+  p, li { color: #a1a1aa; line-height: 1.7; font-size: 0.95rem; }
+  ul { padding-left: 20px; }
+  li { margin-bottom: 8px; }
+
+  /* ── Posts grid ── */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin: 32px 0;
+  }
+  .post-card {
+    background: #050508;
+    border: 1px solid #1a1a2e;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .post-card .post-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-card .stars {
+    position: absolute; inset: 0;
+    pointer-events: none;
+  }
+  .post-card .stars span {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle {
+    0% { opacity: 0.1; }
+    100% { opacity: 0.8; }
+  }
+  .post-card .post-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5200a0;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .post-card .post-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .post-card .post-title .gradient {
+    background: linear-gradient(135deg, #c026d3, #5200a0, #d946ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .post-card .post-sub {
+    font-size: 0.8rem;
+    color: #71717a;
+    line-height: 1.5;
+    max-width: 280px;
+    position: relative;
+    z-index: 1;
+  }
+  .post-card .post-sub strong { color: #e4e4e7; font-weight: 600; }
+  .post-card .post-footer {
+    padding: 14px 24px;
+    border-top: 1px solid #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0a0a0f;
+  }
+  .post-card .post-footer .brand {
+    font-weight: 900;
+    font-size: 0.85rem;
+  }
+  .post-card .post-footer .brand span { color: #5200a0; }
+  .post-card .post-footer .cta-small {
+    font-size: 0.7rem;
+    color: #71717a;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .post-card .orb-post {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Carousel posts ── */
+  .carousel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .carousel-grid .post-card { aspect-ratio: auto; min-height: 360px; }
+
+  /* ── Bio / Highlights ── */
+  .bio-box {
+    background: linear-gradient(135deg, rgba(168,85,247,0.04), rgba(192,38,211,0.02));
+    border: 1px solid rgba(168,85,247,0.1);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 24px 0;
+  }
+  .bio-box h4 { color: #fff; font-weight: 700; margin-bottom: 8px; }
+  .bio-box p { color: #a1a1aa; font-size: 0.9rem; line-height: 1.7; }
+
+  /* ── Actions ── */
+  .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .action-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .action-card .num {
+    font-size: 2rem;
+    font-weight: 900;
+    color: rgba(168,85,247,0.2);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .action-card h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .action-card p { font-size: 0.85rem; color: #71717a; }
+
+  @media (max-width: 600px) {
+    body { padding: 20px 16px; }
+    .post-card .post-title { font-size: 1.1rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Nexa · Marketing Kit</h1>
+  <p style="font-size:1.05rem; margin-bottom:32px;">
+    Captura estos diseños como screenshot y súbelos a Instagram. Cada post tiene la medida 1:1 perfecta para el feed.
+  </p>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2>📱 Posts para Instagram (1:1)</h2>
+  <p style="margin-bottom:8px;">Haz clic derecho → "Guardar como..." o captura pantalla y recorta.</p>
+
+  <div class="posts-grid">
+
+    <!-- Post 1: Hero -->
+    <div class="post-card">
+      <div class="post-content" style="background: radial-gradient(ellipse at 50% 0%, rgba(168,85,247,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 100%, rgba(192,38,211,0.04) 0%, transparent 50%);">
+        <div class="stars" id="stars1"></div>
+        <div class="orb-post" style="width:300px;height:300px;top:-100px;right:-80px;background:rgba(168,85,247,0.06)"></div>
+        <div class="post-label">Nexa</div>
+        <div class="post-title">Automatiza tu negocio<br>con <span class="gradient">IA</span></div>
+        <div class="post-sub">Agentes de IA entrenados con tus datos para <strong>atención al cliente, procesos y más</strong>. Resultados 24/7.</div>
+      </div>
+      <div class="post-footer">
+        <span class="brand">ne<span>xa</span></span>
+        <span class="cta-small">Link en bio</span>
+      </div>
+    </div>
+
+    <!-- Post 2: Dolor / Solución -->
+    <div class="post-card">
+      <div class="post-content" style="background: radial-gradient(ellipse at 30% 50%, rgba(239,68,68,0.04) 0%, transparent 50%);">
+        <div class="post-label">¿Te suena?</div>
+        <div class="post-title">¿Sigues respondiendo<br>las mismas preguntas<br>una y otra vez?</div>
+        <div class="post-sub">Un agente de IA de Nexa puede resolver el <strong>80% de tus consultas</strong> al instante. Mientras tú te enfocas en crecer.</div>
+      </div>
+      <div class="post-footer">
+        <span class="brand">ne<span>xa</span></span>
+        <span class="cta-small">Link en bio</span>
+      </div>
+    </div>
+
+    <!-- Post 3: Beneficio numérico -->
+    <div class="post-card">
+      <div class="post-content" style="background: radial-gradient(ellipse at 50% 100%, rgba(34,197,94,0.04) 0%, transparent 50%);">
+        <div class="post-label">Resultados reales</div>
+        <div class="post-title">-80% de tiempo<br>de respuesta</div>
+        <div class="post-sub">Empresas que automatizan con Nexa reducen drásticamente sus tiempos y <strong>aumentan satisfacción</strong> de clientes.</div>
+      </div>
+      <div class="post-footer">
+        <span class="brand">ne<span>xa</span></span>
+        <span class="cta-small">Link en bio</span>
+      </div>
+    </div>
+
+    <!-- Post 4: Servicios -->
+    <div class="post-card">
+      <div class="post-content">
+        <div class="post-label">Servicios</div>
+        <div class="post-title" style="font-size:1.1rem;">🤖 Atención al cliente<br>⚙️ Automatización<br>📊 Análisis predictivo<br>📝 Contenido IA<br>🔍 Extracción datos<br>🛡️ Seguridad</div>
+        <div class="post-sub">Todo lo que tu negocio necesita para operar <strong>24/7 con IA</strong>.</div>
+      </div>
+      <div class="post-footer">
+        <span class="brand">ne<span>xa</span></span>
+        <span class="cta-small">Link en bio</span>
+      </div>
+    </div>
+
+    <!-- Post 5: Proceso -->
+    <div class="post-card">
+      <div class="post-content" style="background: radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.04) 0%, transparent 60%);">
+        <div class="post-label">Cómo funciona</div>
+        <div class="post-title" style="font-size:1.1rem;">
+          1️⃣ Diagnóstico<br>
+          2️⃣ Diseño del agente<br>
+          3️⃣ Integración<br>
+          4️⃣ Optimización continua
+        </div>
+        <div class="post-sub"><strong>Setup incluido.</strong> Nosotros hacemos todo. Tú solo empiezas a recibir resultados.</div>
+      </div>
+      <div class="post-footer">
+        <span class="brand">ne<span>xa</span></span>
+        <span class="cta-small">Link en bio</span>
+      </div>
+    </div>
+
+    <!-- Post 6: Precio -->
+    <div class="post-card">
+      <div class="post-content">
+        <div class="post-label">Desde</div>
+        <div class="post-title" style="font-size:2.6rem;">€97<span style="font-size:1rem;color:#71717a;font-weight:500;">/mes</span></div>
+        <div class="post-sub"><strong>Setup incluido · Sin permanencia</strong><br>Agente de IA entrenado con tus datos. Cancela cuando quieras.</div>
+      </div>
+      <div class="post-footer">
+        <span class="brand">ne<span>xa</span></span>
+        <span class="cta-small">Link en bio</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2>💬 Textos para cada post (copiar y pegar)</h2>
+
+  <div class="bio-box">
+    <h4>Post 1 — Automatiza tu negocio con IA</h4>
+    <p>¿Sigues haciendo tareas repetitivas que una IA podría hacer por ti?<br><br>
+    En Nexa creamos agentes de inteligencia artificial entrenados con la información de tu negocio para:<br>
+    • Atender clientes 24/7<br>
+    • Automatizar procesos<br>
+    • Analizar datos y más<br><br>
+    Resultados desde el primer mes. Setup incluido.<br><br>
+    👉 Link en bio para agendar tu demo gratuita<br><br>
+    #IA #Automatización #NegociosInteligentes #Nexa #TransformaciónDigital</p>
+  </div>
+
+  <div class="bio-box">
+    <h4>Post 2 — ¿Sigues respondiendo las mismas preguntas?</h4>
+    <p>Si tu equipo pierde horas respondiendo lo mismo, tenemos una solución.<br><br>
+    Un agente de IA de Nexa aprende de tu negocio y responde al instante. Tu equipo se enfoca en vender y crecer.<br><br>
+    ✅ Reduce hasta 80% las consultas repetitivas<br>
+    ✅ Tus clientes reciben respuesta al segundo<br>
+    ✅ Funciona 24/7, incluso cuando duermes<br><br>
+    👉 Link en bio. Primera demo sin costo.<br><br>
+    #AtenciónAlCliente #IA #Automatización #Productividad</p>
+  </div>
+
+  <div class="bio-box">
+    <h4>Post 3 — -80% de tiempo de respuesta</h4>
+    <p>Un cliente esperando es una venta perdida.<br><br>
+    Con Nexa, tus clientes reciben respuesta inmediata. Siempre.<br><br>
+    No es un chatbot genérico. Es un agente entrenado con TU información, que entiende TU negocio.<br><br>
+    ¿El resultado? Clientes más felices, menos carga operativa y más ventas.<br><br>
+    👉 Link en bio<br><br>
+    #ExperienciaDelCliente #SoporteIA #Automatización</p>
+  </div>
+
+  <div class="bio-box">
+    <h4>Post 4 — Servicios Nexa</h4>
+    <p>No importa el tamaño de tu negocio. La IA ya es accesible.<br><br>
+    En Nexa ofrecemos:<br>
+    🤖 Atención al cliente automatizada<br>
+    ⚙️ Procesos inteligentes<br>
+    📊 Análisis predictivo de datos<br>
+    📝 Generación de contenido<br>
+    🔍 Extracción de documentos<br>
+    🛡️ Seguridad y cumplimiento<br><br>
+    Todo en un solo plan. Todo funcionando 24/7.<br><br>
+    👉 Link en bio<br><br>
+    #ServiciosIA #Negocios #Innovación #Nexa</p>
+  </div>
+
+  <div class="bio-box">
+    <h4>Post 5 — Cómo funciona</h4>
+    <p>1️⃣ Diagnóstico — Analizamos tus procesos<br>
+    2️⃣ Diseño — Creamos tu agente a medida<br>
+    3️⃣ Integración — Lo conectamos con tus herramientas<br>
+    4️⃣ Optimización — Mejoramos continuamente<br><br>
+    Tú no tienes que hacer nada técnico. Nosotros nos encargamos de todo.<br><br>
+    👉 Link en bio para empezar<br><br>
+    #IA #Automatización #Tecnología #Nexa</p>
+  </div>
+
+  <div class="bio-box">
+    <h4>Post 6 — Desde €97/mes</h4>
+    <p>Sí, automatizar tu negocio con IA es más barato de lo que crees.<br><br>
+    Por €97/mes tienes:<br>
+    ✅ Un agente de IA entrenado con tus datos<br>
+    ✅ Setup incluido (sin pagar extra)<br>
+    ✅ Sin permanencia — cancelas cuando quieras<br><br>
+    Sin instalaciones complicadas. Sin equipos enormes. Solo resultados.<br><br>
+    👉 Link en bio para tu demo<br><br>
+    #PreciosIA #Automatización #Nexa #Emprendedores</p>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2>📋 Bio de Instagram (recomendada)</h2>
+  <div class="bio-box">
+    <p style="color:#fff;">
+      <strong>Nexa</strong> 🤖<br>
+      Automatización con IA para tu negocio<br><br>
+      🤖 Agentes entrenados con tus datos<br>
+      ⚡ Resultados 24/7<br>
+      🚀 Setup incluido · Desde €97/mes<br><br>
+      👇 Agenda tu demo gratuita<br>
+      [link a WhatsApp o calendly]
+    </p>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2>🎯 Estrategia de captación (sin presupuesto)</h2>
+
+  <div class="actions-grid">
+    <div class="action-card">
+      <div class="num">01</div>
+      <h4>WhatsApp + redes locales</h4>
+      <p>Identifica 20 negocios locales (restaurantes, clínicas, despachos) y escríbeles directo por Instagram o WhatsApp ofreciendo una demo gratuita.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">02</div>
+      <h4>Publica 1 post al día</h4>
+      <p>Usa los diseños de arriba. Publica uno cada día durante 2 semanas. Usa los textos que preparé. Sé constante.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">03</div>
+      <h4>Contenido útil en historias</h4>
+      <p>Sube stories mostrando "cómo se ve una automatización real": ejemplos, capturas, testimonios (aunque sean mockups al inicio).</p>
+    </div>
+    <div class="action-card">
+      <div class="num">04</div>
+      <h4>Demo gratuita como anzuelo</h4>
+      <p>Ofrece una demo de 15 min sin compromiso. No vendas: solo muestra lo que puedes hacer. El 80% de los que ven una demo compran.</p>
+    </div>
+    <div class="action-card">
+      <div class="num">05</div>
+      <h4>Colabora con otros</h4>
+      <p>Busca comunidades de emprendedores en tu zona. Ofrece dar una charla gratuita de 10 min sobre "cómo la IA puede ayudar a pequeños negocios".</p>
+    </div>
+    <div class="action-card">
+      <div class="num">06</div>
+      <h4>Primer cliente gratis (canje por caso de éxito)</h4>
+      <p>Ofrece 3 meses gratis a un negocio conocido a cambio de un testimonio y permiso para usar su caso en tus redes. Así construyes pruebas sociales.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════ -->
+  <h2>📌 Plan de acción primeros 30 días</h2>
+
+  <div class="bio-box" style="border-color: rgba(168,85,247,0.2);">
+    <p style="color:#e4e4e7;">
+      <strong>Semana 1:</strong> Configura Instagram, publica 3 posts del kit, escribe a 10 negocios locales por DM.<br><br>
+      <strong>Semana 2:</strong> Publica 3 posts más, graba 1 video breve (tú explicando qué haces), responde comentarios.<br><br>
+      <strong>Semana 3:</strong> Ofrece 2 demos gratuitas. Si no tienes clientes, ofrece el plan Starter gratis a un negocio a cambio de testimonio.<br><br>
+      <strong>Semana 4:</strong> Publica el testimonio como post. Súbelo a historias. Repite el ciclo.<br><br>
+      <strong>Meta:</strong> 1-3 clientes pagando en 30 días.
+    </p>
+  </div>
+
+  <div style="margin: 48px 0; text-align: center; padding: 40px; border: 1px solid #1a1a2e; border-radius: 16px;">
+    <p style="color: #fff; font-weight: 700; font-size: 1.1rem;">¿Quieres que genere algo más?</p>
+    <p style="color: #71717a; margin-top: 8px;">Puedo crear una landing de captura, un guión de video, o un email template para enviar a clientes potenciales.</p>
+  </div>
+
+</div>
+
+<script>
+  // Generate stars for post 1
+  (function() {
+    const container = document.getElementById('stars1');
+    if (!container) return;
+    for (let i = 0; i < 60; i++) {
+      const s = document.createElement('span');
+      s.style.left = Math.random() * 100 + '%';
+      s.style.top = Math.random() * 100 + '%';
+      s.style.animationDelay = Math.random() * 3 + 's';
+      s.style.animationDuration = (2 + Math.random() * 3) + 's';
+      s.style.opacity = 0.1 + Math.random() * 0.3;
+      container.appendChild(s);
+    }
+  })();
+</script>
+
+</body>
+</html>

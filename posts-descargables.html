@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa — Posts descargables</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: #050508;
+    color: #e4e4e7;
+    padding: 40px 24px;
+  }
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #c026d3, #5200a0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .subh { color: #71717a; margin-bottom: 40px; font-size: 0.95rem; }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 40px 0 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #1a1a2e;
+  }
+
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .post-wrapper {
+    background: #050508;
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .post-wrapper .canvas-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #050508;
+  }
+  .post-wrapper .canvas-wrap canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .post-wrapper .post-footer {
+    padding: 12px 16px;
+    border-top: 1px solid #1a1a2e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .post-wrapper .post-footer .label {
+    font-size: 0.8rem;
+    color: #52525b;
+  }
+  .dl-btn {
+    background: rgba(168,85,247,0.1);
+    border: 1px solid rgba(168,85,247,0.2);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .dl-btn:hover { background: rgba(168,85,247,0.2); }
+
+  /* ── Casos de uso (stories) ── */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .case-card {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid #1a1a2e;
+    border-radius: 12px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .case-card:hover { border-color: rgba(168,85,247,0.15); }
+  .case-card .industry {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #5200a0;
+    margin-bottom: 8px;
+  }
+  .case-card h4 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .case-card .metric {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #fff;
+    margin: 10px 0 6px;
+  }
+  .case-card .metric span { color: #22c55e; }
+  .case-card p { font-size: 0.85rem; color: #71717a; line-height: 1.6; }
+  .case-card .tags { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+  .case-card .tags span {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+    background: rgba(168,85,247,0.06);
+    border: 1px solid rgba(168,85,247,0.08);
+    border-radius: 100px;
+    color: #a1a1aa;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Nexa · Marketing Visual</h1>
+  <p class="subh">Posts para Instagram (1080×1080) listos para descargar como PNG.</p>
+
+  <!-- ═══════════ CASOS FICTICIOS ═══════════ -->
+  <h2>📊 Casos de uso reales (para stories)</h2>
+  <p style="color:#71717a; font-size:0.9rem;">Usa estos textos como stories de Instagram. Acompaña con una captura de pantalla o un fondo morado.</p>
+
+  <div class="cases-grid">
+
+    <div class="case-card">
+      <div class="industry">Salud · Clínica Dental</div>
+      <h4>Clínica DentalCare</h4>
+      <div class="metric"><span>-70%</span> carga de agenda</div>
+      <p>Automatizamos la gestión de citas, recordatorios y preguntas frecuentes con un agente de IA conectado a WhatsApp. El equipo administrativo pasó de 4 a 1 persona.</p>
+      <div class="tags"><span>WhatsApp</span><span>Agenda</span><span>Atención 24/7</span></div>
+    </div>
+
+    <div class="case-card">
+      <div class="industry">E-commerce · Moda</div>
+      <h4>ModaExpress</h4>
+      <div class="metric"><span>+35%</span> ventas en 2 meses</div>
+      <p>Un agente de IA atendiendo consultas de producto, tallas y seguimiento de pedidos 24/7. Reducción de carritos abandonados en un 25%.</p>
+      <div class="tags"><span>E-commerce</span><span>Ventas</span><span>Chat IA</span></div>
+    </div>
+
+    <div class="case-card">
+      <div class="industry">Inmobiliaria</div>
+      <h4>InmoNexo</h4>
+      <div class="metric"><span>50+</span> leads cualificados/semana</div>
+      <p>Agente que califica leads, responde dudas sobre propiedades y agenda visitas automáticamente. El equipo comercial solo recibe leads listos para cerrar.</p>
+      <div class="tags"><span>Leads</span><span>Inmobiliaria</span><span>Automatización</span></div>
+    </div>
+
+    <div class="case-card">
+      <div class="industry">Hostelería · Restaurante</div>
+      <h4>La Trattoria</h4>
+      <div class="metric"><span>-50%</span> llamadas perdidas</div>
+      <p>Un agente de IA que recibe reservas por WhatsApp e Instagram, responde sobre menú, horarios y alergenos. Sin esperas, sin llamadas perdidas.</p>
+      <div class="tags"><span>Reservas</span><span>WhatsApp</span><span>Hostelería</span></div>
+    </div>
+
+    <div class="case-card">
+      <div class="industry">Consultoría · Legal</div>
+      <h4>Bufete Ágora</h4>
+      <div class="metric"><span>40h/semana</span> ahorradas</div>
+      <p>Automatizamos la clasificación de documentos legales, respuestas a consultas frecuentes y gestión de calendario. El equipo factura más y pierde menos tiempo.</p>
+      <div class="tags"><span>Legal</span><span>Documentos</span><span>Productividad</span></div>
+    </div>
+
+    <div class="case-card">
+      <div class="industry">Educación · Academia</div>
+      <h4>Academia Flux</h4>
+      <div class="metric"><span>3×</span> más inscripciones</div>
+      <p>Agente de IA que informa sobre cursos, horarios y precios, resuelve dudas en tiempo real y guía al alumno hasta la inscripción. Sin formularios eternos.</p>
+      <div class="tags"><span>Educación</span><span>Inscripciones</span><span>Chat 24/7</span></div>
+    </div>
+
+  </div>
+
+  <p style="color:#52525b; font-size:0.85rem; margin-top:8px;">
+    💡 Para story: pon el texto del caso en una story con fondo morado oscuro y añade "✦ nexa" en la esquina.
+  </p>
+
+  <!-- ═══════════ POSTS DESCARGABLES ═══════════ -->
+  <h2>📱 Posts para descargar (PNG 1080×1080)</h2>
+  <p style="color:#71717a; font-size:0.9rem; margin-bottom:8px;">Haz clic en "Descargar PNG" para guardar cada imagen.</p>
+
+  <div class="post-grid" id="postGrid"></div>
+
+  <div style="margin:48px 0; text-align:center; padding:32px; border:1px solid #1a1a2e; border-radius:12px;">
+    <p style="color:#a1a1aa;">¿Quieres más diseños o adaptar los textos? Pide lo que necesites.</p>
+  </div>
+
+</div>
+
+<script>
+// ─── Helper: download canvas as PNG ───
+function downloadCanvas(canvas, filename) {
+  const link = document.createElement('a');
+  link.download = filename + '.png';
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+}
+
+// ─── Draw a post ───
+function drawPost(ctx, w, h, opts) {
+  const bg = opts.bg || '#050508';
+  const label = opts.label || '';
+  const title = opts.title || '';
+  const subtitle = opts.subtitle || '';
+  const badge = opts.badge || '';
+  const accent = opts.accent || '#5200a0';
+
+  // Background
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, w, h);
+
+  // Subtle gradient overlay
+  if (opts.gradientColor) {
+    const grd = ctx.createRadialGradient(w*0.3, h*0.2, 0, w*0.3, h*0.2, w*0.8);
+    grd.addColorStop(0, opts.gradientColor);
+    grd.addColorStop(1, 'transparent');
+    ctx.fillStyle = grd;
+    ctx.fillRect(0, 0, w, h);
+  }
+  if (opts.gradientColor2) {
+    const grd2 = ctx.createRadialGradient(w*0.8, h*0.9, 0, w*0.8, h*0.9, w*0.6);
+    grd2.addColorStop(0, opts.gradientColor2);
+    grd2.addColorStop(1, 'transparent');
+    ctx.fillStyle = grd2;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  // Stars (for selected posts)
+  if (opts.stars) {
+    for (let i = 0; i < 40; i++) {
+      ctx.fillStyle = `rgba(255,255,255,${0.05 + Math.random() * 0.25})`;
+      const size = Math.random() > 0.8 ? 3 : 1;
+      ctx.beginPath();
+      ctx.arc(Math.random() * w, Math.random() * h, size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Orbit rings (for hero post)
+  if (opts.orbit) {
+    ctx.strokeStyle = 'rgba(168,85,247,0.06)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.ellipse(w*0.85, h*0.15, 180, 180, 0, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.ellipse(w*0.85, h*0.15, 120, 120, 0, 0, Math.PI*2);
+    ctx.strokeStyle = 'rgba(192,38,211,0.04)';
+    ctx.stroke();
+  }
+
+  // Label
+  if (label) {
+    ctx.fillStyle = accent;
+    ctx.font = `600 ${w * 0.028}px 'Inter', sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label.toUpperCase(), w/2, h * 0.25);
+  }
+
+  // Badge (optional)
+  if (badge) {
+    ctx.fillStyle = 'rgba(168,85,247,0.08)';
+    ctx.beginPath();
+    const bw = w * 0.45, bh = h * 0.055;
+    const br = bh/2;
+    ctx.roundRect(w/2 - bw/2, h*0.28, bw, bh, br);
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(168,85,247,0.15)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.fillStyle = '#a1a1aa';
+    ctx.font = `${w * 0.025}px 'Inter', sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(badge, w/2, h*0.28 + bh/2);
+
+    // purple dot
+    ctx.fillStyle = '#5200a0';
+    ctx.beginPath();
+    ctx.arc(w/2 - bw/2 + bh, h*0.28 + bh/2, 4, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  // Title
+  if (title) {
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+
+    const lines = title.split('\n');
+    const fontSize = w * (opts.titleSize || 0.055);
+    ctx.font = `800 ${fontSize}px 'Inter', sans-serif`;
+
+    // Check for gradient marker in any line
+    let hasGradient = opts.gradientTitle || false;
+
+    const totalHeight = lines.length * fontSize * 1.3;
+    const startY = badge ? h * 0.4 : h * 0.36;
+
+    lines.forEach((line, i) => {
+      const ly = startY + (i - (lines.length-1)/2) * fontSize * 1.3 + (h * 0.02);
+
+      if (hasGradient && i === 0 && lines.length > 1) {
+        // First line: gradient
+        const grd = ctx.createLinearGradient(w*0.2, ly, w*0.8, ly);
+        grd.addColorStop(0, '#c026d3');
+        grd.addColorStop(0.5, '#5200a0');
+        grd.addColorStop(1, '#d946ef');
+        ctx.fillStyle = grd;
+      } else {
+        ctx.fillStyle = opts.titleColor || '#ffffff';
+      }
+      ctx.fillText(line, w/2, ly);
+
+      // glow effect for first line
+      if (hasGradient && i === 0) {
+        ctx.shadowColor = 'rgba(168,85,247,0.15)';
+        ctx.shadowBlur = 30;
+        ctx.fillText(line, w/2, ly);
+        ctx.shadowBlur = 0;
+      }
+    });
+  }
+
+  // Subtitle
+  if (subtitle) {
+    ctx.fillStyle = '#71717a';
+    ctx.font = `${w * 0.032}px 'Inter', sans-serif`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const subLines = subtitle.split('\n');
+    subLines.forEach((line, i) => {
+      ctx.fillText(line, w/2, h * 0.68 + i * (w * 0.048));
+    });
+  }
+
+  // Brand footer
+  ctx.fillStyle = '#e4e4e7';
+  ctx.font = `900 ${w * 0.05}px 'Inter', sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('ne', w/2 - w*0.04, h * 0.92);
+  ctx.fillStyle = '#5200a0';
+  ctx.fillText('xa', w/2 + w*0.015, h * 0.92);
+
+  // Footer line
+  ctx.strokeStyle = 'rgba(26,26,46,0.5)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(w * 0.08, h * 0.88);
+  ctx.lineTo(w * 0.92, h * 0.88);
+  ctx.stroke();
+
+  // CTA
+  ctx.fillStyle = '#52525b';
+  ctx.font = `${w * 0.024}px 'Inter', sans-serif`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('AGENDA TU DEMO →', w/2, h * 0.965);
+}
+
+// ─── Posts data ───
+const posts = [
+  {
+    label: 'Nexa',
+    badge: '✦ Automatización inteligente',
+    title: 'Transforma tu negocio\ncon automatización de IA',
+    subtitle: 'Agentes entrenados con tus datos.\nResultados 24/7. Setup incluido.',
+    gradientColor: 'rgba(168,85,247,0.06)',
+    gradientColor2: 'rgba(192,38,211,0.03)',
+    gradientTitle: true,
+    stars: true,
+    orbit: true,
+    titleSize: 0.06,
+    file: 'nexa-hero'
+  },
+  {
+    label: '¿Te suena?',
+    title: '¿Sigues respondiendo\nlas mismas preguntas\nuna y otra vez?',
+    subtitle: 'Un agente de IA de Nexa resuelve el 80%\nde tus consultas al instante.',
+    gradientColor: 'rgba(239,68,68,0.03)',
+    gradientColor2: 'rgba(168,85,247,0.02)',
+    titleSize: 0.055,
+    file: 'nexa-dolor'
+  },
+  {
+    label: 'Resultados reales',
+    title: '-80% de tiempo\nde respuesta',
+    subtitle: 'Clientes más felices. Equipo más libre.\nAutomatización que funciona.',
+    gradientColor: 'rgba(34,197,94,0.03)',
+    gradientColor2: 'rgba(168,85,247,0.02)',
+    titleSize: 0.07,
+    file: 'nexa-resultados'
+  },
+  {
+    label: 'Servicios',
+    title: '🤖 Atención al cliente\n⚙️ Automatización\n📊 Análisis predictivo',
+    subtitle: 'Todo lo que tu negocio necesita\npara operar 24/7 con IA.',
+    gradientColor: 'rgba(168,85,247,0.04)',
+    titleSize: 0.045,
+    file: 'nexa-servicios'
+  },
+  {
+    label: 'Cómo funciona',
+    badge: '✦ Setup incluido',
+    title: '1️⃣ Diagnóstico\n2️⃣ Diseño del agente',
+    subtitle: '3️⃣ Integración\n4️⃣ Optimización continua',
+    gradientColor: 'rgba(168,85,247,0.04)',
+    titleSize: 0.05,
+    file: 'nexa-proceso'
+  },
+  {
+    label: 'Desde',
+    title: '€97/mes',
+    subtitle: 'Setup incluido · Sin permanencia\nAgente entrenado con tus datos.',
+    gradientColor: 'rgba(168,85,247,0.04)',
+    gradientColor2: 'rgba(192,38,211,0.02)',
+    stars: true,
+    titleSize: 0.12,
+    file: 'nexa-precio'
+  }
+];
+
+// ─── Render all posts ───
+const container = document.getElementById('postGrid');
+
+posts.forEach((post, idx) => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'post-wrapper';
+
+  const canvasWrap = document.createElement('div');
+  canvasWrap.className = 'canvas-wrap';
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080;
+  canvas.height = 1080;
+  canvasWrap.appendChild(canvas);
+
+  const footer = document.createElement('div');
+  footer.className = 'post-footer';
+
+  const label = document.createElement('span');
+  label.className = 'label';
+  label.textContent = `Post ${idx + 1}`;
+
+  const btn = document.createElement('button');
+  btn.className = 'dl-btn';
+  btn.textContent = '📥 Descargar PNG';
+
+  footer.appendChild(label);
+  footer.appendChild(btn);
+  wrapper.appendChild(canvasWrap);
+  wrapper.appendChild(footer);
+  container.appendChild(wrapper);
+
+  // Draw
+  const ctx = canvas.getContext('2d');
+  drawPost(ctx, 1080, 1080, post);
+
+  // Download
+  btn.addEventListener('click', () => {
+    downloadCanvas(canvas, post.file || `nexa-post-${idx+1}`);
+  });
+});
+</script>
+
+</body>
+</html>

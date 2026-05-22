@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexa — Checkout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #050508;
+      color: #e4e4e7;
+      font-family: 'Inter', -apple-system, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .checkout-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid #1a1a2e;
+      border-radius: 20px;
+      padding: 48px;
+      max-width: 560px;
+      width: 100%;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #52525b;
+      text-decoration: none;
+      font-size: 0.85rem;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: #a1a1aa; }
+    .checkout-card h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .checkout-card .subtitle {
+      color: #71717a;
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+    }
+    .plan-summary {
+      background: rgba(82,0,160,0.04);
+      border: 1px solid rgba(82,0,160,0.08);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .plan-summary .plan-name { font-weight: 700; color: #fff; font-size: 1.05rem; }
+    .plan-summary .plan-price { font-weight: 900; color: #5200a0; font-size: 1.5rem; letter-spacing: -1px; }
+    .plan-summary .plan-period { font-size: 0.8rem; color: #52525b; }
+    .plan-summary .plan-desc { font-size: 0.82rem; color: #71717a; margin-top: 2px; }
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #71717a;
+      margin-bottom: 16px;
+    }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #a1a1aa;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid #1a1a2e;
+      border-radius: 10px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.92rem;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      outline: none;
+    }
+    .form-group input:focus { border-color: #5200a0; box-shadow: 0 0 0 3px rgba(82,0,160,0.06); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card-icons {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 0.75rem;
+      color: #3f3f46;
+    }
+    .card-icons span {
+      padding: 4px 10px;
+      border: 1px solid #1a1a2e;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .paypal-button, .applepay-button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .paypal-button {
+      background: #ffc439;
+      color: #111;
+      margin-bottom: 12px;
+    }
+    .paypal-button:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,196,57,0.25); }
+    .applepay-button {
+      background: #000;
+      color: #fff;
+      border: 1px solid #2a2a3a;
+    }
+    .applepay-button:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,255,255,0.06); }
+    .paypal-button img, .applepay-button img { height: 20px; }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0;
+      color: #3f3f46;
+      font-size: 0.78rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #1a1a2e;
+    }
+    .btn-primary {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #5200a0, #c026d3);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(82,0,160,0.3); }
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: #52525b;
+    }
+    @media (max-width: 480px) {
+      .checkout-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="checkout-card">
+    <a href="index.html" class="back-link">← Volver</a>
+    <h1>Finalizar pago</h1>
+    <p class="subtitle">Completa tu suscripción para empezar a automatizar tu negocio.</p>
+
+    <div class="plan-summary" id="planSummary">
+      <div>
+        <div class="plan-name" id="planName">Starter</div>
+        <div class="plan-desc" id="planDesc">1 agente de IA entrenado</div>
+      </div>
+      <div style="text-align:right">
+        <div class="plan-price" id="planPrice">€97</div>
+        <div class="plan-period" id="planPeriod">/mes</div>
+      </div>
+    </div>
+
+    <div class="section-title">Pagar con tarjeta</div>
+    <div class="card-icons">
+      <span>Visa</span>
+      <span>Mastercard</span>
+      <span>Amex</span>
+    </div>
+    <form id="paymentForm" action="https://formsubmit.co/nexacompanysl@gmail.com" method="POST">
+      <input type="hidden" name="_next" value="checkout.html" />
+      <input type="hidden" name="_subject" value="Nuevo pago en Nexa" />
+      <input type="hidden" name="_captcha" value="true" />
+      <input type="hidden" name="plan" id="hiddenPlan" value="starter" />
+      <div class="form-group">
+        <label for="cardName">Titular de la tarjeta</label>
+        <input type="text" id="cardName" name="cardName" placeholder="Nombre completo" required />
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">Número de tarjeta</label>
+        <input type="text" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000 0000" inputmode="numeric" required />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cardExpiry">Vencimiento</label>
+          <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/AA" required />
+        </div>
+        <div class="form-group">
+          <label for="cardCvc">CVC</label>
+          <input type="text" id="cardCvc" name="cardCvc" placeholder="123" inputmode="numeric" required />
+        </div>
+      </div>
+      <button type="submit" class="btn-primary" id="payBtn">
+        Pagar <span id="payAmount">€97</span> →
+      </button>
+    </form>
+
+    <div class="divider">o paga con</div>
+
+    <button class="paypal-button" id="paypalBtn">
+      <span>Pay</span><span style="color:#273a94;font-style:italic;font-weight:900;">Pal</span>
+    </button>
+    <button class="applepay-button" id="applepayBtn">
+      <span style="font-weight:400;"></span> Apple Pay
+    </button>
+
+    <div class="secure-badge">
+      🔒 Pago seguro cifrado SSL
+    </div>
+  </div>
+
+  <script>
+    const plans = {
+      starter: { name: 'Starter', desc: '1 agente de IA entrenado', price: '€97', period: '/mes' },
+      professional: { name: 'Professional', desc: '3 agentes de IA entrenados', price: '€247', period: '/mes' },
+      enterprise: { name: 'Enterprise', desc: 'Agentes ilimitados', price: '€497', period: '/mes' }
+    };
+    const params = new URLSearchParams(window.location.search);
+    const planKey = params.get('plan') || 'starter';
+    const plan = plans[planKey] || plans.starter;
+    document.getElementById('planName').textContent = plan.name;
+    document.getElementById('planDesc').textContent = plan.desc;
+    document.getElementById('planPrice').textContent = plan.price;
+    document.getElementById('planPeriod').textContent = plan.period;
+    document.getElementById('payAmount').textContent = plan.price;
+
+    document.getElementById('hiddenPlan').value = planKey;
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+      const btn = this.querySelector('button[type="submit"]');
+      btn.textContent = '✓ Procesando...';
+      btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      btn.style.pointerEvents = 'none';
+    });
+
+    document.getElementById('paypalBtn').addEventListener('click', function() {
+      this.textContent = '✓ Redirigiendo a PayPal...';
+      this.style.pointerEvents = 'none';
+    });
+    document.getElementById('applepayBtn').addEventListener('click', function() {
+      this.textContent = '✓ Procesando con Apple Pay...';
+      this.style.pointerEvents = 'none';
+    });
+  </script>
+</body>
+</html>
