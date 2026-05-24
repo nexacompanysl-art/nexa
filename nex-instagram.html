@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nex — Marketing Instagram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #050508; color: #e4e4e7; font-family: 'Inter', sans-serif; padding: 40px 20px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+    .subtitle { color: #71717a; font-size: 0.9rem; margin-bottom: 40px; }
+    .gradient { background: linear-gradient(135deg, #5200a0, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+    .card { background: rgba(255,255,255,0.02); border: 1px solid #1a1a2e; border-radius: 20px; overflow: hidden; }
+    .card-header { padding: 16px 20px; border-bottom: 1px solid #1a1a2e; display: flex; align-items: center; gap: 10px; }
+    .card-header .logo { width: 32px; height: 32px; border-radius: 50%; }
+    .card-header .name { font-weight: 600; font-size: 0.85rem; }
+    .card-header .type { margin-left: auto; font-size: 0.7rem; color: #71717a; padding: 4px 10px; border: 1px solid #1a1a2e; border-radius: 6px; }
+    .card-body { padding: 0; }
+    .post-image { width: 100%; aspect-ratio: 1/1; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .post-image.story { aspect-ratio: 9/16; }
+    .post-image .bg-gradient { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(82,0,160,0.4), rgba(5,5,8,0.9)); z-index: 0; }
+    .post-image .content { position: relative; z-index: 1; text-align: center; padding: 40px; }
+    .post-image .big-logo { width: 140px; height: 140px; border-radius: 50%; margin-bottom: 20px; }
+    .post-image h2 { font-size: 1.6rem; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .post-image p { color: #a1a1aa; font-size: 0.9rem; max-width: 280px; line-height: 1.5; }
+    .post-image .tag { display: inline-block; padding: 6px 16px; background: rgba(82,0,160,0.2); border: 1px solid rgba(82,0,160,0.3); border-radius: 20px; color: #c084fc; font-size: 0.75rem; margin-top: 16px; }
+    .post-caption { padding: 16px 20px; }
+    .post-caption .user { font-weight: 600; font-size: 0.85rem; margin-bottom: 4px; }
+    .post-caption .text { font-size: 0.82rem; color: #a1a1aa; line-height: 1.6; }
+    .post-caption .hashtags { font-size: 0.8rem; color: #5200a0; margin-top: 8px; }
+    .copy-btn { background: rgba(82,0,160,0.15); border: 1px solid rgba(82,0,160,0.3); color: #c084fc; padding: 10px 20px; border-radius: 10px; cursor: pointer; font-family: inherit; font-size: 0.85rem; transition: background 0.2s; margin-top: 12px; }
+    .copy-btn:hover { background: rgba(82,0,160,0.25); }
+    .section-title { font-size: 1.3rem; font-weight: 700; margin: 48px 0 24px; color: #fff; }
+    .story-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .story-card { aspect-ratio: 9/16; border-radius: 20px; overflow: hidden; position: relative; cursor: pointer; border: 1px solid #1a1a2e; }
+    .story-card .bg { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(82,0,160,0.3), rgba(5,5,8,0.95)); z-index: 0; }
+    .story-card .content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; }
+    .story-card .icon { font-size: 2.5rem; margin-bottom: 12px; }
+    .story-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .story-card p { font-size: 0.75rem; color: #a1a1aa; }
+    .story-card .logo-sm { width: 60px; height: 60px; border-radius: 50%; margin-bottom: 12px; }
+    @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📱 <span class="gradient">Nex</span> — Marketing para Instagram</h1>
+    <p class="subtitle">Posts y Stories listos para capturar pantalla o usar como referencia. Haz clic en "Copiar caption" para usar el texto.</p>
+
+    <div class="section-title">📸 Posts para Feed (1:1)</div>
+    <div class="grid">
+
+      <!-- Post 1 -->
+      <div class="card">
+        <div class="card-header">
+          <img src="nex.png" alt="Nex" class="logo" />
+          <span class="name">nexa.ai</span>
+          <span class="type">Post</span>
+        </div>
+        <div class="post-image" style="background:#0a0a12">
+          <div class="bg-gradient"></div>
+          <div class="content">
+            <img src="nex.png" alt="Nex" class="big-logo" />
+            <h2>Conoce a <span class="gradient">Nex</span></h2>
+            <p>Tu asistente personal de IA, entrenado para resolver tus dudas al instante.</p>
+            <span class="tag">🤖 Powered by Gemini AI</span>
+          </div>
+        </div>
+        <div class="post-caption">
+          <div class="user">nexa.ai</div>
+          <div class="text" id="caption1">🤖 Conoce a Nex, tu nuevo asistente de inteligencia artificial.
+
+Nex está integrado en nuestra web para responder tus preguntas al instante: sobre planes, servicios, tecnología o lo que necesites saber sobre automatización con IA.
+
+✅ Respuestas en tiempo real
+✅ Disponible 24/7
+✅ Habla español, inglés y portugués
+✅ Entrenado con toda la información de Nexa
+
+Y lo mejor: es completamente gratis. Solo tienes que entrar a nexa.com y hacer clic en el ícono morado de chat.
+
+¿Ya lo probaste? Cuéntanos qué te pareció 👇</div>
+          <div class="hashtags">#Nex #IA #AsistenteVirtual #Automatización #NexaAI #Gemini</div>
+          <button class="copy-btn" onclick="copyText('caption1')">📋 Copiar caption</button>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="card">
+        <div class="card-header">
+          <img src="nex.png" alt="Nex" class="logo" />
+          <span class="name">nexa.ai</span>
+          <span class="type">Post</span>
+        </div>
+        <div class="post-image" style="background:#0a0a12">
+          <div class="bg-gradient"></div>
+          <div class="content">
+            <div style="font-size:3rem;margin-bottom:12px">💬</div>
+            <h2>¿Preguntas?<br><span class="gradient">Nex</span> tiene las respuestas</h2>
+            <p>Planes, servicios, tecnología... pregúntale lo que quieras.</p>
+          </div>
+        </div>
+        <div class="post-caption">
+          <div class="user">nexa.ai</div>
+          <div class="text" id="caption2">💬 ¿Cuánto cuesta el plan Professional? ¿Qué tecnologías usan? ¿Cómo empezar?
+
+Pregúntale a Nex. Nuestro asistente de IA está entrenado con todo lo que necesitas saber sobre Nexa y responde al instante.
+
+🧠 Más de 10 preguntas frecuentes resueltas en segundos
+🌍 Responde en español, inglés o portugués
+⚡ Sin esperas, sin formularios, sin complicaciones
+
+Entra a nexa.com, busca el chat morado y prueba. Te sorprenderá lo rápido que responde.</div>
+          <div class="hashtags">#Nex #ChatbotIA #AtenciónAlCliente #IA #Nexa</div>
+          <button class="copy-btn" onclick="copyText('caption2')">📋 Copiar caption</button>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="card">
+        <div class="card-header">
+          <img src="nex.png" alt="Nex" class="logo" />
+          <span class="name">nexa.ai</span>
+          <span class="type">Post</span>
+        </div>
+        <div class="post-image" style="background:#0a0a12">
+          <div class="bg-gradient"></div>
+          <div class="content">
+            <div style="font-size:3rem;margin-bottom:12px">🌍</div>
+            <h2>Habla con <span class="gradient">Nex</span><br>en tu idioma</h2>
+            <p>Español, English, Português — él te entiende y te responde.</p>
+          </div>
+        </div>
+        <div class="post-caption">
+          <div class="user">nexa.ai</div>
+          <div class="text" id="caption3">🌍 Nex habla tu idioma.
+
+No importa si escribes en español, inglés o portugués — Nex te entiende y te responde en el mismo idioma.
+
+🇪🇸 Español
+🇺🇸 English
+🇧🇷 Português
+
+Porque la automatización con IA no tiene fronteras. Y porque queremos que cualquier persona, sin importar su idioma, pueda descubrir cómo la IA puede transformar su negocio.
+
+👉 Prueba Nex en nexa.com</div>
+          <div class="hashtags">#Multilingüe #IA #Nex #NexaAI #Automatización #Tecnología</div>
+          <button class="copy-btn" onclick="copyText('caption3')">📋 Copiar caption</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-title">⏱ Historias para Instagram (9:16)</div>
+    <div class="story-group">
+
+      <div class="story-card">
+        <div class="bg"></div>
+        <div class="content">
+          <img src="nex.png" alt="Nex" class="logo-sm" />
+          <h3>Conoce a Nex</h3>
+          <p>Tu asistente IA 24/7</p>
+          <div style="margin-top:12px;padding:6px 14px;background:rgba(82,0,160,0.2);border:1px solid rgba(82,0,160,0.3);border-radius:20px;font-size:0.7rem;color:#c084fc">nexa.com</div>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="bg"></div>
+        <div class="content">
+          <div style="font-size:2.5rem;margin-bottom:12px">💬</div>
+          <h3>Pregúntale lo que sea</h3>
+          <p>Planes, servicios, tecnología… responde al instante</p>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="bg"></div>
+        <div class="content">
+          <div style="font-size:2.5rem;margin-bottom:12px">🌍</div>
+          <h3>Habla 3 idiomas</h3>
+          <p>Español · English · Português</p>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="bg"></div>
+        <div class="content">
+          <div style="font-size:2.5rem;margin-bottom:12px">⚡</div>
+          <h3>Respuestas al instante</h3>
+          <p>Sin esperas, sin formularios</p>
+        </div>
+      </div>
+
+      <div class="story-card">
+        <div class="bg"></div>
+        <div class="content">
+          <img src="nex.png" alt="Nex" class="logo-sm" />
+          <h3>Nex</h3>
+          <p>Powered by Gemini AI</p>
+          <div style="margin-top:8px;font-size:0.7rem;color:#71717a">⋆ nexa.com ⋆</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section-title" style="margin-top:60px">✍️ Ideas de Copy para Historias</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <div style="background:rgba(255,255,255,0.02);border:1px solid #1a1a2e;border-radius:16px;padding:20px">
+        <div style="font-size:1.5rem;margin-bottom:8px">💜</div>
+        <p style="color:#a1a1aa;font-size:0.85rem;line-height:1.6">"Nex no es solo un chatbot. Es un asistente de IA entrenado con todo lo que necesitas saber sobre automatización. Y está en nexa.com"</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.02);border:1px solid #1a1a2e;border-radius:16px;padding:20px">
+        <div style="font-size:1.5rem;margin-bottom:8px">⚡</div>
+        <p style="color:#a1a1aa;font-size:0.85rem;line-height:1.6">"Prueba Nex: pregúntale sobre planes de automatización, tecnología IA, o simplemente dile hola. Te responderá al instante. nexa.com"</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.02);border:1px solid #1a1a2e;border-radius:16px;padding:20px">
+        <div style="font-size:1.5rem;margin-bottom:8px">🌍</div>
+        <p style="color:#a1a1aa;font-size:0.85rem;line-height:1.6">"¿Sabías que Nex habla español, inglés y portugués? Entra a nexa.com, busca el chat morado y pruébalo en tu idioma."</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function copyText(id) {
+      const el = document.getElementById(id);
+      const text = el.textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = el.parentElement.querySelector('.copy-btn');
+        const orig = btn.textContent;
+        btn.textContent = '✓ Copiado';
+        setTimeout(() => btn.textContent = orig, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
