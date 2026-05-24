@@ -901,19 +901,21 @@
     .nex-visual {
       flex-shrink: 0;
       position: relative;
-      width: 200px; height: 200px;
+      width: 440px; height: 440px;
       display: flex; align-items: center; justify-content: center;
     }
     .nex-logo {
-      width: 160px; height: 160px;
+      width: 360px; height: 360px;
       border-radius: 50%;
       object-fit: contain;
       position: relative;
       z-index: 2;
+      transition: transform 0.3s ease;
     }
+    .nex-logo:hover { transform: scale(1.05); }
     .nex-glow {
       position: absolute;
-      width: 200px; height: 200px;
+      width: 440px; height: 440px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(82,0,160,0.3) 0%, transparent 70%);
       animation: nexPulse 3s ease-in-out infinite;
