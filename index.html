@@ -892,6 +892,52 @@
       .chat-panel { width: calc(100vw - 32px); right: 16px; bottom: 80px; }
     }
 
+    /* ── Nex Section ── */
+    .nex-section {
+      display: flex; align-items: center; gap: 60px;
+      padding: 40px 0 60px;
+    }
+    .nex-content { flex: 1; }
+    .nex-visual {
+      flex-shrink: 0;
+      position: relative;
+      width: 200px; height: 200px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nex-logo {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+    }
+    .nex-glow {
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(82,0,160,0.3) 0%, transparent 70%);
+      animation: nexPulse 3s ease-in-out infinite;
+    }
+    @keyframes nexPulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.2); opacity: 1; }
+    }
+    .nex-features { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .nex-feature { display: flex; align-items: center; gap: 10px; color: #a1a1aa; font-size: 0.9rem; }
+    .nex-check { color: #22c55e; font-weight: 700; font-size: 1.1rem; }
+    .nex-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 28px; padding: 8px 18px;
+      background: rgba(82,0,160,0.1); border: 1px solid rgba(82,0,160,0.2);
+      border-radius: 20px; color: #a1a1aa; font-size: 0.8rem;
+    }
+    @media (max-width: 768px) {
+      .nex-section { flex-direction: column-reverse; text-align: center; gap: 30px; }
+      .nex-content { display: flex; flex-direction: column; align-items: center; }
+      .nex-features { align-items: center; }
+    }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
     /* ── AI Chat ── */
     .chat-float-button {
       position: fixed;
@@ -1261,6 +1307,45 @@
             <h4 data-i18n="f8Title">Soporte dedicado 24/7</h4>
             <p data-i18n="f8Desc">Equipo de ingenieros disponible para soporte técnico y optimización continua.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Nex AI ─── -->
+  <section id="nex-ai" class="section" style="padding-bottom:0">
+    <div class="space-planet"></div>
+    <div class="container">
+      <div class="nex-section">
+        <div class="nex-content">
+          <div class="section-label" data-i18n="nexLabel">AI Assistant</div>
+          <h2 class="section-title" data-i18n-html="nexTitle" style="max-width:500px">Conoce a <span class="gradient">Nex</span></h2>
+          <p class="section-desc" data-i18n="nexDesc" style="max-width:500px">Nex es nuestro asistente de inteligencia artificial integrado en la web. Entrenado con toda la información de Nexa, responde tus preguntas al instante, en tu idioma.</p>
+          <div class="nex-features">
+            <div class="nex-feature">
+              <span class="nex-check">✓</span>
+              <span data-i18n="nexF1">Respuestas en tiempo real con IA</span>
+            </div>
+            <div class="nex-feature">
+              <span class="nex-check">✓</span>
+              <span data-i18n="nexF2">Disponible 24/7 en toda la web</span>
+            </div>
+            <div class="nex-feature">
+              <span class="nex-check">✓</span>
+              <span data-i18n="nexF3">Habla español, inglés y portugués</span>
+            </div>
+            <div class="nex-feature">
+              <span class="nex-check">✓</span>
+              <span data-i18n="nexF4">Conoce todos los servicios y planes de Nexa</span>
+            </div>
+          </div>
+          <div class="nex-badge">
+            <span data-i18n="nexBadge" style="display:flex;align-items:center;gap:6px"><span style="width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:pulse 2s infinite"></span> Powered by Gemini AI</span>
+          </div>
+        </div>
+        <div class="nex-visual" id="nexLogoBtn" style="cursor:pointer">
+          <img src="nex.png" alt="Nex" class="nex-logo" />
+          <div class="nex-glow"></div>
         </div>
       </div>
     </div>
@@ -1679,6 +1764,11 @@
         f6Title: 'Analíticas y reportes', f6Desc: 'Dashboard en tiempo real con métricas de rendimiento, satisfacción y ROI.',
         f7Title: 'Seguridad empresarial', f7Desc: 'Encriptación end-to-end, cumplimiento GDPR/ISO 27001 y datos alojados en servidores locales.',
         f8Title: 'Soporte dedicado 24/7', f8Desc: 'Equipo de ingenieros disponible para soporte técnico y optimización continua.',
+        nexLabel: 'Asistente IA', nexTitle: 'Conoce a <span class="gradient">Nex</span>',
+        nexDesc: 'Nex es nuestro asistente de inteligencia artificial integrado en la web. Entrenado con toda la información de Nexa, responde tus preguntas al instante, en tu idioma.',
+        nexF1: 'Respuestas en tiempo real con IA', nexF2: 'Disponible 24/7 en toda la web',
+        nexF3: 'Habla español, inglés y portugués', nexF4: 'Conoce todos los servicios y planes de Nexa',
+        nexBadge: 'Powered by Gemini AI',
         testimonialsLabel: 'Testimonios', testimonialsTitle: 'Lo que dicen nuestros clientes',
         testimonialsDesc: 'Empresas de todo tamaño confían en Nexa para transformar sus operaciones.',
         t1Text: '"Implementamos el agente de atención al cliente de Nexa y redujimos los tiempos de respuesta en un 80%. Nuestros clientes están más satisfechos que nunca."',
@@ -1767,6 +1857,11 @@
         f6Title: 'Analytics & reports', f6Desc: 'Real-time dashboard with performance, satisfaction, and ROI metrics.',
         f7Title: 'Enterprise security', f7Desc: 'End-to-end encryption, GDPR/ISO 27001 compliance, and data hosted on local servers.',
         f8Title: 'Dedicated 24/7 support', f8Desc: 'Engineering team available for technical support and continuous optimization.',
+        nexLabel: 'AI Assistant', nexTitle: 'Meet <span class="gradient">Nex</span>',
+        nexDesc: 'Nex is our AI assistant integrated into the website. Trained with all Nexa information, it answers your questions instantly, in your language.',
+        nexF1: 'Real-time AI responses', nexF2: 'Available 24/7 across the site',
+        nexF3: 'Speaks Spanish, English & Portuguese', nexF4: 'Knows all Nexa services and plans',
+        nexBadge: 'Powered by Gemini AI',
         testimonialsLabel: 'Testimonials', testimonialsTitle: 'What our clients say',
         testimonialsDesc: 'Companies of all sizes trust Nexa to transform their operations.',
         t1Text: '"We implemented Nexa customer service agent and reduced response times by 80%. Our clients are more satisfied than ever."',
@@ -1855,6 +1950,11 @@
         f6Title: 'Análises e relatórios', f6Desc: 'Dashboard em tempo real com métricas de desempenho, satisfação e ROI.',
         f7Title: 'Segurança empresarial', f7Desc: 'Criptografia ponta a ponta, conformidade GDPR/ISO 27001 e dados em servidores locais.',
         f8Title: 'Suporte dedicado 24/7', f8Desc: 'Equipe de engenheiros disponível para suporte técnico e otimização contínua.',
+        nexLabel: 'Assistente IA', nexTitle: 'Conheça o <span class="gradient">Nex</span>',
+        nexDesc: 'Nex é nosso assistente de inteligência artificial integrado ao site. Treinado com todas as informações da Nexa, responde suas perguntas instantaneamente, no seu idioma.',
+        nexF1: 'Respostas em tempo real com IA', nexF2: 'Disponível 24/7 em todo o site',
+        nexF3: 'Fala espanhol, inglês e português', nexF4: 'Conhece todos os serviços e planos da Nexa',
+        nexBadge: 'Powered by Gemini AI',
         testimonialsLabel: 'Depoimentos', testimonialsTitle: 'O que nossos clientes dizem',
         testimonialsDesc: 'Empresas de todos os portes confiam na Nexa para transformar suas operações.',
         t1Text: '"Implementamos o agente de atendimento ao cliente da Nexa e reduzimos os tempos de resposta em 80%. Nossos clientes estão mais satisfeitos do que nunca."',
@@ -2021,6 +2121,7 @@
         }
       }
 
+      document.getElementById('nexLogoBtn').addEventListener('click', function() { toggleChat(); });
       chatToggle.addEventListener('click', function() { toggleChat(); });
       chatClose.addEventListener('click', function() { toggleChat(false); });
       chatSend.addEventListener('click', sendMessage);
