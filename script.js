@@ -428,3 +428,6 @@ document.querySelectorAll('.legal-link').forEach(function(link) {
 document.querySelector('.cookie-more').addEventListener('click', function(e) {
   openLegal('privacy');
 });
+
+document.getElementById('cookieAcceptBtn').addEventListener('click', acceptCookies);
+document.getElementById('legalCloseBtn').addEventListener('click', closeLegal);
