@@ -431,3 +431,20 @@ document.querySelector('.cookie-more').addEventListener('click', function(e) {
 
 document.getElementById('cookieAcceptBtn').addEventListener('click', acceptCookies);
 document.getElementById('legalCloseBtn').addEventListener('click', closeLegal);
+
+var hamburger = document.getElementById('hamburgerBtn');
+var navLinks = document.getElementById('navLinks');
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('mobile-open');
+    document.body.style.overflow = navLinks.classList.contains('mobile-open') ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('mobile-open');
+      document.body.style.overflow = '';
+    });
+  });
+}
