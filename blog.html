@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa | Blog</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/images/favicon.png" sizes="32x32">
+<link rel="stylesheet" href="/style.css">
+<script defer src="/script.js"></script>
+</head>
+<body>
+
+<nav class="pill-nav">
+<ul class="nav-links" id="navLinks">
+<li><a href="/" data-i18n="navHome">Inicio</a></li>
+<li><a href="/about" data-i18n="navAbout">Sobre nosotros</a></li>
+<li><a href="/blog" data-i18n="navBlog" class="active">Blog</a></li>
+<li><a href="/contact" data-i18n="navContact">Contacto</a></li>
+</ul>
+<div class="nav-right">
+<a href="/contact" class="nav-cta" data-i18n="navCta">Empezar</a>
+<button class="theme-toggle" aria-label="Toggle theme">
+<svg class="theme-icon-moon" width="18"  viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg class="theme-icon-sun" width="18"  viewBox="0 0 24 24" fill="none" style="display:none"><circle cx="12" cy="12" r="4.5" stroke="#5a6390" stroke-width="1.5"/><path d="M12 2v2m0 16v2m-9-9h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round"/></svg>
+</button>
+<div class="lang-dropdown">
+<button class="lang-dropdown-btn" aria-label="Change language">
+<span class="lang-current-flag"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#C60B1E"/><rect y="8" width="24" height="8" fill="#FFC400"/></svg></span>
+<svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<div class="lang-dropdown-menu">
+<button class="lang-option" data-lang="es"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#C60B1E"/><rect y="8" width="24" height="8" fill="#FFC400"/></svg><span>Español</span></button>
+<button class="lang-option" data-lang="pt"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#009739"/><polygon points="12,4 20,12 12,20 4,12" fill="#FEDD00"/><circle cx="12" cy="12" r="4" fill="#002776"/></svg><span>Português</span></button>
+<button class="lang-option" data-lang="en"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect y="3.5" width="24" height="3.5" fill="#B22234"/><rect y="10.5" width="24" height="3.5" fill="#B22234"/><rect y="17.5" width="24" height="3.5" fill="#B22234"/><rect width="9" height="14" fill="#3C3B6E"/></svg><span data-i18n="langEn">English</span></button>
+</div>
+</div>
+</div>
+<button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<!-- Blog Section -->
+<section class="blog-section">
+<div class="container">
+<div class="blog-header reveal reveal-delay-1">
+<span class="blog-badge" data-i18n="blogBadge">Blog</span>
+<h1 class="blog-title" data-i18n="blogTitle">Expert Perspectives on AI-Powered Automation</h1>
+</div>
+
+<div class="blog-grid reveal reveal-delay-2">
+
+<article class="blog-card">
+<a href="/blog/7-tareas-que-toda-empresa-deberia-automatizar" class="blog-card-link">
+<div class="blog-card-image">
+<img src="/images/7%20tareas%20que%20toda%20empresa%20deber%C3%ADa%20automatizar%20antes%20de%20contratar%20m%C3%A1s%20personal.png" alt="AI Automation" loading="lazy">
+<div class="blog-card-overlay"></div>
+<span class="blog-card-tag" data-i18n="blogTag1">Automatización</span>
+</div>
+<div class="blog-card-content">
+<time class="blog-card-date" data-i18n="blogDate1">24 de junio, 2026</time>
+<h2 class="blog-card-title" data-i18n="blogTitle1">7 tareas que toda empresa debería automatizar antes de contratar más personal</h2>
+<p class="blog-card-excerpt" data-i18n="blogExcerpt1">Antes de aumentar costes, existen procesos repetitivos que pueden automatizarse y liberar decenas de horas cada mes.</p>
+</div>
+</a>
+</article>
+
+<article class="blog-card">
+<a href="/blog/que-es-un-agente-de-ia" class="blog-card-link">
+<div class="blog-card-image">
+<img src="/images/%C2%BFQu%C3%A9%20es%20un%20agente%20de%20IA%20y%20por%20qu%C3%A9%20tantas%20empresas%20est%C3%A1n%20empezando%20a%20utilizarlos.png" alt="AI Strategy" loading="lazy">
+<div class="blog-card-overlay"></div>
+<span class="blog-card-tag" data-i18n="blogTag2">IA</span>
+</div>
+<div class="blog-card-content">
+<time class="blog-card-date" data-i18n="blogDate2">17 de junio, 2026</time>
+<h2 class="blog-card-title" data-i18n="blogTitle2">¿Qué es un agente de IA y por qué tantas empresas están empezando a utilizarlos?</h2>
+<p class="blog-card-excerpt" data-i18n="blogExcerpt2">Los agentes de IA pueden leer correos, consultar bases de datos, actualizar CRM y programar reuniones automáticamente.</p>
+</div>
+</a>
+</article>
+
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="footer-outer">
+<div class="footer-card">
+<div class="footer-card-inner">
+<div class="footer-top">
+<div class="footer-brand-col">
+<div class="footer-logo-tab">
+<img class="footer-logo-dark" src="images/nexa logo blanco.png" alt="Nexa" >
+<img class="footer-logo-light" src="images/nexa logo negro.png" alt="Nexa" >
+</div>
+<h3 class="footer-headline" data-i18n-html="footerHeadline">Haciendo la automatización<br>simple y confiable</h3>
+<div class="footer-newsletter">
+<span class="footer-newsletter-label" data-i18n="footerNewsletter">Únete a nuestra newsletter</span>
+<div class="footer-subscribe">
+<input type="email" class="footer-subscribe-input" data-i18n-placeholder="footerSubscribePlaceholder" placeholder="nombre@email.com">
+<button class="footer-subscribe-btn" data-i18n="footerSubscribe">Suscribirse</button>
+</div>
+</div>
+</div>
+<div class="footer-nav-col">
+<div class="footer-nav-group">
+<h4 data-i18n="footerPages">Páginas</h4>
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/blog">Blog</a>
+<a href="/contact">Contact</a>
+</div>
+<div class="footer-nav-group">
+<h4 data-i18n="footerSocials">Redes</h4>
+<a href="https://www.linkedin.com/in/nexa-company-290b3641b/" target="_blank" data-i18n="footerLinkedIn">LinkedIn</a>
+<a href="https://www.instagram.com/nexaai.es/" target="_blank" data-i18n="footerInstagram">Instagram</a>
+
+</div>
+</div>
+</div>
+<div class="footer-bottom-bar">
+<span data-i18n="footerBottom">Visionado y creado para Nexa</span>
+<a href="#" data-i18n="footerPrivacy">Política de privacidad</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>

@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexa | IA para empresas</title>
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
@@ -18,16 +17,16 @@
 
 <nav class="pill-nav">
 <ul class="nav-links" id="navLinks">
-<li><a href="#servicios" data-i18n="navServicios">Servicios</a></li>
-<li><a href="#nosotros" data-i18n="navNosotros">Nosotros</a></li>
-<li><a href="#planning" data-i18n="navPlanning">Planes</a></li>
-<li><a href="#contacto" data-i18n="navContacto">Contacto</a></li>
+<li><a href="/" data-i18n="navHome">Inicio</a></li>
+<li><a href="/about" data-i18n="navAbout">Sobre nosotros</a></li>
+<li><a href="/blog" data-i18n="navBlog">Blog</a></li>
+<li><a href="/contact" data-i18n="navContact">Contacto</a></li>
 </ul>
 <div class="nav-right">
-<a href="#contacto" class="nav-cta" data-i18n="navCta">Empezar</a>
+<a href="/contact" class="nav-cta" data-i18n="navCta">Empezar</a>
 <button class="theme-toggle" aria-label="Toggle theme">
-<svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-<svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" style="display:none"><circle cx="12" cy="12" r="4.5" stroke="#5a6390" stroke-width="1.5"/><path d="M12 2v2m0 16v2m-9-9h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round"/></svg>
+<svg class="theme-icon-moon" width="18"  viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg class="theme-icon-sun" width="18"  viewBox="0 0 24 24" fill="none" style="display:none"><circle cx="12" cy="12" r="4.5" stroke="#5a6390" stroke-width="1.5"/><path d="M12 2v2m0 16v2m-9-9h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round"/></svg>
 </button>
 <div class="lang-dropdown">
 <button class="lang-dropdown-btn" aria-label="Change language">
@@ -35,9 +34,9 @@
 <svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 <div class="lang-dropdown-menu">
-<button class="lang-option" data-lang="es"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#C60B1E"/><rect y="8" width="24" height="8" fill="#FFC400"/></svg><span>Español</span></button>
-<button class="lang-option" data-lang="pt"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#009739"/><polygon points="12,4 20,12 12,20 4,12" fill="#FEDD00"/><circle cx="12" cy="12" r="4" fill="#002776"/></svg><span>Português</span></button>
-<button class="lang-option" data-lang="en"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect y="3.5" width="24" height="3.5" fill="#B22234"/><rect y="10.5" width="24" height="3.5" fill="#B22234"/><rect y="17.5" width="24" height="3.5" fill="#B22234"/><rect width="9" height="14" fill="#3C3B6E"/></svg><span>English</span></button>
+<button class="lang-option" data-lang="es"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#C60B1E"/><rect y="8" width="24" height="8" fill="#FFC400"/></svg><span>Español</span></button>
+<button class="lang-option" data-lang="pt"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#009739"/><polygon points="12,4 20,12 12,20 4,12" fill="#FEDD00"/><circle cx="12" cy="12" r="4" fill="#002776"/></svg><span>Português</span></button>
+<button class="lang-option" data-lang="en"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect y="3.5" width="24" height="3.5" fill="#B22234"/><rect y="10.5" width="24" height="3.5" fill="#B22234"/><rect y="17.5" width="24" height="3.5" fill="#B22234"/><rect width="9" height="14" fill="#3C3B6E"/></svg><span data-i18n="langEn">English</span></button>
 </div>
 </div>
 </div>
@@ -48,167 +47,377 @@
 
 <section id="hero" class="section hero">
 <div class="hero-glow"></div>
+<video class="hero-video" autoplay muted loop playsinline poster="images/video.mp4">
+  <source src="images/video.mp4" type="video/mp4">
+</video>
 <div class="hero-content">
 <div class="badge"><span class="dot"></span> <span data-i18n="heroBadge">IA para empresas exigentes</span></div>
 <h1 data-i18n-html="heroTitle">El software que trabaja<br>mientras tú duermes</h1>
 <p data-i18n="heroDesc">Agentes de inteligencia artificial autónomos integrados en tu WhatsApp y CRM. Respuestas en 1 segundo, cero errores y disponibilidad 24/7.</p>
 <div class="hero-actions">
-<a href="#contacto" class="btn-primary" data-i18n="heroCta">Agenda tu llamada →</a>
-<a href="#servicios" class="btn-secondary" data-i18n="heroSecondary">Ver servicios</a>
-</div>
-</div>
-<div class="hero-visual">
-<div class="wa-glass-card">
-<div class="wa-header">
-<div class="wa-avatar"><div class="wa-status"></div></div>
-<div class="wa-info"><strong>Nexa IA Agent</strong><span data-i18n="waStatus">En línea</span></div>
-</div>
-<div class="wa-body">
-<div class="msg-bubble user-msg" data-i18n="waUserMsg">Hola, ¿tienen disponibilidad para agendar una consultoría mañana por la tarde?</div>
-<div class="msg-bubble ai-msg"><span data-i18n="waAiMsg">¡Hola! Sí, tengo huecos a las 16:00 y a las 18:30. ¿Cuál de los dos prefieres que te reserve en el calendario?</span><span class="msg-time" data-i18n="waTime">Respondido al instante por IA</span></div>
-</div>
+<a href="/contact" class="btn-primary" data-i18n="heroCta">Agenda tu llamada →</a>
+<a href="#how-it-works" class="btn-secondary" data-i18n="heroSecondary">Ver servicios</a>
 </div>
 </div>
 </section>
 
-<section id="servicios" class="section servicios">
+<section id="how-it-works" class="section how-it-works">
+<div class="container">
 <div class="section-header reveal reveal-delay-1">
-<span class="section-badge" data-i18n="servBadge">Nuestros Servicios</span>
-<h2 data-i18n="servTitle">Automatizamos tu negocio con IA</h2>
-<p data-i18n="servDesc">Soluciones diseñadas para empresas que buscan eficiencia, rapidez y resultados medibles.</p>
+<span class="section-badge" data-i18n="servBadge">Cómo funciona</span>
+<h2 data-i18n="servTitle">Cómo ayudamos a tu negocio a obtener resultados reales con IA</h2>
 </div>
-<div class="cards-grid">
-<div class="card reveal reveal-delay-1">
-<div class="card-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="10" width="20" height="14" rx="3" stroke="#4a8eff" stroke-width="1.5"/><circle cx="12" cy="17" r="1.5" fill="#4a8eff"/><circle cx="20" cy="17" r="1.5" fill="#4a8eff"/><rect x="10" y="6" width="12" height="4" rx="2" stroke="#4a8eff" stroke-width="1.5"/><path d="M14 24v2a2 2 0 002 2h0a2 2 0 002-2v-2" stroke="#4a8eff" stroke-width="1.5"/><line x1="8" y1="26" x2="24" y2="26" stroke="#4a8eff" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-<h3 data-i18n="card1Title">Agente WhatsApp IA</h3>
-<p data-i18n="card1Desc">Atención al cliente automatizada 24/7. Responde consultas, agenda citas y califica leads sin intervención humana.</p>
-</div>
-<div class="card reveal reveal-delay-2">
-<div class="card-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="6" y="20" width="4" height="8" rx="1" fill="#4a8eff"/><rect x="14" y="14" width="4" height="14" rx="1" fill="#4a8eff"/><rect x="22" y="8" width="4" height="20" rx="1" fill="#4a8eff"/></svg></div>
-<h3 data-i18n="card2Title">CRM Inteligente</h3>
-<p data-i18n="card2Desc">Integración con tu CRM existente para sincronizar contactos, historial de conversaciones y análisis de datos en tiempo real.</p>
-</div>
-<div class="card reveal reveal-delay-3">
-<div class="card-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M18 4L8 18h6l-2 10 10-14h-6l2-10z" stroke="#4a8eff" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
-<h3 data-i18n="card3Title">Automatización de Procesos</h3>
-<p data-i18n="card3Desc">Workflows personalizados que eliminan tareas repetitivas: facturación, recordatorios, seguimiento de clientes y más.</p>
-</div>
-<div class="card reveal reveal-delay-4">
-<div class="card-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none"><polyline points="4,24 10,16 16,18 24,8" stroke="#4a8eff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 26h24" stroke="#4a8eff" stroke-width="1.5" stroke-linecap="round"/><circle cx="24" cy="8" r="1.5" fill="#4a8eff"/></svg></div>
-<h3 data-i18n="card4Title">Analítica y Reportes</h3>
-<p data-i18n="card4Desc">Dashboard con métricas clave de tu negocio: conversiones, tiempos de respuesta, satisfacción del cliente y ROI.</p>
-</div>
+<div class="steps-grid reveal reveal-delay-2">
+
+  <!-- Step 1 -->
+  <div class="step-card">
+    <div class="step-notch">
+      <span class="step-badge" data-i18n="step1Badge">Step 1.</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M0 0h12v12L0 0z" fill="currentColor" opacity=".2"/></svg>
+    </div>
+    <div class="step-body">
+      <div class="step-body-inner">
+        <div class="step-ui">
+          <div class="step-dash-header">
+            <div class="step-dash-live"><span class="step-live-dot"></span><span data-i18n="step1Live">En vivo</span></div>
+            <span class="step-dash-scan" data-i18n="step1Scan">Último escaneo: hace 2 min</span>
+          </div>
+          <div class="step-metrics">
+            <div class="step-metric"><span class="step-metric-value">156h</span><span class="step-metric-label" data-i18n="step1Saved">Ahorrado / mes</span></div>
+            <div class="step-metric"><span class="step-metric-value">23</span><span class="step-metric-label" data-i18n="step1Bottlenecks">Cuellos de botella</span></div>
+            <div class="step-metric"><span class="step-metric-value">84%</span><span class="step-metric-label" data-i18n="step1Efficiency">Eficiencia</span></div>
+          </div>
+          <div class="step-workflow">
+            <div class="step-wf-item">
+              <div class="step-wf-top"><span class="step-wf-label" data-i18n="step1WfBottlenecks">Cuellos de botella</span><span class="step-wf-pct">85%</span></div>
+              <div class="step-wf-bar"><div class="step-wf-fill" style="width:85%"></div></div>
+            </div>
+            <div class="step-wf-item">
+              <div class="step-wf-top"><span class="step-wf-label" data-i18n="step1WfRepeat">Tareas repetitivas</span><span class="step-wf-pct">78%</span></div>
+              <div class="step-wf-bar"><div class="step-wf-fill" style="width:78%"></div></div>
+            </div>
+            <div class="step-wf-item">
+              <div class="step-wf-top"><span class="step-wf-label" data-i18n="step1WfGaps">Brechas comunicación</span><span class="step-wf-pct">62%</span></div>
+              <div class="step-wf-bar"><div class="step-wf-fill" style="width:62%"></div></div>
+            </div>
+            <div class="step-wf-item">
+              <div class="step-wf-top"><span class="step-wf-label" data-i18n="step1WfWaste">Tiempo perdido</span><span class="step-wf-pct">91%</span></div>
+              <div class="step-wf-bar"><div class="step-wf-fill" style="width:91%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-divider"></div>
+        <div class="step-info">
+          <h3 data-i18n="step1FooterTitle">Analizando workflow</h3>
+          <p data-i18n="step1FooterDesc">Encontramos dónde la IA puede ahorrarte tiempo y aumentar la eficiencia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="step-card">
+    <div class="step-notch">
+      <span class="step-badge" data-i18n="step2Badge">Paso 2.</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M0 0h12v12L0 0z" fill="currentColor" opacity=".2"/></svg>
+    </div>
+    <div class="step-body">
+      <div class="step-body-inner">
+        <div class="step-ui">
+          <div class="step-int-search">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <span style="opacity:.4" data-i18n="step2Search">Buscar integraciones...</span>
+          </div>
+          <div class="step-int-list">
+            <div class="step-int-item">
+              <div class="step-int-info">
+                <span class="step-int-name" data-i18n="step2Cat1">Proyectos</span>
+                <span class="step-int-apps" data-i18n="step2Cat1Apps">Notion, Asana, Linear</span>
+              </div>
+              <div class="step-toggle"><div class="step-toggle-knob"></div></div>
+            </div>
+            <div class="step-int-item">
+              <div class="step-int-info">
+                <span class="step-int-name" data-i18n="step2Cat2">Comunicación equipo</span>
+                <span class="step-int-apps" data-i18n="step2Cat2Apps">Slack, Teams, Discord</span>
+              </div>
+              <div class="step-toggle"><div class="step-toggle-knob"></div></div>
+            </div>
+            <div class="step-int-item">
+              <div class="step-int-info">
+                <span class="step-int-name" data-i18n="step2Cat3">Ventas</span>
+                <span class="step-int-apps" data-i18n="step2Cat3Apps">Salesforce, HubSpot, Pipedrive</span>
+              </div>
+              <div class="step-toggle"><div class="step-toggle-knob"></div></div>
+            </div>
+            <div class="step-int-item">
+              <div class="step-int-info">
+                <span class="step-int-name" data-i18n="step2Cat4">Soporte al cliente</span>
+                <span class="step-int-apps" data-i18n="step2Cat4Apps">Zendesk, Intercom, Freshdesk</span>
+              </div>
+              <div class="step-toggle"><div class="step-toggle-knob"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="step-divider"></div>
+        <div class="step-info">
+          <h3 data-i18n="step2FooterTitle">Integrando soluciones</h3>
+          <p data-i18n="step2FooterDesc">Conectamos herramientas de IA inteligentes en tus sistemas existentes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="step-card">
+    <div class="step-notch">
+      <span class="step-badge" data-i18n="step3Badge">Paso 3.</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M0 0h12v12L0 0z" fill="currentColor" opacity=".2"/></svg>
+    </div>
+    <div class="step-body">
+      <div class="step-body-inner">
+        <div class="step-ui">
+          <div class="step-sta-header">
+            <div class="step-sta-status">
+              <span class="step-sta-dot"></span>
+              <span data-i18n="step3Status">Todo saludable</span>
+            </div>
+            <span class="step-sta-ver" data-i18n="step3Ver">v2.4.1</span>
+          </div>
+          <div class="step-changelog">
+            <div class="step-change-item"><span class="step-change-tag tag-new" data-i18n="step3TagNew">Nuevo</span><span data-i18n="step3Change1">Módulo de automatización de email</span></div>
+            <div class="step-change-item"><span class="step-change-tag tag-fixed" data-i18n="step3TagFixed">Corregido</span><span data-i18n="step3Change2">Errores de UI en dashboard móvil</span></div>
+            <div class="step-change-item"><span class="step-change-tag tag-improved" data-i18n="step3TagImproved">Mejorado</span><span data-i18n="step3Change3">Tiempo de respuesta reducido 30%</span></div>
+            <div class="step-change-item"><span class="step-change-tag tag-new" data-i18n="step3TagNew">Nuevo</span><span data-i18n="step3Change4">Integración Stripe de facturación</span></div>
+            <div class="step-change-item"><span class="step-change-tag tag-fixed" data-i18n="step3TagFixed">Corregido</span><span data-i18n="step3Change5">Soporte para datasets grandes</span></div>
+            <div class="step-change-item"><span class="step-change-tag tag-new" data-i18n="step3TagNew">Nuevo</span><span data-i18n="step3Change6">Onboarding rápido integrado</span></div>
+          </div>
+        </div>
+        <div class="step-divider"></div>
+        <div class="step-info">
+          <h3 data-i18n="step3FooterTitle">Mantenimiento regular</h3>
+          <p data-i18n="step3FooterDesc">Mantenemos tu IA funcionando sin problemas y siempre actualizada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 </section>
 
 <section id="nosotros" class="section nosotros">
+<div class="container">
 <div class="section-header reveal reveal-delay-1">
-<span class="section-badge" data-i18n="aboutBadge">Quiénes Somos</span>
-<h2 data-i18n="aboutTitle">Transformamos empresas con tecnología</h2>
-<p data-i18n="aboutDesc">Soy un experto en Inteligencia Artificial y soy apasionado por su poder para revolucionar la forma de hacer negocios.</p>
+<span class="section-badge" data-i18n="aboutBadge">Nuestras soluciones</span>
+<h2 data-i18n-html="aboutTitle">Soluciones de IA que te ayudan<br>a trabajar más rápido e inteligente</h2>
 </div>
-<div class="nosotros-grid">
-<div class="nosotros-text reveal reveal-delay-1">
-<h3 data-i18n="aboutStory">Nuestra Historia</h3>
-<p data-i18n="aboutP1">Nacimos en 2026 con una visión clara: democratizar el acceso a la inteligencia artificial para empresas de todos los tamaños. Hoy trabajamos con más de 50 empresas en Latinoamérica, ayudándolas a automatizar sus operaciones y ofrecer experiencias excepcionales a sus clientes.</p>
-<p data-i18n="aboutP2">Creemos que la tecnología debe ser un habilitador, no una barrera. Por eso diseñamos soluciones simples, potentes y accesibles que se integran con las herramientas que ya usas.</p>
-<div class="stats">
-<div class="stat reveal reveal-delay-2"><span class="stat-number">100%</span><span class="stat-label" data-i18n="statClients">Enfoque Personalizado</span></div>
-<div class="stat reveal reveal-delay-3"><span class="stat-number">100+</span><span class="stat-label" data-i18n="statChats">Estrategias a medida</span></div>
-<div class="stat reveal reveal-delay-4"><span class="stat-number">100%</span><span class="stat-label" data-i18n="statSatisfaction">Compromiso de entrega</span></div>
-</div>
-</div>
-<div class="nosotros-image reveal reveal-delay-2">
-<img src="images/guille%20nexa.jpg" alt="Guillermo Nexa" class="nosotros-img" loading="lazy">
+<div class="bento-grid reveal reveal-delay-2">
+  <div class="bento-card bento-type1">
+    <div class="bento-header"><span class="bento-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span><span class="bento-label" data-i18n="bento1Header">Process Optimization Engine</span></div>
+    <p class="bento-desc" data-i18n="bento1Desc">Automate and streamline your core workflows end-to-end</p>
+    <div class="bento-flow">
+      <div class="bento-step"><span class="bento-step-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 117-7v1a2 2 0 002 2h.5a1.5 1.5 0 010 3z"/><path d="M10 22l4-4-4-4"/></svg></span><div class="bento-step-info"><span class="bento-step-name" data-i18n="bento1Step1">Assessment</span><span class="bento-step-status status-done"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span></div></div>
+      <div class="bento-step"><span class="bento-step-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></span><div class="bento-step-info"><span class="bento-step-name" data-i18n="bento1Step2">Planning</span><span class="bento-step-status status-wait"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg></span></div></div>
+      <div class="bento-step"><span class="bento-step-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span><div class="bento-step-info"><span class="bento-step-name" data-i18n="bento1Step3">Integration</span><span class="bento-step-status status-alert"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span></div></div>
+      <div class="bento-step"><span class="bento-step-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></span><div class="bento-step-info"><span class="bento-step-name" data-i18n="bento1Step4">Launch</span><span class="bento-step-status status-idle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="6"/></svg></span></div></div>
+    </div>
+  </div>
+  <div class="bento-card bento-type2">
+    <div class="bento-header"><span class="bento-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></span><span class="bento-label" data-i18n="bento2Header">Omnichannel AI Specialist</span></div>
+    <p class="bento-desc" data-i18n="bento2Desc">Voice, text & email unified in a single intelligent agent</p>
+    <div class="bento-wave"><div class="bento-wave-bar"></div><div class="bento-wave-bar"></div><div class="bento-wave-bar"></div><div class="bento-wave-bar"></div><div class="bento-wave-bar"></div><div class="bento-wave-bar"></div><div class="bento-wave-bar"></div><div class="bento-wave-bar"></div></div>
+    <div class="bento-wave-features"><span data-i18n="bento2Feature1"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> Call handling</span><span data-i18n="bento2Feature2"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg> Live chat</span><span data-i18n="bento2Feature3"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email triage</span></div>
+  </div>
+  <div class="bento-card bento-type3">
+    <div class="bento-header"><span class="bento-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span class="bento-label" data-i18n="bento3Header">Financial Data Analysis</span></div>
+    <p class="bento-desc" data-i18n="bento3Desc">Real-time revenue intelligence and expense tracking</p>
+    <div class="bento-fin-row"><div class="bento-fin-metric"><span class="bento-fin-val">$284.5K</span><span class="bento-fin-lbl" data-i18n="bento3Label1">Revenue</span><span class="bento-fin-chg up">+23.4%</span></div><div class="bento-fin-metric"><span class="bento-fin-val">$142.3K</span><span class="bento-fin-lbl" data-i18n="bento3Label2">Expenses</span><span class="bento-fin-chg down">-8.1%</span></div><div class="bento-fin-metric"><span class="bento-fin-val">85%</span><span class="bento-fin-lbl" data-i18n="bento3Label3">Gross Margin</span></div></div>
+    <div class="bento-chart"><svg viewBox="0 0 200 50" class="bento-svg"><path d="M0,40 Q25,35 50,25 T100,20 T150,10 T200,5" fill="none" stroke="#4a8eff" stroke-width="2"/></svg></div>
+    <div class="bento-leads"><div class="bento-lead"><span data-i18n="bento3Lead1">Organic Search</span><span class="bento-lead-bar"><span style="width:45%"></span></span><span class="bento-lead-pct">45%</span></div><div class="bento-lead"><span data-i18n="bento3Lead2">Social Media</span><span class="bento-lead-bar"><span style="width:32%"></span></span><span class="bento-lead-pct">32%</span></div><div class="bento-lead"><span data-i18n="bento3Lead3">Email</span><span class="bento-lead-bar"><span style="width:18%"></span></span><span class="bento-lead-pct">18%</span></div><div class="bento-lead"><span data-i18n="bento3Lead4">Referrals</span><span class="bento-lead-bar"><span style="width:5%"></span></span><span class="bento-lead-pct">5%</span></div></div>
+  </div>
+  <div class="bento-card bento-type4">
+    <div class="bento-header"><span class="bento-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span><span class="bento-label" data-i18n="bento4Header">Operations Hub Command</span></div>
+    <div class="bento-ops-search"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><span data-i18n="bento4Search">Search services...</span></div>
+    <div class="bento-ops-list"><div class="bento-ops-item"><span data-i18n="bento4Item1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Email Automation</span><div class="bento-toggle"><div class="bento-toggle-knob"></div></div></div><div class="bento-ops-item"><span data-i18n="bento4Item2"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18"  rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Social Scheduling</span><div class="bento-toggle on"><div class="bento-toggle-knob"></div></div></div><div class="bento-ops-item"><span data-i18n="bento4Item3"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Analytics Pipeline</span><div class="bento-toggle"><div class="bento-toggle-knob"></div></div></div><div class="bento-ops-item"><span data-i18n="bento4Item4"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg> CRM Sync</span><div class="bento-toggle on"><div class="bento-toggle-knob"></div></div></div></div>
+  </div>
+  <div class="bento-card bento-type5">
+    <div class="bento-header"><span class="bento-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></span><span class="bento-label" data-i18n="bento5Header">AI Team Management</span></div>
+    <div class="bento-agents"><div class="bento-agent"><span class="bento-agent-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg></span><div class="bento-agent-info"><span class="bento-agent-name" data-i18n="bento5Agent1">Nova</span><span class="bento-agent-role" data-i18n="bento5Role1">Lead Generator</span></div><span class="bento-agent-status green"></span></div><div class="bento-agent"><span class="bento-agent-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 010 2h-1.27A7.01 7.01 0 0114 22h-4a7.01 7.01 0 01-6.73-5H2a1 1 0 010-2h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/><path d="M9 15l2 2 4-4"/></svg></span><div class="bento-agent-info"><span class="bento-agent-name" data-i18n="bento5Agent2">Atlas</span><span class="bento-agent-role" data-i18n="bento5Role2">Data Analyst</span></div><span class="bento-agent-status green"></span></div><div class="bento-agent"><span class="bento-agent-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div class="bento-agent-info"><span class="bento-agent-name" data-i18n="bento5Agent3">Volt</span><span class="bento-agent-role" data-i18n="bento5Role3">Support Agent</span></div><span class="bento-agent-status yellow"></span></div><div class="bento-agent"><span class="bento-agent-avatar"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><div class="bento-agent-info"><span class="bento-agent-name" data-i18n="bento5Agent4">Vega</span><span class="bento-agent-role" data-i18n="bento5Role4">Sales Optimizer</span></div><span class="bento-agent-status green"></span></div></div>
+  </div>
+  <div class="bento-card bento-type6">
+    <div class="bento-header"><span class="bento-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><span class="bento-label" data-i18n="bento6Header">Chatbot Interaction</span></div>
+    <div class="bento-chat"><div class="bento-chat-bubble bot" data-i18n="bento6Chat1">How can I help you today?</div><div class="bento-chat-bubble user" data-i18n="bento6Chat2">I need assistance with...</div></div>
+    <div class="bento-chat-btn" data-i18n="bento6Btn">Start Conversation →</div>
+  </div>
 </div>
 </div>
 </section>
 
-<section id="planning" class="section planning">
+<section id="casestudy" class="section casestudy">
+<div class="container">
 <div class="section-header reveal reveal-delay-1">
-<span class="section-badge" data-i18n="planBadge">Planes</span>
-<h2 data-i18n="planTitle">Inversión clara, sin sorpresas</h2>
-<p data-i18n="planDesc">Elige el plan que mejor se adapte a tu negocio. Todos incluyen soporte técnico y activación en 48 horas.</p>
+<span class="section-badge" data-i18n="csBadge">Caso de éxito</span>
+<h2 data-i18n-html="csTitle">Cómo las empresas usan nuestra IA<br>para escalar más rápido.</h2>
 </div>
-<div class="pricing-grid">
-<div class="plan-card reveal reveal-delay-1">
-<h3 data-i18n="plan1Title">Starter</h3>
-<p class="plan-sub" data-i18n="plan1Sub">Para negocios que dan su primer paso con IA</p>
-<p class="plan-price">50<span>€/mes</span></p>
-<p class="plan-desc" data-i18n="plan1Desc">Automatización esencial para empezar.</p>
-<ul>
-<li data-i18n="plan1F1">1 Agente WhatsApp IA (Preguntas Frecuentes y Horarios)</li>
-<li data-i18n="plan1F2">Configuración inicial y despliegue rápido</li>
-<li data-i18n="plan1F3">Automatización de respuestas automáticas</li>
-<li data-i18n="plan1F4">Soporte por email durante los primeros 30 días</li>
-</ul>
-<a href="#contacto" class="btn-primary" data-i18n="planCta">Empezar</a>
+<div class="cs-carousel reveal reveal-delay-2">
+<button class="cs-arrow cs-arrow-left" id="csPrev" aria-label="Previous"><svg width="18"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+<div class="cs-card" id="csCard">
+<div class="cs-card-bg" id="csBg"></div>
+<div class="cs-overlay">
+<div class="cs-overlay-inner" id="csOverlayInner">
+<div class="cs-logo" id="csLogo">Logoipsum</div>
+<div class="cs-text" id="csText">Built AI-powered chatbots and lead automation. Increased response speed by 3x and improved conversions by 28%.</div>
 </div>
-<div class="plan-card popular reveal reveal-delay-2">
-<span class="plan-badge" data-i18n="planPopular">Más popular</span>
-<h3 data-i18n="plan2Title">Professional</h3>
-<p class="plan-sub" data-i18n="plan2Sub">Automatización integral para optimizar tu tiempo</p>
-<p class="plan-price">399<span>€ + 60€/mes</span></p>
-<p class="plan-desc" data-i18n="plan2Desc">Solución completa para equipos en crecimiento.</p>
-<ul>
-<li data-i18n="plan2F1">Agente IA avanzado (WhatsApp + Web)</li>
-<li data-i18n="plan2F2">Integración básica con CRM o bases de datos (Google Sheets, Notion, etc.)</li>
-<li data-i18n="plan2F3">Automatización de un proceso clave (ej: captura de leads o reservas)</li>
-<li data-i18n="plan2F4">Soporte prioritario y optimización tras el lanzamiento</li>
-</ul>
-<a href="#contacto" class="btn-primary" data-i18n="planCta">Empezar</a>
 </div>
-<div class="plan-card reveal reveal-delay-3">
-<h3 data-i18n="plan3Title">A medida</h3>
-<p class="plan-sub" data-i18n="plan3Sub">Soluciones personalizadas e integraciones complejas</p>
-<p class="plan-price" data-i18n="plan3Price">Consultar</p>
-<p class="plan-desc" data-i18n="plan3Desc">Todo lo que necesites, sin límites.</p>
-<ul>
-<li data-i18n="plan3F1">Agentes de IA ilimitados o flujos complejos</li>
-<li data-i18n="plan3F2">Conexión con APIs dedicadas y sistemas propietarios</li>
-<li data-i18n="plan3F3">Automatización avanzada de procesos internos de la empresa</li>
-<li data-i18n="plan3F4">Soporte y consultoría directa uno a uno</li>
-</ul>
-<a href="#contacto" class="btn-primary" data-i18n="planCta">Empezar</a>
+</div>
+<button class="cs-arrow cs-arrow-right" id="csNext" aria-label="Next"><svg width="18"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+</div>
+<div class="cs-dots" id="csDots"><span class="cs-dot active"></span><span class="cs-dot"></span></div>
+</div>
+</section>
+
+<section id="roi" class="section roi">
+  <div class="container">
+  <div class="section-header reveal reveal-delay-1">
+    <span class="section-badge" data-i18n="roiBadge">Calculadora ROI</span>
+    <h2 data-i18n-html="roiTitle">¿Cuánto estás <span class="roi-highlight">perdiendo</span> sin automatización?</h2>
+    <p data-i18n="roiDesc">Cada hora de trabajo manual es dinero que tu negocio deja de ganar. Descubre el impacto real de no automatizar.</p>
+  </div>
+
+  <div class="roi-grid reveal reveal-delay-1">
+    <div class="roi-controls">
+      <div class="roi-field">
+        <div class="roi-field-header">
+          <label for="roi-clients" data-i18n="roiClientsLabel">Clientes al mes</label>
+          <span class="roi-value" id="roi-clients-value">100</span>
+        </div>
+        <input type="range" id="roi-clients" class="roi-slider" min="10" max="1000" step="10" value="100" aria-label="Clientes al mes">
+      </div>
+
+      <div class="roi-field">
+        <div class="roi-field-header">
+          <label for="roi-hours" data-i18n="roiHoursLabel">Horas manuales / semana</label>
+          <span class="roi-value" id="roi-hours-value">20</span>
+        </div>
+        <input type="range" id="roi-hours" class="roi-slider" min="5" max="100" step="5" value="20" aria-label="Horas manuales por semana">
+      </div>
+
+      <div class="roi-field">
+        <div class="roi-field-header">
+          <label for="roi-ticket" data-i18n="roiTicketLabel">Ticket promedio</label>
+          <span class="roi-value" id="roi-ticket-value">60 &euro;</span>
+        </div>
+        <input type="range" id="roi-ticket" class="roi-slider" min="20" max="500" step="10" value="60" aria-label="Ticket promedio">
+      </div>
+
+      <div class="roi-field">
+        <div class="roi-field-header">
+          <label for="roi-leads" data-i18n="roiLeadsLabel">Leads perdidos / mes</label>
+          <span class="roi-value" id="roi-leads-value">15</span>
+        </div>
+        <input type="range" id="roi-leads" class="roi-slider" min="0" max="200" step="5" value="15" aria-label="Leads perdidos por mes">
+      </div>
+    </div>
+
+    <div class="roi-results" id="roiResults">
+      <div class="roi-result-card roi-loss">
+        <span class="roi-result-label" data-i18n="roiLossLabel">Coste operativo mensual</span>
+        <span class="roi-result-amount" id="roi-operational-loss">0 &euro;</span>
+      </div>
+      <div class="roi-result-card roi-loss">
+        <span class="roi-result-label" data-i18n="roiRevenueLabel">Ingresos perdidos / mes</span>
+        <span class="roi-result-amount" id="roi-revenue-loss">0 &euro;</span>
+      </div>
+      <div class="roi-result-card roi-total">
+        <span class="roi-result-label" data-i18n="roiTotalLabel">Impacto total mensual</span>
+        <span class="roi-result-amount roi-total-amount" id="roi-total-loss">0 &euro;</span>
+      </div>
+      <div class="roi-result-card roi-annual">
+        <span class="roi-result-label" data-i18n="roiAnnualLabel">Impacto total anual</span>
+        <span class="roi-result-amount roi-annual-amount" id="roi-annual-loss">0 &euro;</span>
+      </div>
+      <div class="roi-cta">
+        <a href="/contact" class="btn-primary" data-i18n="roiCta">Deja de perder dinero &rarr;</a>
+      </div>
+    </div>
 </div>
 </div>
 </section>
 
-<section id="contacto" class="section contacto">
-<div class="section-header reveal reveal-delay-1">
-<span class="section-badge" data-i18n="contactBadge">Contacto</span>
-<h2 data-i18n="contactTitle">Hablemos de tu proyecto</h2>
-<p data-i18n="contactDesc">Cuéntanos en qué podemos ayudarte y te responderemos en menos de 24 horas.</p>
+<section id="faq" class="section faq">
+<div class="container">
+<div class="faq-inner">
+<div class="faq-left reveal reveal-delay-1">
+<span class="faq-badge" data-i18n="faqBadge">FAQs</span>
+<h2 class="faq-title" data-i18n="faqTitle">Preguntas Frecuentes</h2>
 </div>
-<div class="contacto-grid">
-<form class="contacto-form reveal reveal-delay-1" action="https://formspree.io/f/xykajlpk" method="POST">
-<div class="form-group"><label for="nombre" data-i18n="formName">Nombre completo</label><input type="text" id="nombre" name="nombre" data-i18n-placeholder="formNamePlace" placeholder="Tu nombre" required></div>
-<div class="form-group"><label for="email" data-i18n="formEmail">Correo electrónico</label><input type="email" id="email" name="email" data-i18n-placeholder="formEmailPlace" placeholder="tu@correo.com" required></div>
-<div class="form-group"><label for="empresa" data-i18n="formCompany">Empresa</label><input type="text" id="empresa" name="empresa" data-i18n-placeholder="formCompanyPlace" placeholder="Nombre de tu empresa"></div>
-<div class="form-group"><label for="mensaje" data-i18n="formMsg">Mensaje</label><textarea id="mensaje" name="mensaje" rows="4" data-i18n-placeholder="formMsgPlace" placeholder="Cuéntanos sobre tu proyecto..." required></textarea></div>
-<button type="submit" class="btn-primary btn-full" data-i18n="formSubmit">Enviar mensaje →</button>
-<div id="formSuccess" class="form-feedback form-success"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#22c55e" stroke-width="2.5"/><path d="M8 12l3 3 5-5" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="successTitle">Envío realizado con éxito</span></div>
-<div id="formError" class="form-feedback form-error"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2.5"/><path d="M15 9l-6 6M9 9l6 6" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round"/></svg><span data-i18n="errorMsg">Error al enviar. Inténtalo de nuevo.</span></div>
-</form>
-<div class="contacto-info reveal reveal-delay-2">
-<div class="contacto-item"><span class="contacto-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="#4a8eff" stroke-width="1.5"/><path d="M2 6l10 7 10-7" stroke="#4a8eff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>Email</strong><p>nexacompanysl@gmail.com</p></div></div>
-<div class="contacto-item"><span class="contacto-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2.5" y="2.5" width="19" height="19" rx="4" stroke="#4a8eff" stroke-width="1.5"/><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97s-.47-.15-.67.15-.77.97-.94 1.16-.35.23-.64.08c-.3-.15-1.26-.47-2.39-1.48-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.6.14-.14.3-.35.45-.53.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52s-.67-1.61-.91-2.2c-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48c0 1.46 1.06 2.88 1.21 3.08s2.1 3.2 5.08 4.48c.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.42-.08-.12-.27-.2-.57-.35" stroke="#4a8eff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong>WhatsApp</strong><p>+34 671 17 20 00</p></div></div>
-<div class="contacto-item"><span class="contacto-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2a8 8 0 00-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 00-8-8z" stroke="#4a8eff" stroke-width="1.5"/><circle cx="12" cy="10" r="3" fill="#4a8eff"/></svg></span><div><strong data-i18n="contactLocationLabel">Ubicación</strong><p data-i18n="contactLocationVal">Comunidad de Madrid, ES</p></div></div>
-<div class="contacto-item"><span class="contacto-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#4a8eff" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#4a8eff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><strong data-i18n="contactHoursLabel">Horario</strong><p data-i18n="contactHoursVal">Lun – Vie, 7:00 – 00:00</p></div></div>
+<div class="faq-right">
+<div class="faq-item reveal reveal-delay-1">
+<div class="faq-question"><span data-i18n="faqQ1">¿Cómo puede la automatización con IA ayudar a mi negocio?</span><span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-i18n="faqA1">La automatización con IA elimina tareas repetitivas, mejora la eficiencia y reduce errores. Permite que tu equipo se concentre en trabajo de alto valor mientras aumenta la productividad y reduce los costes operativos.</div></div>
+</div>
+<div class="faq-item reveal reveal-delay-1">
+<div class="faq-question"><span data-i18n="faqQ2">¿Es difícil integrar la automatización con IA?</span><span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-i18n="faqA2">¡No! Nuestras soluciones de IA están diseñadas para una integración perfecta con tus herramientas y flujos de trabajo existentes. Te guiamos paso a paso para garantizar una configuración sin complicaciones.</div></div>
+</div>
+<div class="faq-item reveal reveal-delay-1">
+<div class="faq-question"><span data-i18n="faqQ3">¿Qué industrias pueden beneficiarse de la automatización con IA?</span><span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-i18n="faqA3">La automatización con IA es beneficiosa en diversas industrias, incluyendo marketing, ventas, finanzas, salud, atención al cliente y operaciones. Cualquier negocio que busque mejorar su eficiencia puede aprovechar la IA.</div></div>
+</div>
+<div class="faq-item reveal reveal-delay-1">
+<div class="faq-question"><span data-i18n="faqQ4">¿Necesito conocimientos técnicos para usar la automatización con IA?</span><span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-i18n="faqA4">No se requieren conocimientos técnicos. Nosotros nos encargamos de la configuración, integraciones y detalles técnicos para que puedas centrarte en tu negocio. Nuestras automatizaciones están diseñadas para ser simples, intuitivas y fáciles de usar desde el primer día.</div></div>
+</div>
+<div class="faq-item reveal reveal-delay-1">
+<div class="faq-question"><span data-i18n="faqQ5">¿Qué tipo de soporte ofrecen?</span><span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+<div class="faq-answer"><div class="faq-answer-inner" data-i18n="faqA5">Ofrecemos soporte continuo, monitoreo y optimización para garantizar que tus automatizaciones funcionen sin problemas. Siempre que necesites ayuda, nuestro equipo está a solo un mensaje de distancia.</div></div>
+</div>
+</div>
 </div>
 </div>
 </section>
 
-<footer class="footer">
-<div class="footer-content">
-<div class="footer-brand"><span class="logo-text">nex<span class="logo-accent">a</span></span><p data-i18n="footerTagline">Inteligencia artificial para empresas que quieren crecer.</p></div>
-<div class="footer-links">
-<div class="footer-col"><h4 data-i18n="footerSections">Secciones</h4><a href="#servicios" data-i18n="navServicios">Servicios</a><a href="#nosotros" data-i18n="navNosotros">Nosotros</a><a href="#planning" data-i18n="navPlanning">Planes</a><a href="#contacto" data-i18n="navContacto">Contacto</a></div>
-<div class="footer-col"><h4 data-i18n="footerContact">Contacto</h4><a href="#">nexacompanysl@gmail.com</a><a href="#">+34 671 17 20 00</a></div>
-<div class="footer-col"><h4 data-i18n="footerLegal">Legal</h4><a href="javascript:void(0)" class="legal-link" data-legal="privacy" data-i18n="footerPrivacy">Privacidad</a><a href="javascript:void(0)" class="legal-link" data-legal="terms" data-i18n="footerTerms">Términos</a></div>
+<footer class="site-footer">
+<div class="footer-outer">
+<div class="footer-card">
+<div class="footer-card-inner">
+<div class="footer-top">
+<div class="footer-brand-col">
+<div class="footer-logo-tab">
+<img class="footer-logo-dark" src="images/nexa logo blanco.png" alt="Nexa" >
+<img class="footer-logo-light" src="images/nexa logo negro.png" alt="Nexa" >
+</div>
+<h3 class="footer-headline" data-i18n-html="footerHeadline">Haciendo la automatización<br>simple y confiable</h3>
+<div class="footer-newsletter">
+<span class="footer-newsletter-label" data-i18n="footerNewsletter">Únete a nuestra newsletter</span>
+<div class="footer-subscribe">
+<input type="email" class="footer-subscribe-input" data-i18n-placeholder="footerSubscribePlaceholder" placeholder="nombre@email.com">
+<button class="footer-subscribe-btn" data-i18n="footerSubscribe">Suscribirse</button>
 </div>
 </div>
-<div class="footer-bottom"><p data-i18n="footerBottom">&copy; {year} Nexa. Todos los derechos reservados.</p></div>
+</div>
+<div class="footer-nav-col">
+<div class="footer-nav-group">
+<h4 data-i18n="footerPages">Páginas</h4>
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/blog">Blog</a>
+<a href="/contact">Contact</a>
+</div>
+<div class="footer-nav-group">
+<h4 data-i18n="footerSocials">Redes</h4>
+<a href="https://www.linkedin.com/in/nexa-company-290b3641b/" target="_blank" data-i18n="footerLinkedIn">LinkedIn</a>
+<a href="https://www.instagram.com/nexaai.es/" target="_blank" data-i18n="footerInstagram">Instagram</a>
+
+</div>
+</div>
+</div>
+<div class="footer-bottom-bar">
+<span data-i18n="footerBottom">Visionado y creado para Nexa</span>
+<a href="#" data-i18n="footerPrivacy">Política de privacidad</a>
+</div>
+</div>
+</div>
 </footer>
 
 <div id="cookieBanner" class="cookie-banner">

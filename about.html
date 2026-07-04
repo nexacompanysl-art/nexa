@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexa | Sobre nosotros</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self';">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
+</head>
+<body>
+
+<nav class="pill-nav">
+<ul class="nav-links" id="navLinks">
+<li><a href="/" data-i18n="navHome">Inicio</a></li>
+<li><a href="/about" data-i18n="navAbout" class="active">Sobre nosotros</a></li>
+<li><a href="/blog" data-i18n="navBlog">Blog</a></li>
+<li><a href="/contact" data-i18n="navContact">Contacto</a></li>
+</ul>
+<div class="nav-right">
+<a href="/contact" class="nav-cta" data-i18n="navCta">Empezar</a>
+<button class="theme-toggle" aria-label="Toggle theme">
+<svg class="theme-icon-moon" width="18"  viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg class="theme-icon-sun" width="18"  viewBox="0 0 24 24" fill="none" style="display:none"><circle cx="12" cy="12" r="4.5" stroke="#5a6390" stroke-width="1.5"/><path d="M12 2v2m0 16v2m-9-9h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round"/></svg>
+</button>
+<div class="lang-dropdown">
+<button class="lang-dropdown-btn" aria-label="Change language">
+<span class="lang-current-flag"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#C60B1E"/><rect y="8" width="24" height="8" fill="#FFC400"/></svg></span>
+<svg class="lang-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+<div class="lang-dropdown-menu">
+<button class="lang-option" data-lang="es"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#C60B1E"/><rect y="8" width="24" height="8" fill="#FFC400"/></svg><span>Español</span></button>
+<button class="lang-option" data-lang="pt"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect width="24" height="24" rx="3" fill="#009739"/><polygon points="12,4 20,12 12,20 4,12" fill="#FEDD00"/><circle cx="12" cy="12" r="4" fill="#002776"/></svg><span>Português</span></button>
+<button class="lang-option" data-lang="en"><svg width="18"  viewBox="0 0 24 24" fill="none"><rect y="3.5" width="24" height="3.5" fill="#B22234"/><rect y="10.5" width="24" height="3.5" fill="#B22234"/><rect y="17.5" width="24" height="3.5" fill="#B22234"/><rect width="9" height="14" fill="#3C3B6E"/></svg><span data-i18n="langEn">English</span></button>
+</div>
+</div>
+</div>
+<button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</nav>
+
+<!-- About Hero -->
+<section class="about-hero">
+<div class="container">
+<div class="about-hero-content reveal reveal-delay-1">
+<span class="about-hero-badge" data-i18n="aboutHeroBadge">Sobre Nexa</span>
+<h1 class="about-hero-title" data-i18n="aboutHeroTitle">Construyendo el futuro de la automatización inteligente.</h1>
+<p class="about-hero-desc" data-i18n="aboutHeroDesc">Somos un equipo pequeño hoy, pero nuestro enfoque es simple: construir sistemas de automatización que generen un impacto real en los negocios.</p>
+</div>
+</div>
+</section>
+
+<!-- Story -->
+<section class="about-story">
+<div class="container">
+<div class="about-story-grid">
+<div class="about-story-text reveal reveal-delay-1">
+<h2 data-i18n="aboutStoryTitle">Nuestra historia</h2>
+<p data-i18n="aboutStoryP1">Nexa nació con una creencia simple: las empresas no deberían perder tiempo valioso en trabajo repetitivo. Vimos compañías luchando con procesos manuales, herramientas desconectadas y oportunidades perdidas — mientras la IA permanecía encerrada detrás de implementaciones complejas.</p>
+<p data-i18n="aboutStoryP2">Cada automatización que construimos está diseñada para crear un impacto medible y liberar a las personas para que se concentren en tareas de mayor valor. No estamos aquí para reemplazar equipos; estamos aquí para hacerlos imparables.</p>
+</div>
+<div class="about-story-visual reveal reveal-delay-2">
+<div class="about-story-code">
+<div class="about-code-line"><span class="about-code-key">mission</span><span class="about-code-op">:</span> <span class="about-code-str">"Democratize AI for every business"</span><span class="about-code-punct">,</span></div>
+<div class="about-code-line"><span class="about-code-key">approach</span><span class="about-code-op">:</span> <span class="about-code-str">"Simple, measurable, human-centered"</span><span class="about-code-punct">,</span></div>
+<div class="about-code-line"><span class="about-code-key">belief</span><span class="about-code-op">:</span> <span class="about-code-str">"Small teams, big impact"</span></div>
+<div class="about-code-cursor"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Values -->
+<section class="about-values">
+<div class="container">
+<div class="about-values-header reveal reveal-delay-1">
+<h2 data-i18n="aboutValuesTitle">Lo que nos impulsa</h2>
+<p data-i18n="aboutValuesDesc">Cuatro principios que guían cada decisión que tomamos.</p>
+</div>
+<div class="about-values-grid reveal reveal-delay-2">
+<div class="about-value-card">
+<div class="about-value-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+</div>
+<h3 data-i18n="aboutVal1Title">Simplicidad ante todo</h3>
+<p data-i18n="aboutVal1Desc">La complejidad es enemiga de la ejecución. Diseñamos automatización que cualquiera puede implementar, sin importar su formación técnica.</p>
+</div>
+<div class="about-value-card">
+<div class="about-value-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+</div>
+<h3 data-i18n="aboutVal2Title">Automatización que importa</h3>
+<p data-i18n="aboutVal2Desc">No automatizamos por automatizar. Cada flujo de trabajo que tocamos debe ahorrar tiempo, reducir errores o desbloquear crecimiento.</p>
+</div>
+<div class="about-value-card">
+<div class="about-value-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+</div>
+<h3 data-i18n="aboutVal3Title">IA centrada en las personas</h3>
+<p data-i18n="aboutVal3Desc">La IA debe amplificar el potencial humano, no reemplazarlo. Construimos sistemas que potencian a los equipos para dar lo mejor de sí.</p>
+</div>
+<div class="about-value-card">
+<div class="about-value-icon">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 7l-5-5-5 5"/><path d="M7 17l5 5 5-5"/></svg>
+</div>
+<h3 data-i18n="aboutVal4Title">Visión a largo plazo</h3>
+<p data-i18n="aboutVal4Desc">Construimos para la sostenibilidad. Cada integración, cada sistema, cada relación — diseñados para perdurar.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Founder -->
+<section class="about-founder">
+<div class="container">
+<div class="about-founder-card reveal reveal-delay-1">
+<div class="about-founder-photo">
+<img src="images/guille nexa.jpg" alt="Guille" loading="lazy">
+</div>
+<div class="about-founder-info">
+<div class="about-founder-tag" data-i18n="aboutFounderTag">Founder & CEO</div>
+<h2 data-i18n="aboutFounderName">Guille</h2>
+<p data-i18n="aboutFounderQuote">"Nexa nació con una creencia simple: las empresas no deberían perder tiempo valioso en trabajo repetitivo. Cada automatización que construimos está diseñada para crear un impacto medible y liberar a las personas para que se concentren en tareas de mayor valor."</p>
+<div class="about-founder-signature">
+<svg width="80" height="30" viewBox="0 0 80 30" fill="none"><path d="M5 25 Q15 5 25 15 Q35 25 40 10 Q45 0 55 15 Q65 30 75 10" stroke="var(--blue)" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Vision -->
+<section class="about-vision">
+<div class="container">
+<div class="about-vision-content">
+<div class="about-vision-text reveal reveal-delay-1">
+<span class="about-vision-badge" data-i18n="aboutVisionBadge">Visión</span>
+<h2 data-i18n="aboutVisionTitle">Hacia dónde vamos</h2>
+<p data-i18n="aboutVisionDesc">Estamos construyendo un futuro donde los sistemas inteligentes gestionan lo repetitivo para que las personas puedan centrarse en lo significativo. Nuestro objetivo es convertirnos en la columna vertebral de las operaciones para empresas en crecimiento — la capa invisible que hace que todo funcione de manera más fluida, rápida e inteligente.</p>
+</div>
+<div class="about-vision-grid reveal reveal-delay-2">
+<div class="about-vision-stat">
+<span class="about-vision-stat-num" data-i18n="aboutVisionStat1">0 → 1</span>
+<span class="about-vision-stat-label" data-i18n="aboutVisionStat1Label">Fase</span>
+</div>
+<div class="about-vision-stat">
+<span class="about-vision-stat-num" data-i18n="aboutVisionStat2">50+</span>
+<span class="about-vision-stat-label" data-i18n="aboutVisionStat2Label">Empresas impactadas</span>
+</div>
+<div class="about-vision-stat">
+<span class="about-vision-stat-num" data-i18n="aboutVisionStat3">∞</span>
+<span class="about-vision-stat-label" data-i18n="aboutVisionStat3Label">Horas ahorradas</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+<div class="container">
+<div class="about-cta-card reveal reveal-delay-1">
+<h2 data-i18n="aboutCtaTitle">Construyamos algo grande juntos.</h2>
+<p data-i18n="aboutCtaDesc">Siempre estamos buscando conectar con equipos ambiciosos. Ya sea que estés listo para empezar o solo explorando, nos encantaría saber de ti.</p>
+<a href="/contact" class="btn-primary" data-i18n="aboutCtaBtn">Hablemos →</a>
+</div>
+</div>
+</section>
+
+<footer class="site-footer">
+<div class="footer-outer">
+<div class="footer-card">
+<div class="footer-card-inner">
+<div class="footer-top">
+<div class="footer-brand-col">
+<div class="footer-logo-tab">
+<img class="footer-logo-dark" src="images/nexa logo blanco.png" alt="Nexa" >
+<img class="footer-logo-light" src="images/nexa logo negro.png" alt="Nexa" >
+</div>
+<h3 class="footer-headline" data-i18n-html="footerHeadline">Haciendo la automatización<br>simple y confiable</h3>
+<div class="footer-newsletter">
+<span class="footer-newsletter-label" data-i18n="footerNewsletter">Únete a nuestra newsletter</span>
+<div class="footer-subscribe">
+<input type="email" class="footer-subscribe-input" data-i18n-placeholder="footerSubscribePlaceholder" placeholder="nombre@email.com">
+<button class="footer-subscribe-btn" data-i18n="footerSubscribe">Suscribirse</button>
+</div>
+</div>
+</div>
+<div class="footer-nav-col">
+<div class="footer-nav-group">
+<h4 data-i18n="footerPages">Páginas</h4>
+<a href="/">Home</a>
+<a href="/about">About</a>
+<a href="/blog">Blog</a>
+<a href="/contact">Contact</a>
+</div>
+<div class="footer-nav-group">
+<h4 data-i18n="footerSocials">Redes</h4>
+<a href="https://www.linkedin.com/in/nexa-company-290b3641b/" target="_blank" data-i18n="footerLinkedIn">LinkedIn</a>
+<a href="https://www.instagram.com/nexaai.es/" target="_blank" data-i18n="footerInstagram">Instagram</a>
+
+</div>
+</div>
+</div>
+<div class="footer-bottom-bar">
+<span data-i18n="footerBottom">Visionado y creado para Nexa</span>
+<a href="#" data-i18n="footerPrivacy">Política de privacidad</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+</body>
+</html>
