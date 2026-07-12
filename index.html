@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<base href="/nexa/">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
 <link rel="icon" type="image/png" href="images/favicon.png" sizes="64x64">
@@ -17,13 +18,13 @@
 
 <nav class="pill-nav">
 <ul class="nav-links" id="navLinks">
-<li><a href="/" data-i18n="navHome">Inicio</a></li>
-<li><a href="/about" data-i18n="navAbout">Sobre nosotros</a></li>
-<li><a href="/blog" data-i18n="navBlog">Blog</a></li>
-<li><a href="/contact" data-i18n="navContact">Contacto</a></li>
+<li><a href="." data-i18n="navHome">Inicio</a></li>
+<li><a href="about" data-i18n="navAbout">Sobre nosotros</a></li>
+<li><a href="blog" data-i18n="navBlog">Blog</a></li>
+<li><a href="contact" data-i18n="navContact">Contacto</a></li>
 </ul>
 <div class="nav-right">
-<a href="/contact" class="nav-cta" data-i18n="navCta">Empezar</a>
+<a href="contact" class="nav-cta" data-i18n="navCta">Empezar</a>
 <button class="theme-toggle" aria-label="Toggle theme">
 <svg class="theme-icon-moon" width="18"  viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 <svg class="theme-icon-sun" width="18"  viewBox="0 0 24 24" fill="none" style="display:none"><circle cx="12" cy="12" r="4.5" stroke="#5a6390" stroke-width="1.5"/><path d="M12 2v2m0 16v2m-9-9h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="#5a6390" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -55,7 +56,7 @@
 <h1 data-i18n-html="heroTitle">El software que trabaja<br>mientras tú duermes</h1>
 <p data-i18n="heroDesc">Agentes de inteligencia artificial autónomos integrados en tu WhatsApp y CRM. Respuestas en 1 segundo, cero errores y disponibilidad 24/7.</p>
 <div class="hero-actions">
-<a href="/contact" class="btn-primary" data-i18n="heroCta">Agenda tu llamada →</a>
+<a href="contact" class="btn-primary" data-i18n="heroCta">Agenda tu llamada →</a>
 <a href="#how-it-works" class="btn-secondary" data-i18n="heroSecondary">Ver servicios</a>
 </div>
 </div>
@@ -337,7 +338,7 @@
         <span class="roi-result-amount roi-annual-amount" id="roi-annual-loss">0 &euro;</span>
       </div>
       <div class="roi-cta">
-        <a href="/contact" class="btn-primary" data-i18n="roiCta">Deja de perder dinero &rarr;</a>
+        <a href="contact" class="btn-primary" data-i18n="roiCta">Deja de perder dinero &rarr;</a>
       </div>
     </div>
 </div>
@@ -399,10 +400,10 @@
 <div class="footer-nav-col">
 <div class="footer-nav-group">
 <h4 data-i18n="footerPages">Páginas</h4>
-<a href="/">Home</a>
-<a href="/about">About</a>
-<a href="/blog">Blog</a>
-<a href="/contact">Contact</a>
+<a href=".">Home</a>
+<a href="about">About</a>
+<a href="blog">Blog</a>
+<a href="contact">Contact</a>
 </div>
 <div class="footer-nav-group">
 <h4 data-i18n="footerSocials">Redes</h4>

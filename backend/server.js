@@ -316,6 +316,14 @@ app.post("/api/cookies", (req, res) => {
   }
 });
 
+// ── Strip /nexa/ prefix for dev parity ──────────────────────
+app.use((req, res, next) => {
+  if (req.path.startsWith("/nexa")) {
+    req.url = req.url.replace("/nexa", "");
+  }
+  next();
+});
+
 // ── SPA fallback ───────────────────────────────────────────────
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "index.html"));
