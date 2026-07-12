@@ -780,49 +780,6 @@ if (roiSliders.length) {
   updateROI();
 }
 
-// ── Smooth Scroll con inercia ───────────────────────────
-var smoothPos = window.scrollY;
-var smoothVelocity = 0;
-var smoothTarget = null;
-var smoothFriction = 0.9;
-
-function actualizarLimiteScroll() {
-  return Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
-}
-
-window.addEventListener('wheel', function(e) {
-  e.preventDefault();
-  smoothTarget = null;
-  var lineH = 40;
-  var scale = e.deltaMode === 1 ? lineH : e.deltaMode === 2 ? window.innerHeight : 1;
-  smoothVelocity += e.deltaY * scale * 0.2;
-  smoothVelocity = Math.max(-60, Math.min(60, smoothVelocity));
-}, { passive: false });
-
-function smoothLoop() {
-  var maxScroll = actualizarLimiteScroll();
-
-  if (smoothTarget !== null) {
-    var diff = smoothTarget - smoothPos;
-    if (Math.abs(diff) < 0.5) {
-      smoothPos = smoothTarget;
-      smoothTarget = null;
-    } else {
-      smoothPos += diff * 0.08;
-    }
-  } else {
-    smoothVelocity *= smoothFriction;
-    if (Math.abs(smoothVelocity) < 0.2) smoothVelocity = 0;
-    smoothPos += smoothVelocity;
-  }
-
-  smoothPos = Math.max(0, Math.min(smoothPos, maxScroll));
-  window.scrollTo(0, Math.round(smoothPos));
-
-  requestAnimationFrame(smoothLoop);
-}
-requestAnimationFrame(smoothLoop);
-
 // Step card animations
 function animateStepCards() {
   var cards = document.querySelectorAll('.step-card');
@@ -908,8 +865,10 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     var target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      smoothTarget = target.getBoundingClientRect().top + window.scrollY - 90;
-      smoothVelocity = 0;
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - 90,
+        behavior: 'smooth'
+      });
     }
   });
 });
