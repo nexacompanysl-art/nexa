@@ -324,8 +324,8 @@ app.get("/", (req, res) => {
 const pages = {
   "/about": "about.html",
   "/blog": "blog.html",
-  "/blog/7-tareas-que-toda-empresa-deberia-automatizar": "blog1.html",
-  "/blog/que-es-un-agente-de-ia": "blog2.html",
+  "/blog1.html": "blog1.html",
+  "/blog2.html": "blog2.html",
   "/contact": "contact.html"
 };
 app.get(Object.keys(pages), (req, res, next) => {
